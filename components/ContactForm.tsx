@@ -84,7 +84,7 @@ export default function ContactForm() {
       <motion.div 
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="h-full flex flex-col items-center justify-center text-center p-12 bg-surface/30 backdrop-blur-xl border border-stroke rounded-[40px]"
+        className="h-full w-full flex flex-col items-center justify-center text-center p-12 bg-surface/30 backdrop-blur-xl border border-stroke rounded-[40px]"
       >
         <div className="w-20 h-20 bg-green-500/10 rounded-full flex items-center justify-center mb-6">
           <CheckCircle2 className="w-10 h-10 text-green-500" />
@@ -108,12 +108,12 @@ export default function ContactForm() {
       {/* Decorative background glow */}
       <div className="absolute -inset-1 bg-accent-gradient rounded-[42px] blur opacity-10 group-hover:opacity-20 transition duration-1000 group-hover:duration-200"></div>
       
-      <div className="relative bg-bg border border-stroke rounded-[40px] p-8 md:p-12 shadow-2xl overflow-hidden">
+      <div className="relative bg-bg border border-stroke rounded-[40px] p-4 sm:p-8 md:p-12 shadow-2xl overflow-hidden">
         <form onSubmit={handleSubmit} className="flex flex-col gap-8">
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="flex flex-col gap-2">
-              <label className="text-[10px] text-muted uppercase tracking-[0.2em] font-bold ml-4">Full Name</label>
+              <label className="text-[10px] text-muted uppercase tracking-[0.1em] sm:tracking-[0.2em] font-bold ml-4 whitespace-nowrap">Full Name</label>
               <input 
                 type="text" 
                 name="fullName"
@@ -125,7 +125,7 @@ export default function ContactForm() {
               />
             </div>
             <div className="flex flex-col gap-2">
-              <label className="text-[10px] text-muted uppercase tracking-[0.2em] font-bold ml-4">Restaurant Name</label>
+              <label className="text-[10px] text-muted uppercase tracking-[0.1em] sm:tracking-[0.2em] font-bold ml-4 whitespace-nowrap">Restaurant Name</label>
               <input 
                 type="text" 
                 name="restaurantName"
@@ -138,9 +138,9 @@ export default function ContactForm() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="flex flex-col gap-2">
-              <label className="text-[10px] text-muted uppercase tracking-[0.2em] font-bold ml-4">Email Address</label>
+              <label className="text-[10px] text-muted uppercase tracking-[0.1em] sm:tracking-[0.2em] font-bold ml-4 whitespace-nowrap">Email Address</label>
               <input 
                 type="email" 
                 name="email"
@@ -152,7 +152,7 @@ export default function ContactForm() {
               />
             </div>
             <div className="flex flex-col gap-2">
-              <label className="text-[10px] text-muted uppercase tracking-[0.2em] font-bold ml-4">Phone (WhatsApp)</label>
+              <label className="text-[10px] text-muted uppercase tracking-[0.1em] sm:tracking-[0.2em] font-bold ml-4 whitespace-nowrap">Phone (WhatsApp)</label>
               <input 
                 type="tel" 
                 name="phone"
@@ -166,7 +166,7 @@ export default function ContactForm() {
           </div>
 
           <div className="flex flex-col gap-4">
-            <label className="text-[10px] text-muted uppercase tracking-[0.2em] font-bold ml-4">What do you need help with?</label>
+            <label className="text-[10px] text-muted uppercase tracking-[0.1em] sm:tracking-[0.2em] font-bold ml-4 whitespace-nowrap">What do you need help with?</label>
             <div className="flex flex-wrap gap-2">
               {services.map((s) => {
                 const checked = selectedServices.includes(s);
@@ -176,7 +176,7 @@ export default function ContactForm() {
                     type="button"
                     onClick={() => toggleService(s)}
                     className={`
-                      px-6 py-3 rounded-full text-xs font-body font-semibold border transition-all duration-300
+                      px-4 py-2 sm:px-6 sm:py-3 rounded-full text-xs font-body font-semibold border transition-all duration-300
                       ${checked 
                          ? "bg-text-primary text-bg border-text-primary" 
                         : "bg-surface/50 text-muted border-stroke hover:border-text-primary/30"
@@ -191,7 +191,7 @@ export default function ContactForm() {
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="text-[10px] text-muted uppercase tracking-[0.2em] font-bold ml-4">Project Details</label>
+            <label className="text-[10px] text-muted uppercase tracking-[0.1em] sm:tracking-[0.2em] font-bold ml-4 whitespace-nowrap">Project Details</label>
             <textarea 
               name="details"
               value={formData.details}
@@ -207,7 +207,7 @@ export default function ContactForm() {
             disabled={loading}
             className="btn-modern btn-modern-primary w-full h-16 group"
           >
-            <div className="relative z-10 flex items-center justify-center gap-3 text-bg font-semibold text-lg font-body">
+            <div className="relative z-10 flex items-center justify-center gap-3 text-bg font-semibold text-base sm:text-lg font-body">
               {loading ? (
                 <>
                   <Loader2 className="w-5 h-5 animate-spin" />

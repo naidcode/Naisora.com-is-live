@@ -103,12 +103,13 @@ export default function Navbar() {
                 className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[-2] pointer-events-auto"
               />
               {/* Menu Card */}
+              {/* Menu Card */}
               <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
-                className="fixed top-[88px] left-0 right-0 p-6 bg-surface border-b border-stroke shadow-2xl z-[100] flex flex-col gap-4 items-center justify-center pointer-events-auto"
+                initial={{ opacity: 0, scale: 0.95, y: -20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: -20 }}
+                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                className="fixed top-24 left-0 right-0 w-[220px] p-8 bg-[#111] border border-white/10 rounded-[30px] shadow-2xl z-[110] flex flex-col items-center gap-4 pointer-events-auto"
               >
                 {NAV_LINKS.map((link, i) => (
                   <motion.div
@@ -121,7 +122,7 @@ export default function Navbar() {
                     <Link
                       href={link.href}
                       className={`
-                        block text-base font-body font-medium py-3.5 transition-all
+                        block text-2xl font-display italic py-2 transition-all
                         ${pathname === link.href ? "text-text-primary" : "text-muted hover:text-text-primary"}
                       `}
                     >
@@ -129,12 +130,14 @@ export default function Navbar() {
                     </Link>
                   </motion.div>
                 ))}
-                <div className="w-full h-px bg-stroke/50 max-w-xs" />
+                
+                <div className="w-full h-px bg-white/5 my-2" />
+                
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: NAV_LINKS.length * 0.05 }}
-                  className="w-full max-w-xs pt-2"
+                  className="w-full"
                 >
                   <Link 
                     href="/contact" 

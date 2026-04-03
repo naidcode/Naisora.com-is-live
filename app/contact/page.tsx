@@ -47,7 +47,7 @@ export default function Contact() {
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-accent-gradient blur-[120px] opacity-[0.05] rounded-full -translate-x-1/2 translate-y-1/2 pointer-events-none" />
 
       {/* Hero Section */}
-      <section className="px-6 mb-24">
+      <section className="px-4 sm:px-6 mb-24">
         <div className="container max-w-7xl mx-auto text-center">
           <AnimatedSection>
             <div className="inline-flex items-center gap-3 mb-6">
@@ -66,7 +66,7 @@ export default function Contact() {
       </section>
 
       {/* Content Section */}
-      <section className="px-6 relative z-10">
+      <section className="px-4 sm:px-6 relative z-10">
         <div className="container max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
             

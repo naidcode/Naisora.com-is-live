@@ -6,7 +6,9 @@ const nextConfig = {
   },
   trailingSlash: true, // Recommended for static hosting on Hostinger
   experimental: {
-    turbotrace: false,
+    turbotrace: {
+      logDetail: false,
+    },
   },
 };
 export default nextConfig;

@@ -58,7 +58,7 @@ export default function HeroSection() {
 
       {/* Hero Content */}
       {/* FIX: changed pt-45 (180px) to pt-28 on mobile — was pushing eyebrow text off screen */}
-      <div className="container relative z-10 px-6 pt-28 md:pt-28">
+      <div className="container relative z-10 px-6 pt-28 md:pt-20">
         <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
           {/* Eyebrow */}
           {/* FIX: tracking-[0.15em] on screens below 380px — 0.4em was too wide and clipped into navbar */}
@@ -68,7 +68,7 @@ export default function HeroSection() {
             transition={{ duration: 1, delay: 0.3 }}
             className="inline-block text-[10px] md:text-[0.6rem] text-muted uppercase tracking-normal min-[350px]:tracking-[0.4em] mt-10 md:mt-12 font-body font-bold"
           >
-            ESTABLISHED &apos;26 • BANGALORE
+            {/* ESTABLISHED &apos;26 • BANGALORE */}
           </motion.span>
 
           {/* Title */}
