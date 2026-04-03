@@ -1,14 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // This generates a 'out' folder
+  output: 'export',
   images: {
-    unoptimized: true, // Required for static export to work without a Node.js server
+    unoptimized: true,
   },
-  trailingSlash: true, // Recommended for static hosting on Hostinger
   experimental: {
-    turbotrace: {
-      logDetail: false,
-    },
+    turbotrace: false,
   },
-};
-export default nextConfig;
+}
+
+module.exports = nextConfig
