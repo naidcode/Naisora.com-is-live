@@ -1,0 +1,92 @@
+﻿
+> naisora@0.1.0 build
+> next build
+
+  Γû▓ Next.js 14.2.3
+  - Environments: .env.local
+
+   Creating an optimized production build ...
+ Γ£ô Compiled successfully
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/15) ...
+node.exe :  ΓÜá metadataBase property in metadata 
+export is not set for resolving social open graph 
+or twitter images, using "http://localhost:3000". 
+See https://nextjs.org/docs/app/api-reference/func
+tions/generate-metadata#metadatabase
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" 
+"C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ( ΓÜá 
+    metadataBa...ta#metadatabase:String) [], Rem  
+  oteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+ ΓÜá metadataBase property in metadata export is 
+not set for resolving social open graph or 
+twitter images, using "http://localhost:3000". 
+See https://nextjs.org/docs/app/api-reference/func
+tions/generate-metadata#metadatabase
+ ΓÜá metadataBase property in metadata export is 
+not set for resolving social open graph or 
+twitter images, using "http://localhost:3000". 
+See https://nextjs.org/docs/app/api-reference/func
+tions/generate-metadata#metadatabase
+ ΓÜá metadataBase property in metadata export is 
+not set for resolving social open graph or 
+twitter images, using "http://localhost:3000". 
+See https://nextjs.org/docs/app/api-reference/func
+tions/generate-metadata#metadatabase
+ ΓÜá metadataBase property in metadata export is 
+not set for resolving social open graph or 
+twitter images, using "http://localhost:3000". 
+See https://nextjs.org/docs/app/api-reference/func
+tions/generate-metadata#metadatabase
+ ΓÜá metadataBase property in metadata export is 
+not set for resolving social open graph or 
+twitter images, using "http://localhost:3000". 
+See https://nextjs.org/docs/app/api-reference/func
+tions/generate-metadata#metadatabase
+   Generating static pages (3/15) 
+   Generating static pages (7/15) 
+ ΓÜá metadataBase property in metadata export is 
+not set for resolving social open graph or 
+twitter images, using "http://localhost:3000". 
+See https://nextjs.org/docs/app/api-reference/func
+tions/generate-metadata#metadatabase
+   Generating static pages (11/15) 
+ Γ£ô Generating static pages (15/15)
+   Finalizing page optimization ...
+   Collecting build traces ...
+ ΓÜá metadataBase property in metadata export is 
+not set for resolving social open graph or 
+twitter images, using "http://localhost:3000". 
+See https://nextjs.org/docs/app/api-reference/func
+tions/generate-metadata#metadatabase
+
+Route (app)                                      Size     First Load JS
+Γöî Γùï /                                            57.1 kB         353 kB
+Γö£ Γùï /_not-found                                  871 B            88 kB
+Γö£ Γùï /about                                       3.85 kB          91 kB
+Γö£ ╞Æ /api/contact                                 0 B                0 B
+Γö£ Γùï /blog                                        3.26 kB         102 kB
+Γö£ ΓùÅ /blog/[slug]                                 505 B          99.6 kB
+Γö£   Γö£ /blog/why-your-restaurant-needs-a-website
+Γö£   Γö£ /blog/how-to-rank-on-google-maps
+Γö£   Γö£ /blog/ai-whatsapp-automation
+Γö£   Γöö [+3 more paths]
+Γö£ Γùï /contact                                     4.73 kB         133 kB
+Γöö Γùï /services                                    7.75 kB         142 kB
++ First Load JS shared by all                    87.2 kB
+  Γö£ chunks/23-396dd08c364ec86d.js                31.6 kB
+  Γö£ chunks/fd9d1056-00bb33a35b5f8051.js          53.6 kB
+  Γöö other shared chunks (total)                  1.95 kB
+
+
+Γùï  (Static)   prerendered as static content
+ΓùÅ  (SSG)      prerendered as static HTML (uses getStaticProps)
+╞Æ  (Dynamic)  server-rendered on demand
+
