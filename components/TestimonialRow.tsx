@@ -50,10 +50,10 @@ const BlogEntry = ({ entry, index }: { entry: any; index: number }) => {
     >
       <Link 
         href={`/blog/${entry.slug}`}
-        className="group flex flex-col md:flex-row items-center gap-6 p-4 md:p-6 bg-surface/30 hover:bg-surface border border-stroke rounded-[40px] md:rounded-full transition-all duration-500 cursor-pointer"
+        className="group flex flex-col md:flex-row items-center gap-6 p-4 md:p-4 bg-surface/30 hover:bg-surface border border-stroke rounded-[24px] md:rounded-full transition-all duration-500 cursor-pointer"
       >
         {/* Thumbnail */}
-        <div className="relative w-full md:w-24 h-48 md:h-24 rounded-[32px] md:rounded-full overflow-hidden flex-shrink-0">
+        <div className="relative w-full md:w-24 h-40 md:h-24 rounded-[20px] md:rounded-full overflow-hidden flex-shrink-0">
           <Image
             src={entry.img}
             alt={entry.title}

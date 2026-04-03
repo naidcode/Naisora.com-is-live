@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import GlobalSpotlight from "@/components/GlobalSpotlight";
 import Preloader from "@/components/Preloader";
 import SmoothScroll from "@/components/SmoothScroll";
+import Link from "next/link";
 import "./globals.css";
 
 const inter = Inter({ 
@@ -80,8 +81,10 @@ export default function RootLayout({
             <path d="M12.012 2C6.486 2 2 6.486 2 12.013c0 1.954.512 3.84 1.488 5.51L2 22l4.634-1.22A9.973 9.973 0 0 0 12.012 22c5.526 0 10.012-4.486 10.012-10.013S17.538 2 12.012 2zm5.72 14.28c-.24.672-1.392 1.272-1.92 1.344-.456.048-1.032.12-3.144-.768-2.544-1.056-4.176-3.648-4.32-3.84-.144-.192-1.032-1.368-1.032-2.616 0-1.248.648-1.872.888-2.136.24-.264.528-.336.72-.336.192 0 .384 0 .552.024.192.024.432-.072.672.504.24.6.84 2.064.912 2.232.072.168.12.36.024.552-.096.192-.144.312-.288.48-.144.168-.312.36-.432.48-.144.144-.288.312-.12.6.168.288.744 1.224 1.608 1.992.984.888 1.92 1.176 2.208 1.32.288.144.456.12.624-.072.168-.192.744-.864.936-1.152.192-.288.384-.24.648-.144.264.096 1.68.816 1.968.96.288.144.48.216.552.336.096.12.096.696-.144 1.368z" />
           </svg>
         </a>
-        <div id="mobile-audit-bar" className="fixed bottom-0 left-0 width-full bg-surface/90 border-t border-stroke p-4 text-center z-40 hidden md:hidden mobile-only-bar backdrop-blur-xl">
-          <a href="/contact" className="btn-modern btn-modern-primary w-full py-3 inline-block">Get Free Audit ↗</a>
+        <div id="mobile-audit-bar" className="fixed bottom-0 left-0 w-full bg-surface/90 border-t border-stroke p-4 text-center z-40 md:hidden mobile-only-bar backdrop-blur-xl">
+          <Link href="/contact" className="btn-modern btn-modern-primary w-full py-4 text-lg inline-block">
+            Get Free Audit ↗
+          </Link>
         </div>
         <style dangerouslySetInnerHTML={{__html:`
           #whatsapp-bot:hover {

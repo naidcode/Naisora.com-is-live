@@ -38,7 +38,7 @@ const ServiceCard = ({ svc, index, onLearnMore }: { svc: any; index: number; onL
           if (cardRef.current) cardRef.current.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
         }}
         onClick={onLearnMore}
-        className="relative flex flex-col h-full p-8 md:p-10 bg-surface border border-stroke rounded-[32px] overflow-hidden transition-all duration-500 ease-out cursor-pointer group"
+        className="relative flex flex-col h-full p-6 md:p-10 bg-surface border border-stroke rounded-[24px] md:rounded-[32px] overflow-hidden transition-all duration-500 ease-out cursor-pointer group"
       >
         {/* Glow Effect */}
         <div 
@@ -207,7 +207,7 @@ export default function ServiceCards() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 40, scale: 0.95 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative w-full max-w-[800px] bg-bg border border-stroke rounded-[24px] max-h-[85vh] overflow-y-auto p-6 md:p-12 shadow-2xl no-scrollbar"
+              className="relative w-full max-w-[800px] bg-bg border border-stroke rounded-[24px] max-h-[90vh] md:max-h-[85vh] overflow-y-auto p-5 md:p-12 shadow-2xl no-scrollbar"
               data-lenis-prevent
             >
               <button 

@@ -4,25 +4,26 @@ import AnimatedCounter from "./AnimatedCounter";
 
 export default function HeroStats() {
   return (
-    <div className="flex justify-center load-stagger del-7" style={{
-      borderTop: "1px solid #1F1F1F",
-      paddingTop: "32px",
-      gap: "64px",
-      flexWrap: "wrap"
-    }}>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-12 md:gap-16 items-center border-t border-stroke pt-8 load-stagger del-7 w-full max-w-3xl mx-auto px-4 sm:px-0">
+      <div className="flex flex-col items-center">
         <AnimatedCounter end={30} suffix="+" />
-        <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: "13px", color: "#555555", fontWeight: 500 }}>Projects Delivered</span>
+        <span className="font-body text-[11px] md:text-[13px] text-muted font-medium uppercase tracking-wider">Projects Delivered</span>
       </div>
-      <div style={{ width: "1px", backgroundColor: "#1F1F1F", height: "48px" }} className="stats-divider"></div>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+      
+      <div className="hidden sm:block w-px bg-stroke h-12 justify-self-center opacity-50" />
+      <div className="sm:hidden h-px bg-stroke w-full opacity-30" />
+      
+      <div className="flex flex-col items-center">
         <AnimatedCounter end={100} />
-        <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: "13px", color: "#555555", fontWeight: 500 }}>PageSpeed Score</span>
+        <span className="font-body text-[11px] md:text-[13px] text-muted font-medium uppercase tracking-wider">PageSpeed Score</span>
       </div>
-      <div style={{ width: "1px", backgroundColor: "#1F1F1F", height: "48px" }} className="stats-divider"></div>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+
+      <div className="hidden sm:block w-px bg-stroke h-12 justify-self-center opacity-50" />
+      <div className="sm:hidden h-px bg-stroke w-full opacity-30" />
+
+      <div className="flex flex-col items-center">
         <AnimatedCounter end={4} suffix=".9★" duration={1500} />
-        <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: "13px", color: "#555555", fontWeight: 500 }}>Average Rating</span>
+        <span className="font-body text-[11px] md:text-[13px] text-muted font-medium uppercase tracking-wider">Average Rating</span>
       </div>
     </div>
   );

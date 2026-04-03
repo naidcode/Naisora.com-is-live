@@ -74,9 +74,9 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: [0.33, 1, 0.68, 1] }}
-            className="text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] font-display italic leading-[0.9] md:leading-[0.85] tracking-tighter text-text-primary mb-6 md:mb-8"
+            className="text-6xl sm:text-7xl md:text-8xl lg:text-[10rem] font-display italic leading-[0.9] md:leading-[0.85] tracking-tighter text-text-primary mb-6 md:mb-8 text-center"
           >
-            Naisora <br className="hidden md:block" /> Agency
+            Naisora <br className="hidden sm:block" /> Agency
           </motion.h1>
 
           {/* Role cycling */}

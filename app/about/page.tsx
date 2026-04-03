@@ -31,7 +31,7 @@ export default function About() {
   ];
 
   return (
-    <main className="min-h-screen bg-bg pt-40 pb-24 overflow-hidden">
+    <main className="min-h-screen bg-bg pt-32 md:pt-40 pb-24 overflow-hidden">
       {/* Hero Section */}
       <section className="px-6 mb-32">
         <div className="container max-w-5xl mx-auto text-center">

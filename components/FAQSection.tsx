@@ -44,9 +44,9 @@ const FAQItem = ({ faq, index, isOpen, toggle }: { faq: any, index: number, isOp
     <div className={`border-b border-stroke overflow-hidden transition-all duration-500`}>
       <button
         onClick={() => toggle(index)}
-        className="w-full flex items-center justify-between py-8 text-left hover:text-text-primary transition-colors group"
+        className="w-full flex items-center justify-between py-6 md:py-8 text-left hover:text-text-primary transition-colors group"
       >
-        <span className="text-xl md:text-2xl font-display italic text-text-primary group-hover:pl-2 transition-all duration-300">
+        <span className="text-lg md:text-2xl font-display italic text-text-primary group-hover:pl-2 transition-all duration-300">
           {faq.q}
         </span>
         <div className={`flex-shrink-0 ml-4 transition-transform duration-500 ${isOpen ? "rotate-45" : ""}`}>

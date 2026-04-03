@@ -93,33 +93,58 @@ export default function Navbar() {
         {/* Mobile Menu Overlay */}
         <AnimatePresence>
           {isOpen && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute top-full left-0 right-0 mt-4 p-6 bg-surface/90 border border-white/10 backdrop-blur-xl rounded-[24px] flex flex-col gap-4 shadow-2xl z-[-1]"
-            >
-              {NAV_LINKS.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`
-                    text-lg font-display italic px-6 py-4 rounded-xl transition-all
-                    ${pathname === link.href ? "text-text-primary bg-white/5" : "text-muted hover:text-text-primary hover:bg-white/5"}
-                  `}
-                >
-                  {link.name}
-                </Link>
-              ))}
-              <div className="h-px bg-stroke/50 my-2" />
-              <Link 
-                href="/contact" 
-                className="btn-modern btn-modern-primary w-full py-4 text-center"
+            <>
+              {/* Backdrop */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setIsOpen(false)}
+                className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[-2] pointer-events-auto"
+              />
+              {/* Menu Card */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, y: -20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: -20 }}
+                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                className="absolute top-full left-0 right-0 mt-4 p-4 bg-surface/95 border border-white/10 backdrop-blur-2xl rounded-[32px] flex flex-col gap-2 shadow-2xl z-[-1] min-w-[280px]"
               >
-                Let's talk ↗
-              </Link>
-            </motion.div>
+                {NAV_LINKS.map((link, i) => (
+                  <motion.div
+                    key={link.href}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.05 }}
+                  >
+                    <Link
+                      href={link.href}
+                      className={`
+                        text-2xl font-display italic px-6 py-4 rounded-2xl transition-all flex items-center justify-between group
+                        ${pathname === link.href ? "text-text-primary bg-white/5" : "text-muted hover:text-text-primary hover:bg-white/5"}
+                      `}
+                    >
+                      {link.name}
+                      <span className="text-[10px] opacity-0 group-hover:opacity-100 transition-opacity tracking-widest uppercase font-bold">view</span>
+                    </Link>
+                  </motion.div>
+                ))}
+                <div className="h-px bg-stroke/50 my-2 mx-6" />
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: NAV_LINKS.length * 0.05 }}
+                  className="px-2 pb-2"
+                >
+                  <Link 
+                    href="/contact" 
+                    className="btn-modern btn-modern-primary w-full py-5 text-lg"
+                  >
+                    Get Free Audit ↗
+                  </Link>
+                </motion.div>
+              </motion.div>
+            </>
           )}
         </AnimatePresence>
       </motion.nav>

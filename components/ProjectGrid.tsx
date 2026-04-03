@@ -42,7 +42,7 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: index * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
       viewport={{ once: true }}
-      className={`group relative overflow-hidden rounded-3xl bg-surface border border-stroke aspect-[4/3] md:aspect-auto md:h-[450px] ${project.span}`}
+      className={`group relative overflow-hidden rounded-2xl md:rounded-3xl bg-surface border border-stroke aspect-[1.1/1] sm:aspect-video md:aspect-auto md:h-[450px] ${project.span}`}
     >
       {/* Background Image */}
       <Image
