@@ -1,0 +1,17 @@
+<svg width="400" height="80" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Solid Black Background -->
+  <rect width="200" height="40" rx="8" fill="black" />
+  
+  <!-- Icon Part -->
+  <g transform="translate(10, 8)">
+    <rect width="24" height="24" rx="4" fill="black" stroke="white" stroke-width="0.5" />
+    <path d="M6 18V6L18 18V6" stroke="white" stroke-width="3" stroke-linejoin="miter" stroke-linecap="butt" />
+  </g>
+  
+  <!-- Wordmark Part (Replicated from user design) -->
+  <g transform="translate(45, 28)">
+    <text x="0" y="0" fill="white" font-family="Inter, system-bold, sans-serif" font-weight="900" font-size="20" letter-spacing="-1.5">NAISORA</text>
+    <!-- The Slash in the first A -->
+    <path d="M12 11L28 4" stroke="black" stroke-width="3.2" stroke-linecap="square" />
+  </g>
+</svg>

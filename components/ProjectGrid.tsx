@@ -1,0 +1,136 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
+
+const PROJECTS = [
+  {
+    cat: "Restaurant",
+    title: "The Spice Garden",
+    desc: "A premium website featuring a custom booking system and high-end culinary photography.",
+    img: "/projects/mockup1.png",
+    span: "md:col-span-7",
+  },
+  {
+    cat: "Cafe",
+    title: "Brew & Co.",
+    desc: "Modern cafe identity and website focused on community and quality beans.",
+    img: "/projects/mockup2.png",
+    span: "md:col-span-5",
+  },
+  {
+    cat: "Restaurant",
+    title: "Biryani Bros",
+    desc: "AI-driven menu and ordering system for a local favorite.",
+    img: "/projects/mockup3.png",
+    span: "md:col-span-5",
+  },
+  {
+    cat: "Cafe",
+    title: "The Roastery",
+    desc: "Visually stunning landing page for an artisan coffee roaster.",
+    img: "/projects/mockup4.png",
+    span: "md:col-span-7",
+  },
+];
+
+const ProjectCard = ({ project, index }: { project: any; index: number }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: index * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+      viewport={{ once: true }}
+      className={`group relative overflow-hidden rounded-3xl bg-surface border border-stroke aspect-[4/3] md:aspect-auto md:h-[450px] ${project.span}`}
+    >
+      {/* Background Image */}
+      <Image
+        src={project.img}
+        alt={project.title}
+        fill
+        className="object-cover transition-transform duration-700 group-hover:scale-110"
+      />
+      
+      {/* Halftone / Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-bg/90 via-bg/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
+      <div 
+        className="absolute inset-0 opacity-20 mix-blend-multiply pointer-events-none"
+        style={{ backgroundImage: "radial-gradient(circle, #000 1px, transparent 1px)", backgroundSize: "4px 4px" }}
+      />
+
+      {/* Content Overlay */}
+      <div className="absolute inset-0 p-8 flex flex-col justify-end backdrop-blur-0 group-hover:backdrop-blur-sm transition-all duration-500">
+        <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+          <span className="inline-block text-[10px] text-muted tracking-[0.3em] uppercase mb-2 font-body font-bold">
+            {project.cat}
+          </span>
+          <h3 className="text-3xl font-display italic text-text-primary mb-2">
+            {project.title}
+          </h3>
+          <p className="text-sm text-muted/80 max-w-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 font-body">
+            {project.desc}
+          </p>
+        </div>
+
+        {/* Floating Label / Button */}
+        <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className="inline-flex items-center gap-2 bg-text-primary px-4 py-2 rounded-full overflow-hidden relative">
+            <div className="absolute inset-0 accent-gradient -z-10" />
+            <span className="text-bg text-xs font-bold leading-none">View — *{project.title}*</span>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+export default function ProjectGrid() {
+  return (
+    <section id="work" className="bg-bg py-24 px-6 md:px-10">
+      <div className="max-w-[1400px] mx-auto">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-8">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="max-w-2xl"
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-8 h-px bg-stroke" />
+              <span className="text-[10px] text-muted tracking-[0.3em] uppercase font-body font-bold">Selected Work</span>
+            </div>
+            <h2 className="text-5xl md:text-7xl font-display text-text-primary leading-[1.1]">
+              Featured <span className="italic">*projects*</span>
+            </h2>
+            <p className="text-lg text-muted mt-6 font-body leading-relaxed max-w-md">
+              A curated selection of digital experiences we've crafted to help local businesses grow and thrive.
+            </p>
+          </motion.div>
+
+          <motion.button
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="group relative px-8 py-4 rounded-full border border-stroke text-text-primary text-sm font-semibold transition-all hover:scale-105 hidden md:flex items-center gap-2"
+          >
+            <span className="relative z-10">View All Work</span>
+            <ArrowUpRight className="w-4 h-4 relative z-10" />
+            <div className="absolute inset-[-1.5px] rounded-full accent-gradient -z-10 opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="absolute inset-[1px] bg-bg rounded-full -z-10 opacity-0 group-hover:opacity-100 transition-opacity" />
+          </motion.button>
+        </div>
+
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-8">
+          {PROJECTS.map((project, i) => (
+            <ProjectCard key={i} project={project} index={i} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
