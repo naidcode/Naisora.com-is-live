@@ -7,7 +7,6 @@ import Link from "next/link";
 const ServiceCard = ({ svc, index, onLearnMore }: { svc: any; index: number; onLearnMore: () => void }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
@@ -35,13 +34,11 @@ const ServiceCard = ({ svc, index, onLearnMore }: { svc: any; index: number; onL
       <div 
         ref={cardRef}
         onMouseMove={handleMouseMove}
-        onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => {
-          setIsHovered(false);
           if (cardRef.current) cardRef.current.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
         }}
         onClick={onLearnMore}
-        className="relative flex flex-col h-full p-10 bg-surface border border-stroke rounded-[32px] overflow-hidden transition-all duration-500 ease-out cursor-pointer group"
+        className="relative flex flex-col h-full p-8 md:p-10 bg-surface border border-stroke rounded-[32px] overflow-hidden transition-all duration-500 ease-out cursor-pointer group"
       >
         {/* Glow Effect */}
         <div 
@@ -178,7 +175,7 @@ export default function ServiceCards() {
               <span className="text-[10px] text-muted tracking-[0.4em] uppercase font-body font-bold">Expertise</span>
               <div className="w-8 h-px bg-stroke" />
             </div>
-            <h2 className="text-5xl md:text-7xl font-display text-text-primary italic leading-[1.1] mb-8">
+            <h2 className="text-4xl md:text-7xl font-display text-text-primary italic leading-[1.1] mb-8">
               Everything you need <br /> to <span className="italic">*dominate*</span> the scene.
             </h2>
             <p className="text-lg text-muted font-body leading-relaxed">
@@ -187,7 +184,7 @@ export default function ServiceCards() {
           </motion.div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20 md:mb-32">
           {services.map((svc, i) => (
             <ServiceCard key={i} svc={svc} index={i} onLearnMore={() => setSelectedService(i)} />
           ))}
@@ -197,71 +194,57 @@ export default function ServiceCards() {
       {/* Service Modal */}
       <AnimatePresence>
         {selectedService !== null && (
-          <div style={{ position: "fixed", inset: 0, zIndex: 9999, display: "flex", alignItems: "center", justifyContent: "center", padding: "16px" }}>
+          <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 md:p-6">
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedService(null)}
-              style={{ position: "absolute", inset: 0, backgroundColor: "rgba(0,0,0,0.9)", backdropFilter: "blur(12px)" }}
+              className="absolute inset-0 bg-black/90 backdrop-blur-xl"
             />
             <motion.div 
               initial={{ opacity: 0, y: 40, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 40, scale: 0.95 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              style={{ 
-                position: "relative", 
-                width: "100%", 
-                maxWidth: "800px", 
-                backgroundColor: "#0A0A0A", 
-                border: "1px solid #1F1F1F", 
-                borderRadius: "24px", 
-                maxHeight: "85vh", 
-                overflowY: "auto",
-                WebkitOverflowScrolling: "touch",
-                padding: "40px",
-                boxShadow: "0 32px 100px rgba(0,0,0,0.8)"
-              }}
-              className="no-scrollbar"
+              className="relative w-full max-w-[800px] bg-bg border border-stroke rounded-[24px] max-h-[85vh] overflow-y-auto p-6 md:p-12 shadow-2xl no-scrollbar"
               data-lenis-prevent
             >
               <button 
                 type="button"
                 onClick={() => setSelectedService(null)}
-                style={{ position: "absolute", top: "24px", right: "24px", color: "#666", cursor: "pointer", transition: "color 200ms", zIndex: 10 }}
-                className="hover:text-white"
+                className="absolute top-4 right-4 md:top-8 md:right-8 text-muted hover:text-text-primary transition-colors z-10 p-2"
               >
                 <X size={24} />
               </button>
 
-              <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
+              <div className="flex flex-col gap-6 md:gap-10">
                 <div>
-                  <span style={{ fontFamily: "var(--font-inter)", fontSize: "11px", fontWeight: 600, color: "#444", textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: "16px", display: "block" }}>
-                    Service Detailed View
+                  <span className="font-body text-[10px] font-bold text-muted uppercase tracking-[0.2em] mb-4 block">
+                    Service Detailed View • {services[selectedService].num}
                   </span>
-                  <h2 className="text-4xl md:text-5xl font-display italic text-text-primary leading-[1.1]">
+                  <h2 className="text-3xl md:text-5xl font-display italic text-text-primary leading-[1.1]">
                     {services[selectedService].details.headline}
                   </h2>
                 </div>
 
-                <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+                <div className="flex flex-col gap-6">
                   {services[selectedService].details.description.map((p, i) => (
-                    <p key={i} className="text-base text-muted font-body leading-relaxed">
+                    <p key={i} className="text-sm md:text-base text-muted font-body leading-relaxed">
                       {p}
                     </p>
                   ))}
                 </div>
 
-                <div style={{ borderTop: "1px solid #1A1A1A", paddingTop: "32px" }}>
+                <div className="pt-8 border-t border-stroke">
                   <h3 className="text-xl font-display italic text-text-primary mb-6">
                     Core Features
                   </h3>
-                  <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     {services[selectedService].details.features.map((f, i) => (
-                      <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
-                        <CheckCircle2 size={16} color="white" style={{ marginTop: "4px", flexShrink: 0 }} />
-                        <p className="text-sm font-body text-muted">
+                      <div key={i} className="flex items-start gap-4">
+                        <CheckCircle2 size={16} className="text-text-primary mt-1 flex-shrink-0" />
+                        <p className="text-xs md:text-sm font-body text-muted leading-relaxed">
                           <strong className="text-text-primary font-medium">{f.title}</strong> — {f.text}
                         </p>
                       </div>
@@ -269,16 +252,16 @@ export default function ServiceCards() {
                   </div>
                 </div>
 
-                <div className="bg-surface border border-stroke rounded-2xl p-8">
-                  <p className="text-base font-body text-text-primary leading-relaxed mb-6">
-                    {services[selectedService].details.result}
+                <div className="bg-surface/50 border border-stroke rounded-2xl p-6 md:p-8">
+                  <p className="text-sm md:text-base font-body text-text-primary leading-relaxed mb-8 italic">
+                    "{services[selectedService].details.result}"
                   </p>
                   <Link 
                     href={services[selectedService].details.link}
-                    className="flex items-center justify-between bg-text-primary text-bg px-6 py-4 rounded-xl font-body font-bold text-sm transition-transform hover:scale-[1.02] active:scale-[0.98]"
+                    className="flex items-center justify-between bg-text-primary text-bg px-6 py-4 rounded-xl font-body font-bold text-sm transition-all hover:scale-[1.02] active:scale-[0.98] group/btn"
                   >
-                    {services[selectedService].details.cta}
-                    <ArrowRight size={18} />
+                    <span>{services[selectedService].details.cta}</span>
+                    <ArrowRight size={18} className="group-hover/btn:translate-x-1 transition-transform" />
                   </Link>
                 </div>
               </div>

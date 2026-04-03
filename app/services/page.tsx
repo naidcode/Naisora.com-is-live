@@ -127,105 +127,78 @@ export default function Services() {
   }, [selectedService]);
 
   return (
-    <main style={{ minHeight: "100vh", paddingTop: "140px", backgroundColor: "var(--color-bg)" }}>
+    <main className="min-h-screen pt-24 md:pt-40 bg-bg">
       {/* Service Modal */}
       <AnimatePresence>
         {selectedService !== null && (
-          <div style={{ position: "fixed", inset: 0, zIndex: 9999, display: "flex", alignItems: "center", justifyContent: "center", padding: "16px" }}>
+          <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 md:p-6">
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedService(null)}
-              style={{ position: "absolute", inset: 0, backgroundColor: "rgba(0,0,0,0.9)", backdropFilter: "blur(12px)" }}
+              className="absolute inset-0 bg-black/90 backdrop-blur-xl"
             />
             <motion.div 
               initial={{ opacity: 0, y: 40, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 40, scale: 0.95 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              style={{ 
-                position: "relative", 
-                width: "100%", 
-                maxWidth: "800px", 
-                backgroundColor: "#0A0A0A", 
-                border: "1px solid #1F1F1F", 
-                borderRadius: "24px", 
-                maxHeight: "85vh", 
-                overflowY: "auto",
-                WebkitOverflowScrolling: "touch",
-                padding: "40px",
-                boxShadow: "0 32px 100px rgba(0,0,0,0.8)"
-              }}
-              className="no-scrollbar"
+              className="relative w-full max-w-[800px] bg-bg border border-stroke rounded-[24px] max-h-[85vh] overflow-y-auto p-6 md:p-12 shadow-2xl no-scrollbar"
               data-lenis-prevent
             >
               <button 
                 type="button"
                 onClick={() => setSelectedService(null)}
-                style={{ position: "absolute", top: "24px", right: "24px", color: "#666", cursor: "pointer", transition: "color 200ms", zIndex: 10 }}
-                className="hover:text-white"
+                className="absolute top-4 right-4 md:top-8 md:right-8 text-muted hover:text-text-primary transition-colors z-10 p-2"
               >
                 <X size={24} />
               </button>
 
-              <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
+              <div className="flex flex-col gap-6 md:gap-10">
                 <div>
-                  <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: "11px", fontWeight: 600, color: "#444", textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: "16px", display: "block" }}>
-                    Service Detailed View
+                  <span className="font-body text-[10px] font-bold text-muted uppercase tracking-[0.2em] mb-4 block">
+                    Detailed View • {services[selectedService].num}
                   </span>
-                  <h2 style={{ fontFamily: "var(--font-syne)", fontSize: "32px", color: "var(--color-white)", lineHeight: "1.1" }} className="md:text-4xl">
+                  <h2 className="text-3xl md:text-5xl font-display italic text-text-primary leading-[1.1]">
                     {services[selectedService].details.headline}
                   </h2>
                 </div>
 
-                <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+                <div className="flex flex-col gap-6">
                   {services[selectedService].details.description.map((p, i) => (
-                    <p key={i} style={{ fontFamily: "var(--font-dm-sans)", fontSize: "15px", color: "#999", lineHeight: "1.7" }}>
+                    <p key={i} className="text-sm md:text-base text-muted font-body leading-relaxed">
                       {p}
                     </p>
                   ))}
                 </div>
 
-                <div style={{ borderTop: "1px solid #1A1A1A", paddingTop: "32px" }}>
-                  <h3 style={{ fontFamily: "var(--font-syne)", fontSize: "18px", color: "var(--color-white)", marginBottom: "24px" }}>
+                <div className="pt-8 border-t border-stroke">
+                  <h3 className="text-xl font-display italic text-text-primary mb-6">
                     Core Features
                   </h3>
-                  <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     {services[selectedService].details.features.map((f, i) => (
-                      <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
-                        <CheckCircle2 size={16} color="white" style={{ marginTop: "4px", flexShrink: 0 }} />
-                        <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "14px", color: "#888" }}>
-                          <strong style={{ color: "var(--color-white)", fontWeight: 500 }}>{f.title}</strong> — {f.text}
+                      <div key={i} className="flex items-start gap-4">
+                        <CheckCircle2 size={16} className="text-text-primary mt-1 flex-shrink-0" />
+                        <p className="text-xs md:text-sm font-body text-muted leading-relaxed">
+                          <strong className="text-text-primary font-medium">{f.title}</strong> — {f.text}
                         </p>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div style={{ backgroundColor: "#121212", border: "1px solid #1F1F1F", borderRadius: "16px", padding: "24px" }}>
-                  <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "14px", color: "var(--color-white)", lineHeight: "1.6", marginBottom: "24px" }}>
-                    {services[selectedService].details.result}
+                <div className="bg-surface/50 border border-stroke rounded-2xl p-6 md:p-8">
+                  <p className="text-sm md:text-base font-body text-text-primary leading-relaxed mb-8 italic">
+                    "{services[selectedService].details.result}"
                   </p>
                   <Link 
                     href={services[selectedService].details.link}
-                    style={{ 
-                      display: "flex", 
-                      alignItems: "center", 
-                      justifyContent: "space-between",
-                      backgroundColor: "white", 
-                      color: "black", 
-                      padding: "16px 24px", 
-                      borderRadius: "12px",
-                      fontFamily: "var(--font-dm-sans)",
-                      fontSize: "14px",
-                      fontWeight: 600,
-                      transition: "transform 200ms"
-                    }}
-                    className="hover:scale-[1.02] active:scale-[0.98]"
+                    className="flex items-center justify-between bg-text-primary text-bg px-6 py-4 rounded-xl font-body font-bold text-sm transition-all hover:scale-[1.02] active:scale-[0.98] group/btn"
                   >
-                    {services[selectedService].details.cta}
-                    <ArrowRight size={18} />
+                    <span>{services[selectedService].details.cta}</span>
+                    <ArrowRight size={18} className="group-hover/btn:translate-x-1 transition-transform" />
                   </Link>
                 </div>
               </div>
@@ -235,87 +208,64 @@ export default function Services() {
       </AnimatePresence>
 
       {/* Hero */}
-      <section className="section-padding" style={{ paddingBottom: "80px" }}>
-        <div className="container" style={{ maxWidth: "800px", margin: "0 auto", textAlign: "center" }}>
+      <section className="pb-16 md:pb-20 px-6">
+        <div className="max-w-[1000px] mx-auto text-center">
           <AnimatedSection>
-            <span className="section-tag" style={{ fontFamily: "var(--font-dm-sans)" }}>WHAT WE DO</span>
-            <h1 className="hero-h1" style={{ fontSize: "56px", fontFamily: "var(--font-syne)", marginBottom: "32px", color: "var(--color-white)" }}>
-              Premium Web Services Built for Restaurants & Cafes
+            <span className="font-body text-[10px] font-bold text-muted uppercase tracking-[0.4em] mb-6 block leading-none">WHAT WE DO</span>
+            <h1 className="text-4xl md:text-7xl font-display italic text-text-primary leading-[1.1] mb-8">
+              Premium Web Services Built for <span className="text-muted">Bangalore's Restaurants.</span>
             </h1>
-            <p className="body-large" style={{ fontFamily: "var(--font-dm-sans)", color: "#666666" }}>
-              Everything you need to go from invisible to fully booked online.
+            <p className="text-base md:text-lg text-muted font-body max-w-2xl mx-auto leading-relaxed">
+              Everything you need to go from invisible to fully booked online. Designed specifically for the local culinary scene.
             </p>
           </AnimatedSection>
         </div>
       </section>
 
       {/* Services Detail Rows */}
-      <section className="section-padding">
-        <div className="container">
-          <div style={{ display: "flex", flexDirection: "column", gap: "120px" }}>
+      <section className="py-20 md:py-32 px-6">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="flex flex-col gap-24 md:gap-40">
             {services.map((svc, idx) => {
               const reverse = idx % 2 !== 0;
               return (
-                <div key={idx}>
-                  <div className="grid grid-cols-2 md:grid-cols-1 gap-8" style={{ alignItems: "center" }}>
-                    <AnimatedSection delay={80} className={reverse ? "order-2 md:order-1" : "order-1"}>
-                      <div style={{ display: "flex", flexDirection: "column" }}>
-                        <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: "11px", fontWeight: 600, color: "#444444", textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: "24px" }}>
+                <div key={idx} className="relative">
+                  <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center`}>
+                    <AnimatedSection delay={80} className={`${reverse ? "lg:order-2" : "lg:order-1"}`}>
+                      <div className="flex flex-col">
+                        <span className="font-body text-[10px] font-bold text-muted uppercase tracking-[0.2em] mb-6">
                           {svc.num} · {svc.tag}
                         </span>
-                        <h2 style={{ fontFamily: "var(--font-syne)", fontSize: "32px", color: "var(--color-white)", marginBottom: "32px" }}>
+                        <h2 className="text-3xl md:text-5xl font-display italic text-text-primary leading-[1.1] mb-8">
                           {svc.title}
                         </h2>
-                        <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "16px", color: "#888888", marginBottom: "32px", lineHeight: "1.6" }}>
+                        <p className="text-sm md:text-base text-muted font-body mb-8 leading-relaxed">
                           {svc.brief}
                         </p>
                         <button 
                           type="button"
                           onClick={() => setSelectedService(idx)}
-                          style={{ 
-                            fontFamily: "var(--font-dm-sans)", 
-                            fontSize: "14px", 
-                            color: "var(--color-white)", 
-                            display: "inline-flex", 
-                            alignItems: "center", 
-                            gap: "8px",
-                            transition: "all 300ms",
-                            cursor: "pointer",
-                            width: "fit-content",
-                            background: "transparent",
-                            border: "none",
-                            padding: "0"
-                          }} 
-                          className="hover-white hover-gap"
+                          className="flex items-center gap-2 text-sm font-body font-bold text-text-primary hover:gap-4 transition-all w-fit"
                         >
-                          {svc.cta} <ArrowRight size={14} />
+                          {svc.cta} <ArrowRight size={16} />
                         </button>
                       </div>
                     </AnimatedSection>
 
-                    <AnimatedSection delay={160} className={reverse ? "order-1 md:order-2" : "order-2"}>
+                    <AnimatedSection delay={160} className={`${reverse ? "lg:order-1" : "lg:order-2"}`}>
                       <div 
                         onClick={() => setSelectedService(idx)}
-                        style={{ 
-                          aspectRatio: "4/3", 
-                          backgroundColor: "#101010", 
-                          border: "1px solid #1F1F1F", 
-                          borderRadius: "12px", 
-                          position: "relative",
-                          cursor: "pointer",
-                          overflow: "hidden"
-                        }}
-                        className="group"
+                        className="aspect-[4/3] md:aspect-video lg:aspect-[4/3] bg-surface/50 border border-stroke rounded-[32px] relative cursor-pointer overflow-hidden group shadow-2xl"
                       >
-                        <div style={{ width: "100%", height: "100%", backgroundColor: "#161616", position: "relative", transition: "transform 500ms" }} className="group-hover:scale-105"></div>
-                        <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", opacity: 0, transition: "opacity 300ms", backgroundColor: "rgba(0,0,0,0.3)" }} className="group-hover:opacity-100">
-                          <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: "14px", color: "white", padding: "12px 24px", border: "1px solid white", borderRadius: "100px" }}>View Details</span>
+                        <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent group-hover:scale-105 transition-transform duration-700"></div>
+                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-black/40 backdrop-blur-sm">
+                          <span className="font-body text-xs text-text-primary px-6 py-2 border border-white/20 rounded-full bg-white/5">View Service Details</span>
                         </div>
                       </div>
                     </AnimatedSection>
                   </div>
                   {idx < services.length - 1 && (
-                    <div style={{ width: "100%", height: "1px", backgroundColor: "#1A1A1A", marginTop: "120px" }}></div>
+                    <div className="w-full h-px bg-stroke/50 mt-24 md:mt-40"></div>
                   )}
                 </div>
               );
@@ -328,20 +278,9 @@ export default function Services() {
       <PricingCards />
 
       <style dangerouslySetInnerHTML={{__html: `
-        .order-1 { order: 1; }
-        .order-2 { order: 2; }
-        .hover-white:hover { color: #FFFFFF !important; }
-        .hover-gap:hover { gap: 12px !important; }
-        .group:hover .group-hover\\:scale-105 { transform: scale(1.05); }
-        .group:hover .group-hover\\:opacity-100 { opacity: 1 !important; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        @media (max-width: 768px) {
-          .md\\:order-1 { order: 1; }
-          .md\\:order-2 { order: 2; }
-        }
       `}} />
     </main>
   );
 }
-

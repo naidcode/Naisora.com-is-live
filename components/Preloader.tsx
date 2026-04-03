@@ -85,7 +85,7 @@ export default function Preloader() {
       <div className="flex flex-col gap-8">
         <div className="flex justify-end">
           <motion.div 
-            className="text-7xl md:text-9xl lg:text-[12rem] font-display text-text-primary tabular-nums tracking-tighter"
+            className="text-5xl md:text-9xl lg:text-[12rem] font-display text-text-primary tabular-nums tracking-tighter"
           >
             {String(count).padStart(3, "0")}
           </motion.div>

@@ -58,13 +58,13 @@ export default function HeroSection() {
 
       {/* Hero Content */}
       <div className="container relative z-10 px-6 pt-20">
-        <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+        <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
           {/* Eyebrow */}
           <motion.span
             initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}
             animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
-            className="text-[5px] md:text-[0.6rem] text-muted uppercase tracking-[0.4em] mb-8 font-body font-medium"
+            className="text-[10px] md:text-[0.6rem] text-muted uppercase tracking-[0.4em] mb-6 md:mb-8 font-body font-bold"
           >
             ESTABLISHED '26 • BANGALORE
           </motion.span>
@@ -74,7 +74,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: [0.33, 1, 0.68, 1] }}
-            className="text-6xl md:text-9xl lg:text-[5rem] font-display italic leading-[0.85] tracking-tighter text-text-primary mb-8"
+            className="text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] font-display italic leading-[0.9] md:leading-[0.85] tracking-tighter text-text-primary mb-6 md:mb-8"
           >
             Naisora <br className="hidden md:block" /> Agency
           </motion.h1>
@@ -84,7 +84,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-xl md:text-2xl font-body text-muted/80 mb-8"
+            className="text-lg md:text-2xl font-body text-muted/80 mb-6 md:mb-8"
           >
             We build{" "}
             <AnimatePresence mode="wait">
@@ -107,7 +107,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
-            className="text-sm md:text-base text-muted max-w-lg mb-12 font-body leading-relaxed"
+            className="text-sm md:text-base text-muted max-w-md md:max-w-lg mb-10 md:mb-12 font-body leading-relaxed px-4 md:px-0"
           >
             Designing seamless digital interactions by focusing on the unique nuances which bring systems to life and drive growth.
           </motion.p>
@@ -117,20 +117,20 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
-            className="flex flex-col sm:flex-row gap-4 mb-20"
+            className="flex flex-col sm:flex-row gap-4 mb-16 md:mb-20 w-full sm:w-auto px-6 sm:px-0"
           >
             <Link 
               href="/contact" 
-              className="btn-modern btn-modern-primary group"
+              className="btn-modern btn-modern-primary group w-full sm:w-auto"
             >
-              <span className="relative z-10 flex items-center gap-2">
+              <span className="relative z-10 flex items-center justify-center gap-2">
                 Get Free Audit <ArrowUpRight className="w-4 h-4" />
               </span>
               <div className="shimmer-sweep" />
             </Link>
             <Link 
-              href="/#services" 
-              className="btn-modern btn-modern-accent group"
+              href="/services" 
+              className="btn-modern btn-modern-accent group w-full sm:w-auto px-10"
             >
               <span className="relative z-10">See Our Services</span>
               <div className="shimmer-sweep" />

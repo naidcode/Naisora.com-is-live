@@ -3,11 +3,11 @@ import React, { useRef, useState } from "react";
 import AnimatedSection from "./AnimatedSection";
 import Link from "next/link";
 import Image from "next/image";
+import { ArrowUpRight, Clock } from "lucide-react";
 
 const TiltBlogCard = ({ post, index }: { post: any; index: number }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
@@ -17,165 +17,69 @@ const TiltBlogCard = ({ post, index }: { post: any; index: number }) => {
     
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
-    const rotateX = ((y - centerY) / centerY) * -8;
-    const rotateY = ((x - centerX) / centerX) * 8;
+    const rotateX = ((y - centerY) / centerY) * -5;
+    const rotateY = ((x - centerX) / centerX) * 5;
 
-    cardRef.current.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+    cardRef.current.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`;
     setMousePosition({ x, y });
   };
 
-  const handleMouseEnter = () => setIsHovered(true);
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-    if (!cardRef.current) return;
-    cardRef.current.style.transform = `perspective(1200px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
-  };
-
   return (
-    <AnimatedSection delay={(index % 3) * 80}>
-      <Link href={`/blog/${post.slug}`} style={{ display: "block", textDecoration: "none", height: "100%" }}>
+    <AnimatedSection delay={(index % 3) * 100}>
+      <Link href={`/blog/${post.slug}`} className="block h-full group">
         <div
           ref={cardRef}
           onMouseMove={handleMouseMove}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          style={{
-            position: "relative",
-            backgroundColor: "#101010",
-            borderRadius: "20px",
-            border: "1px solid rgba(255,255,255,0.05)",
-            overflow: "hidden",
-            display: "flex",
-            flexDirection: "column",
-            height: "100%",
-            transition: isHovered ? "none" : "transform 500ms cubic-bezier(0.23, 1, 0.32, 1)",
-            boxShadow: isHovered ? "0 30px 60px rgba(0,0,0,0.6)" : "0 10px 30px rgba(0,0,0,0.3)",
-            cursor: "pointer",
-            zIndex: isHovered ? 10 : 1
+          onMouseLeave={() => {
+            if (cardRef.current) cardRef.current.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
           }}
+          className="relative h-full bg-surface/50 border border-stroke rounded-[24px] overflow-hidden flex flex-col transition-all duration-500 hover:border-text-primary/30"
         >
-          {/* Glow overlay */}
-          <div style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            pointerEvents: "none",
-            opacity: isHovered ? 1 : 0,
-            transition: "opacity 300ms ease",
-            background: `radial-gradient(800px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(255, 255, 255, 0.06), transparent 40%)`,
-            zIndex: 0
-          }} />
-
-          <div style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", height: "100%" }}>
-            <div style={{
-              position: "relative",
-              height: "200px",
-              width: "100%",
-              backgroundColor: "#161616",
-              overflow: "hidden"
-            }}>
-              <Image 
-                src={post.image || "/projects/mockup1.png"}
-                alt={post.title}
-                fill
-                className="object-cover"
-                style={{
-                  transform: isHovered ? "scale(1.05)" : "scale(1)",
-                  transition: "transform 500ms cubic-bezier(0.16, 1, 0.3, 1)"
-                }}
-              />
-              <div style={{
-                position: "absolute",
-                bottom: "16px",
-                left: "16px",
-                backgroundColor: "rgba(16, 16, 16, 0.8)",
-                backdropFilter: "blur(4px)",
-                padding: "6px 12px",
-                borderRadius: "6px",
-                fontFamily: "var(--font-dm-sans)",
-                fontSize: "11px",
-                fontWeight: 600,
-                color: "#555555",
-                textTransform: "uppercase",
-                letterSpacing: "0.12em"
-              }}>
+          {/* Image Container */}
+          <div className="relative aspect-video overflow-hidden">
+            <Image 
+              src={post.image || "/projects/mockup1.png"}
+              alt={post.title}
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-bg/80 to-transparent opacity-60" />
+            <div className="absolute bottom-4 left-4">
+               <span className="px-3 py-1 rounded-full bg-bg/80 backdrop-blur-md border border-white/10 text-[10px] font-bold text-text-primary uppercase tracking-widest">
                 {post.cat}
-              </div>
-            </div>
-
-            <div style={{
-              padding: "24px",
-              display: "flex",
-              flexDirection: "column",
-              flexGrow: 1,
-              transform: isHovered ? "translateZ(20px)" : "translateZ(0)",
-              transition: "transform 300ms ease-out"
-            }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
-                <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: "12px", color: "#333333" }}>
-                  {post.date}
-                </span>
-                <div style={{
-                  width: "28px",
-                  height: "28px",
-                  borderRadius: "50%",
-                  border: "1px solid rgba(255,255,255,0.1)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  backgroundColor: isHovered ? "#FFFFFF" : "transparent",
-                  transition: "all 300ms ease",
-                  opacity: isHovered ? 1 : 0,
-                  transform: isHovered ? "translateX(0)" : "translateX(-8px)"
-                }}>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={isHovered ? "#000000" : "#FFFFFF"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{
-                    transform: isHovered ? "rotate(-45deg)" : "rotate(0deg)",
-                    transition: "transform 300ms ease"
-                  }}>
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </div>
-              </div>
-              <h3 style={{
-                fontFamily: "var(--font-syne)",
-                fontSize: "17px",
-                fontWeight: 600,
-                color: isHovered ? "#FFFFFF" : "var(--color-white)",
-                marginBottom: "12px",
-                transition: "color 300ms ease"
-              }}>
-                {post.title}
-              </h3>
-              <p style={{
-                fontFamily: "var(--font-dm-sans)",
-                fontSize: "14px",
-                color: "#666666",
-                display: "-webkit-box",
-                WebkitLineClamp: 2,
-                WebkitBoxOrient: "vertical",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-                marginBottom: "24px",
-                flexGrow: 1
-              }}>
-                Short excerpt for the blog post preview goes here, enough to catch attention without being too long.
-              </p>
-              <div style={{
-                fontFamily: "var(--font-dm-sans)",
-                fontSize: "12px",
-                color: "#333333",
-                borderTop: "1px solid #1A1A1A",
-                paddingTop: "16px",
-                marginTop: "auto"
-              }}>
-                {post.time} read
-              </div>
+              </span>
             </div>
           </div>
+
+          {/* Content */}
+          <div className="p-6 md:p-8 flex flex-col flex-grow">
+            <div className="flex items-center justify-between mb-4">
+              <span className="text-[10px] text-muted font-bold tracking-widest uppercase">{post.date}</span>
+              <div className="flex items-center gap-1.5 text-[10px] text-muted font-bold tracking-widest uppercase">
+                <Clock size={12} />
+                <span>{post.time}</span>
+              </div>
+            </div>
+
+            <h3 className="text-xl md:text-2xl font-display italic text-text-primary leading-tight mb-4 group-hover:translate-x-1 transition-transform">
+              {post.title}
+            </h3>
+
+            <p className="text-sm text-muted font-body leading-relaxed line-clamp-2 md:line-clamp-3 mb-8">
+              Discover why thousands of restaurant owners are switching to custom-built websites to drive more direct bookings and eliminate third-party commission fees.
+            </p>
+
+            <div className="mt-auto pt-6 border-t border-stroke flex items-center justify-between">
+              <span className="text-[10px] uppercase tracking-widest font-bold text-text-primary group-hover:text-white transition-colors">Read Article</span>
+              <ArrowUpRight size={16} className="text-muted group-hover:text-text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+            </div>
+          </div>
+
+           {/* Glow Effect */}
+           <div 
+            className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            style={{ background: `radial-gradient(400px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(255, 255, 255, 0.05), transparent 40%)` }}
+          />
         </div>
       </Link>
     </AnimatedSection>
@@ -235,17 +139,10 @@ export default function BlogGrid() {
   ];
 
   return (
-    <div style={{
-      display: "grid",
-      gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-      gap: "32px",
-      perspective: "1200px"
-    }}>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
       {posts.map((post, i) => (
         <TiltBlogCard key={i} post={post} index={i} />
       ))}
     </div>
   );
 }
-
-

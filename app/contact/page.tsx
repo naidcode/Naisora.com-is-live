@@ -55,7 +55,7 @@ export default function Contact() {
               <span className="text-[10px] text-muted tracking-[0.4em] uppercase font-body font-bold">Launch Project</span>
               <div className="w-8 h-px bg-stroke" />
             </div>
-            <h1 className="text-6xl md:text-8xl font-display text-text-primary leading-[1.05] mb-8 italic">
+            <h1 className="text-4xl sm:text-6xl md:text-8xl font-display text-text-primary leading-[1.05] mb-8 italic">
               Let's craft the <br /> <span className="italic">*extraordinary.*</span>
             </h1>
             <p className="text-xl text-muted font-body leading-relaxed max-w-2xl mx-auto">
@@ -73,7 +73,7 @@ export default function Contact() {
             {/* Left Column: Contact Info & Benefits */}
             <div className="lg:col-span-5 flex flex-col gap-12">
               <AnimatedSection delay={100}>
-                <div className="bg-surface/30 backdrop-blur-sm border border-stroke rounded-[40px] p-8 md:p-12">
+                <div className="relative bg-bg border border-stroke rounded-[40px] p-6 sm:p-8 md:p-12 shadow-2xl overflow-hidden">
                   <h2 className="text-2xl font-display text-text-primary mb-8 italic">Direct Communication</h2>
                   <div className="flex flex-col gap-6">
                     {infoItems.map((item, i) => (
