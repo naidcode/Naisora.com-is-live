@@ -16,7 +16,7 @@ export default function Blog() {
               <span className="text-[10px] text-muted tracking-[0.4em] uppercase font-body font-bold text-center">Insights</span>
               <div className="w-8 h-px bg-stroke" />
             </div>
-            <h1 className="text-5xl md:text-8xl font-display text-text-primary leading-[1.05] mb-8 italic">
+            <h1 className="text-4xl sm:text-5xl md:text-8xl font-display text-text-primary leading-[1.05] mb-6 md:mb-8 italic">
               Tips & <span className="italic">*guides*</span> for owners.
             </h1>
             <p className="text-base md:text-xl text-muted font-body leading-relaxed max-w-2xl mx-auto">

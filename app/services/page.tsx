@@ -5,6 +5,7 @@ import PricingCards from "@/components/PricingCards";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, CheckCircle2, ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 export default function Services() {
   const [selectedService, setSelectedService] = useState<null | number>(null);
@@ -33,7 +34,8 @@ export default function Services() {
         link: "/contact"
       },
       cta: "Learn More →",
-      link: "#"
+      link: "#",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000"
     },
     {
       num: "02",
@@ -58,7 +60,8 @@ export default function Services() {
         link: "/contact"
       },
       cta: "Learn More →",
-      link: "#"
+      link: "#",
+      image: "https://images.unsplash.com/photo-1560472355-536de3962603?auto=format&fit=crop&q=80&w=1000"
     },
     {
       num: "03",
@@ -83,7 +86,8 @@ export default function Services() {
         link: "/contact"
       },
       cta: "Learn More →",
-      link: "#"
+      link: "#",
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1000"
     },
     {
       num: "04",
@@ -108,7 +112,8 @@ export default function Services() {
         link: "/contact"
       },
       cta: "Learn More →",
-      link: "#"
+      link: "#",
+      image: "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=1000"
     }
   ];
 
@@ -160,7 +165,7 @@ export default function Services() {
                   <span className="font-body text-[10px] font-bold text-muted uppercase tracking-[0.2em] mb-4 block">
                     Detailed View • {services[selectedService].num}
                   </span>
-                  <h2 className="text-3xl md:text-5xl font-display italic text-text-primary leading-[1.1]">
+                  <h2 className="text-2xl sm:text-3xl md:text-5xl font-display italic text-text-primary leading-[1.1]">
                     {services[selectedService].details.headline}
                   </h2>
                 </div>
@@ -189,8 +194,8 @@ export default function Services() {
                   </div>
                 </div>
 
-                <div className="bg-surface/50 border border-stroke rounded-2xl p-6 md:p-8">
-                  <p className="text-sm md:text-base font-body text-text-primary leading-relaxed mb-8 italic">
+                <div className="bg-surface/50 border border-stroke rounded-2xl p-5 md:p-8">
+                  <p className="text-sm md:text-base font-body text-text-primary leading-relaxed mb-6 md:mb-8 italic">
                     "{services[selectedService].details.result}"
                   </p>
                   <Link 
@@ -208,11 +213,11 @@ export default function Services() {
       </AnimatePresence>
 
       {/* Hero */}
-      <section className="pb-16 md:pb-20 px-6">
+      <section className="pb-12 md:pb-20 px-6">
         <div className="max-w-[1000px] mx-auto text-center">
           <AnimatedSection>
             <span className="font-body text-[10px] font-bold text-muted uppercase tracking-[0.4em] mb-6 block leading-none">WHAT WE DO</span>
-            <h1 className="text-4xl md:text-7xl font-display italic text-text-primary leading-[1.1] mb-8">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-display italic text-text-primary leading-[1.1] mb-6 md:mb-8">
               Premium Web Services Built for <span className="text-muted">Bangalore's Restaurants.</span>
             </h1>
             <p className="text-base md:text-lg text-muted font-body max-w-2xl mx-auto leading-relaxed">
@@ -223,23 +228,23 @@ export default function Services() {
       </section>
 
       {/* Services Detail Rows */}
-      <section className="py-20 md:py-32 px-6">
+      <section className="py-16 md:py-32 px-6">
         <div className="max-w-[1200px] mx-auto">
-          <div className="flex flex-col gap-24 md:gap-40">
+          <div className="flex flex-col gap-16 md:gap-40">
             {services.map((svc, idx) => {
               const reverse = idx % 2 !== 0;
               return (
                 <div key={idx} className="relative">
-                  <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center`}>
+                  <div className={`grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-24 items-center`}>
                     <AnimatedSection delay={80} className={`${reverse ? "lg:order-2" : "lg:order-1"}`}>
                       <div className="flex flex-col">
                         <span className="font-body text-[10px] font-bold text-muted uppercase tracking-[0.2em] mb-6">
                           {svc.num} · {svc.tag}
                         </span>
-                        <h2 className="text-3xl md:text-5xl font-display italic text-text-primary leading-[1.1] mb-8">
+                        <h2 className="text-3xl md:text-5xl font-display italic text-text-primary leading-[1.1] mb-4 md:mb-8">
                           {svc.title}
                         </h2>
-                        <p className="text-sm md:text-base text-muted font-body mb-8 leading-relaxed">
+                        <p className="text-sm md:text-base text-muted font-body mb-6 md:mb-8 leading-relaxed">
                           {svc.brief}
                         </p>
                         <button 
@@ -257,7 +262,13 @@ export default function Services() {
                         onClick={() => setSelectedService(idx)}
                         className="aspect-[4/3] md:aspect-video lg:aspect-[4/3] bg-surface/50 border border-stroke rounded-[32px] relative cursor-pointer overflow-hidden group shadow-2xl"
                       >
-                        <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent group-hover:scale-105 transition-transform duration-700"></div>
+                        <Image 
+                          src={svc.image}
+                          alt={svc.title}
+                          fill
+                          className="object-cover opacity-60 group-hover:scale-105 group-hover:opacity-80 transition-all duration-700"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent"></div>
                         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-black/40 backdrop-blur-sm">
                           <span className="font-body text-xs text-text-primary px-6 py-2 border border-white/20 rounded-full bg-white/5">View Service Details</span>
                         </div>
@@ -265,7 +276,7 @@ export default function Services() {
                     </AnimatedSection>
                   </div>
                   {idx < services.length - 1 && (
-                    <div className="w-full h-px bg-stroke/50 mt-24 md:mt-40"></div>
+                    <div className="w-full h-px bg-stroke/50 mt-16 md:mt-40"></div>
                   )}
                 </div>
               );

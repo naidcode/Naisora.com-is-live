@@ -55,8 +55,8 @@ export default function PricingCards() {
     <section className="py-24 md:py-32 border-t border-stroke bg-bg px-6">
       <div className="container mx-auto">
         <AnimatedSection>
-          <div className="text-center mb-16 md:mb-20">
-            <h2 className="text-4xl md:text-6xl font-display text-text-primary italic mb-6">
+          <div className="text-center mb-12 md:mb-20">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-display text-text-primary italic mb-4 md:mb-6">
               Clear Pricing. No Hidden Costs.
             </h2>
             <p className="text-sm md:text-base text-muted font-body max-w-xl mx-auto leading-relaxed">

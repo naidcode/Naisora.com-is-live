@@ -24,7 +24,7 @@ export default function About() {
   ];
 
   const milestones = [
-    { label: "Founded", value: "2023" },
+    { label: "Founded", value: "2026" },
     { label: "Projects", value: "30+" },
     { label: "Rating", value: "4.9★" },
     { label: "Success", value: "100%" }
@@ -33,7 +33,7 @@ export default function About() {
   return (
     <main className="min-h-screen bg-bg pt-32 md:pt-40 pb-24 overflow-hidden">
       {/* Hero Section */}
-      <section className="px-6 mb-32">
+      <section className="px-6 mb-20 md:mb-32">
         <div className="container max-w-5xl mx-auto text-center">
           <AnimatedSection>
             <div className="inline-flex items-center gap-3 mb-6">
@@ -41,7 +41,7 @@ export default function About() {
               <span className="text-[10px] text-muted tracking-[0.4em] uppercase font-body font-bold">The Naisora Story</span>
               <div className="w-8 h-px bg-stroke" />
             </div>
-            <h1 className="text-6xl md:text-8xl font-display text-text-primary leading-[1.05] mb-8 italic">
+            <h1 className="text-4xl sm:text-6xl md:text-8xl font-display text-text-primary leading-[1.05] mb-6 md:mb-8 italic">
               Building the future of <br /> <span className="italic">*dining*</span> in Bangalore.
             </h1>
             <p className="text-xl text-muted font-body leading-relaxed max-w-3xl mx-auto">
@@ -52,13 +52,13 @@ export default function About() {
       </section>
 
       {/* Stats/Milestones */}
-      <section className="px-6 mb-32">
+      <section className="px-6 mb-20 md:mb-32">
         <div className="container max-w-6xl mx-auto">
           <AnimatedSection delay={100}>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-16 border-y border-stroke">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 py-12 md:py-16 border-y border-stroke">
               {milestones.map((stat, i) => (
                 <div key={i} className="flex flex-col items-center gap-2 text-center">
-                  <span className="text-4xl md:text-6xl font-display italic text-text-primary tracking-tighter">{stat.value}</span>
+                  <span className="text-3xl sm:text-4xl md:text-6xl font-display italic text-text-primary tracking-tighter">{stat.value}</span>
                   <span className="text-[10px] text-muted uppercase tracking-[0.2em] font-bold">{stat.label}</span>
                 </div>
               ))}
@@ -68,25 +68,29 @@ export default function About() {
       </section>
 
       {/* Mission Section */}
-      <section className="px-6 mb-40">
+      <section className="px-6 mb-24 md:mb-40">
         <div className="container max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <AnimatedSection>
               <div className="relative aspect-[4/5] rounded-[40px] overflow-hidden border border-stroke group">
+                 <Image 
+                   src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000"
+                   alt="Naisora Agency Culture"
+                   fill
+                   className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-60"
+                 />
                  <div className="absolute inset-0 bg-accent-gradient opacity-10 group-hover:opacity-20 transition-opacity duration-700" />
                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-32 h-32 rounded-full border border-white/10 backdrop-blur-md flex items-center justify-center">
+                    <div className="w-32 h-32 rounded-full border border-white/10 backdrop-blur-md flex items-center justify-center z-10">
                        <Award className="w-12 h-12 text-text-primary/50" />
                     </div>
                  </div>
-                 {/* Placeholder for agency culture photo */}
-                 <div className="absolute inset-0 bg-surface/50 backdrop-blur-[2px]" />
               </div>
             </AnimatedSection>
 
             <div className="flex flex-col gap-8">
               <AnimatedSection delay={100}>
-                 <h2 className="text-4xl md:text-6xl font-display text-text-primary italic leading-tight">
+                 <h2 className="text-3xl sm:text-4xl md:text-6xl font-display text-text-primary italic leading-tight">
                    Our mission is to <br /> empower *local* icons.
                  </h2>
                  <p className="text-lg text-muted font-body leading-relaxed mt-6">
@@ -111,19 +115,21 @@ export default function About() {
       </section>
 
       {/* Founder Section */}
-      <section className="px-6 mb-40">
+      <section className="px-6 mb-24 md:mb-40">
         <div className="container max-w-7xl mx-auto">
-          <div className="bg-surface/30 backdrop-blur-sm border border-stroke rounded-[40px] p-8 md:p-20 relative overflow-hidden">
+          <div className="bg-surface/30 backdrop-blur-sm border border-stroke rounded-[32px] md:rounded-[40px] p-6 sm:p-8 md:p-20 relative overflow-hidden">
              <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-accent-gradient blur-[100px] opacity-[0.03] rounded-full translate-x-1/4 -translate-y-1/4" />
              
              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
                 <div className="lg:col-span-4">
                    <AnimatedSection>
                       <div className="relative aspect-square rounded-[32px] overflow-hidden border border-stroke group shadow-2xl">
-                         {/* Founder Image Placeholder */}
-                         <div className="absolute inset-0 bg-surface flex items-center justify-center">
-                            <Users className="w-16 h-16 text-muted/20" />
-                         </div>
+                         <Image 
+                           src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=1000"
+                           alt="Naisora Founder"
+                           fill
+                           className="object-cover transition-transform duration-700 group-hover:scale-110"
+                         />
                          <div className="absolute inset-0 bg-gradient-to-t from-bg/80 to-transparent" />
                       </div>
                    </AnimatedSection>
@@ -132,8 +138,8 @@ export default function About() {
                 <div className="lg:col-span-8 flex flex-col gap-6">
                    <AnimatedSection delay={100}>
                       <span className="text-[10px] text-muted tracking-[0.4em] uppercase font-body font-bold">Leading the Vision</span>
-                      <h3 className="text-4xl font-display text-text-primary italic">The Naisora Philosophy</h3>
-                      <p className="text-xl text-muted font-body leading-relaxed italic border-l border-stroke pl-8 my-8">
+                      <h3 className="text-3xl md:text-4xl font-display text-text-primary italic">The Naisora Philosophy</h3>
+                      <p className="text-lg md:text-xl text-muted font-body leading-relaxed italic border-l border-stroke pl-6 md:pl-8 my-6 md:my-8">
                          "Technology should feel invisible, yet its impact should be undeniable. We're not just making websites; we're crafting digital environments where Bangalore's best flavors can thrive."
                       </p>
                       <div className="flex flex-wrap gap-3">
@@ -152,15 +158,15 @@ export default function About() {
       <section className="px-6 pb-24">
         <div className="container max-w-7xl mx-auto">
           <AnimatedSection>
-            <div className="text-center mb-20">
-               <h2 className="text-4xl md:text-6xl font-display text-text-primary italic">Our Core <span className="italic">*values*</span></h2>
+            <div className="text-center mb-12 md:mb-20">
+               <h2 className="text-3xl sm:text-4xl md:text-6xl font-display text-text-primary italic">Our Core <span className="italic">*values*</span></h2>
             </div>
           </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
              {values.map((value, i) => (
                <AnimatedSection key={i} delay={i * 100}>
-                  <div className="group h-full p-10 bg-surface/30 border border-stroke rounded-[32px] hover:bg-surface/50 transition-all duration-500 hover:-translate-y-2">
+                  <div className="group h-full p-8 md:p-10 bg-surface/30 border border-stroke rounded-[24px] md:rounded-[32px] hover:bg-surface/50 transition-all duration-500 hover:-translate-y-2">
                      <div className="w-14 h-14 rounded-2xl bg-accent-gradient p-[1px] mb-8 group-hover:scale-110 transition-transform">
                         <div className="w-full h-full rounded-2xl bg-surface flex items-center justify-center">
                            <value.icon className="w-6 h-6 text-text-primary" />
