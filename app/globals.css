@@ -85,13 +85,20 @@ input:focus, textarea:focus {
   }
 }
 
+/* Spacing System */
 .section-padding {
   padding: 120px 0;
 }
 
+@media (max-width: 1024px) {
+  .section-padding {
+    padding: 70px 0; /* Reduced by ~40% for tablet */
+  }
+}
+
 @media (max-width: 768px) {
   .section-padding {
-    padding: 64px 0;
+    padding: 50px 0;
   }
 }
 
@@ -102,6 +109,31 @@ input:focus, textarea:focus {
 .max-w-md { max-width: 600px; }
 .max-w-lg { max-width: 900px; }
 .mx-auto { margin-left: auto; margin-right: auto; }
+
+/* Responsive Typography Overrides */
+@media (max-width: 1024px) {
+  .hero-h1 { font-size: 52px !important; }
+  .section-h2 { font-size: 38px !important; }
+}
+
+@media (max-width: 768px) {
+  .hero-h1 { font-size: 40px !important; }
+  .section-h2 { font-size: 30px !important; }
+  .card-h3 { font-size: 18px !important; }
+  
+  /* Mobile Button Scaling */
+  .btn-modern {
+    @apply px-5 py-3 text-sm w-full !important;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-h1 { font-size: 32px !important; }
+  .section-h2 { font-size: 26px !important; }
+}
 
 /* Flex/Grid Utilities */
 .flex { display: flex; }
@@ -190,25 +222,34 @@ input:focus, textarea:focus {
   color: var(--color-muted);
 }
 
-@media (max-width: 1280px) {
-  .hero-h1 { font-size: 64px; }
-}
 @media (max-width: 1024px) {
-  .hero-h1 { font-size: 56px; }
-  .section-h2 { font-size: 40px; }
+  .hero-h1 { font-size: 52px !important; }
+  .section-h2 { font-size: 38px !important; }
+  .card-h3 { font-size: 22px !important; }
 }
+
 @media (max-width: 768px) {
-  .hero-h1 { font-size: 42px; }
-  .section-h2 { font-size: 32px; }
+  .hero-h1 { font-size: 40px !important; }
+  .section-h2 { font-size: 30px !important; }
+  .card-h3 { font-size: 18px !important; }
+  
+  /* Mobile Button Scaling */
+  .btn-modern {
+    @apply px-5 py-3 text-sm w-full !important;
+    max-width: 280px; /* Reduced for 375px screens */
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
+
 @media (max-width: 480px) {
-  .hero-h1 { font-size: 36px; }
-  .section-h2 { font-size: 28px; }
+  .hero-h1 { font-size: 32px !important; }
+  .section-h2 { font-size: 26px !important; }
 }
 
 /* Modern Buttons */
 .btn-modern {
-  @apply relative inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full font-body font-semibold transition-all duration-500 overflow-hidden cursor-pointer active:scale-95;
+  @apply relative inline-flex items-center justify-center gap-3 px-6 py-3 md:px-8 md:py-4 rounded-full font-body font-semibold transition-all duration-500 overflow-hidden cursor-pointer active:scale-95;
 }
 
 .btn-modern-primary {

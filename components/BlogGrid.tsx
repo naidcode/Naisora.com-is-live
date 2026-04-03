@@ -86,7 +86,7 @@ const TiltBlogCard = ({ post, index }: { post: any; index: number }) => {
   );
 };
 
-export default function BlogGrid() {
+export default function BlogGrid({ limit }: { limit?: number }) {
   const posts = [
     { 
       slug: "why-your-restaurant-needs-a-website", 
@@ -138,9 +138,11 @@ export default function BlogGrid() {
     },
   ];
 
+  const displayedPosts = limit ? posts.slice(0, limit) : posts;
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
-      {posts.map((post, i) => (
+      {displayedPosts.map((post, i) => (
         <TiltBlogCard key={i} post={post} index={i} />
       ))}
     </div>

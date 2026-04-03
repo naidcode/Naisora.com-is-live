@@ -3,8 +3,9 @@ import ServiceCards from "@/components/ServiceCards";
 import ProjectGrid from "@/components/ProjectGrid";
 import TestimonialRow from "@/components/TestimonialRow";
 import Explorations from "@/components/Explorations";
+import BlogGrid from "@/components/BlogGrid";
 import FAQSection from "@/components/FAQSection";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
 export default function Home() {
@@ -36,6 +37,31 @@ export default function Home() {
       <ProjectGrid />
       <TestimonialRow />
       <Explorations />
+
+      {/* Latest Blog Section */}
+      <section className="section-padding px-6">
+        <div className="container max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-8">
+            <div className="max-w-2xl">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-8 h-px bg-stroke" />
+                <span className="text-[10px] text-muted tracking-[0.3em] uppercase font-body font-bold">Insights</span>
+              </div>
+              <h2 className="text-5xl md:text-7xl font-display text-text-primary leading-[1.1]">
+                Latest <span className="italic">*news*</span>
+              </h2>
+            </div>
+            <Link 
+              href="/blog" 
+              className="group flex items-center gap-2 text-sm font-body font-bold text-muted hover:text-text-primary transition-colors"
+            >
+              View All Articles <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            </Link>
+          </div>
+          <BlogGrid limit={3} />
+        </div>
+      </section>
+
       <FAQSection />
       
       {/* CTA Final Section */}

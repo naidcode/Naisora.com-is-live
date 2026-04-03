@@ -104,41 +104,41 @@ export default function Navbar() {
               />
               {/* Menu Card */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.95, y: -20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95, y: -20 }}
-                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                className="absolute top-full left-0 right-0 mt-4 p-4 bg-surface/95 border border-white/10 backdrop-blur-2xl rounded-[32px] flex flex-col gap-2 shadow-2xl z-[-1] min-w-[280px]"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+                className="fixed top-[88px] left-0 right-0 p-6 bg-surface border-b border-stroke shadow-2xl z-[100] flex flex-col gap-4 items-center justify-center pointer-events-auto"
               >
                 {NAV_LINKS.map((link, i) => (
                   <motion.div
                     key={link.href}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.05 }}
+                    className="w-full text-center"
                   >
                     <Link
                       href={link.href}
                       className={`
-                        text-2xl font-display italic px-6 py-4 rounded-2xl transition-all flex items-center justify-between group
-                        ${pathname === link.href ? "text-text-primary bg-white/5" : "text-muted hover:text-text-primary hover:bg-white/5"}
+                        block text-base font-body font-medium py-3.5 transition-all
+                        ${pathname === link.href ? "text-text-primary" : "text-muted hover:text-text-primary"}
                       `}
                     >
                       {link.name}
-                      <span className="text-[10px] opacity-0 group-hover:opacity-100 transition-opacity tracking-widest uppercase font-bold">view</span>
                     </Link>
                   </motion.div>
                 ))}
-                <div className="h-px bg-stroke/50 my-2 mx-6" />
+                <div className="w-full h-px bg-stroke/50 max-w-xs" />
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: NAV_LINKS.length * 0.05 }}
-                  className="px-2 pb-2"
+                  className="w-full max-w-xs pt-2"
                 >
                   <Link 
                     href="/contact" 
-                    className="btn-modern btn-modern-primary w-full py-5 text-lg"
+                    className="btn-modern btn-modern-primary w-full py-4 text-base"
                   >
                     Get Free Audit ↗
                   </Link>
