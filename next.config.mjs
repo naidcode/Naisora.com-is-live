@@ -5,8 +5,10 @@ const nextConfig = {
     unoptimized: true,
   },
   experimental: {
-    turbotrace: false,
+    turbotrace: {
+      logDetail: false,
+    },
   },
-}
+};
 
-module.exports = nextConfig
+export default nextConfig;
