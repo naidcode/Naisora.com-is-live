@@ -3,7 +3,7 @@ import ServiceCards from "@/components/ServiceCards";
 import ProjectGrid from "@/components/ProjectGrid";
 import TestimonialRow from "@/components/TestimonialRow";
 import Explorations from "@/components/Explorations";
-import BlogGrid from "@/components/BlogGrid";
+// import BlogGrid from "@/components/BlogGrid";
 import FAQSection from "@/components/FAQSection";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
@@ -58,7 +58,7 @@ export default function Home() {
               View All Articles <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </Link>
           </div>
-          <BlogGrid limit={3} />
+          {/* <BlogGrid limit={3} /> */}
         </div>
       </section>
 

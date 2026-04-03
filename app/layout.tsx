@@ -24,22 +24,33 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://naisora.com'),
   title: "Naisora | Bangalore's AI Web Agency for Restaurants & Cafes",
   description: "AI-powered web design agency based in Bangalore, India that builds websites for restaurants and cafes.",
+  keywords: ["Bangalore Web Design", "Restaurant Website Builder", "AI Automation for Restaurants", "Naisora Agency"],
   icons: {
     icon: "/branding-assets/naisora_icon.svg",
-    shortcut: "/branding-assets/naisora_icon.svg",
     apple: "/branding-assets/naisora_icon.svg",
   },
   openGraph: {
     title: "Naisora | Bangalore's AI Web Agency",
-    description: "AI-powered web design agency based in Bangalore, India that builds websites for restaurants and cafes.",
+    description: "AI-powered web design agency based in Bangalore, India that builds premium websites for restaurants and cafes.",
+    url: 'https://naisora.com',
+    siteName: 'Naisora Agency',
+    locale: 'en_US',
+    type: 'website',
     images: [{ 
       url: '/branding-assets/naisora_logo.svg',
       width: 1200,
       height: 630,
       alt: 'Naisora Agency Logo'
     }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Naisora | Bangalore's AI Web Agency",
+    description: "AI-powered web design agency for restaurants.",
+    images: ['/branding-assets/naisora_logo.svg'],
   },
 };
 

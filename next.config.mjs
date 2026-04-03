@@ -5,5 +5,8 @@ const nextConfig = {
     unoptimized: true, // Required for static export to work without a Node.js server
   },
   trailingSlash: true, // Recommended for static hosting on Hostinger
+  experimental: {
+    turbotrace: false,
+  },
 };
 export default nextConfig;

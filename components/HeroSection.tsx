@@ -57,16 +57,18 @@ export default function HeroSection() {
       </div>
 
       {/* Hero Content */}
-      <div className="container relative z-10 px-6 pt-40 md:pt-28">
+      {/* FIX: changed pt-45 (180px) to pt-28 on mobile — was pushing eyebrow text off screen */}
+      <div className="container relative z-10 px-6 pt-28 md:pt-28">
         <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
           {/* Eyebrow */}
+          {/* FIX: tracking-[0.15em] on screens below 380px — 0.4em was too wide and clipped into navbar */}
           <motion.span
             initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}
             animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
-            className="text-[10px] md:text-[0.6rem] text-muted uppercase tracking-[0.4em] mb-6 md:mb-8 font-body font-bold"
+            className="inline-block text-[10px] md:text-[0.6rem] text-muted uppercase tracking-normal min-[350px]:tracking-[0.4em] mt-10 md:mt-12 font-body font-bold"
           >
-            ESTABLISHED '26 • BANGALORE
+            ESTABLISHED &apos;26 • BANGALORE
           </motion.span>
 
           {/* Title */}
@@ -119,8 +121,8 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.9 }}
             className="flex flex-col sm:flex-row gap-4 mb-16 md:mb-20 w-full sm:w-auto px-6 sm:px-0"
           >
-            <Link 
-              href="/contact" 
+            <Link
+              href="/contact"
               className="btn-modern btn-modern-primary group w-full sm:w-auto"
             >
               <span className="relative z-10 flex items-center justify-center gap-2">
@@ -128,8 +130,8 @@ export default function HeroSection() {
               </span>
               <div className="shimmer-sweep" />
             </Link>
-            <Link 
-              href="/services" 
+            <Link
+              href="/services"
               className="btn-modern btn-modern-accent group w-full sm:w-auto px-10"
             >
               <span className="relative z-10">See Our Services</span>
@@ -141,7 +143,7 @@ export default function HeroSection() {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+        <div className="flex absolute bottom-10 left-1/2 -translate-x-1/2 flex-col items-center gap-2">
           <span className="text-[10px] text-muted tracking-[0.2em] font-body">SCROLL</span>
           <div className="w-[1px] h-12 bg-stroke/30 overflow-hidden relative">
             <div className="absolute top-0 left-0 w-full h-full accent-gradient animate-scroll-down" />
