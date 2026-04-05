@@ -6,6 +6,7 @@ import GlobalSpotlight from "@/components/GlobalSpotlight";
 import Preloader from "@/components/Preloader";
 import SmoothScroll from "@/components/SmoothScroll";
 import Link from "next/link";
+import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({ 
@@ -62,6 +63,19 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${instrumentSerif.variable} dark`}>
       <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-FZHCKHW5D3"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-FZHCKHW5D3');
+          `}
+        </Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
