@@ -1,0 +1,196 @@
+﻿  Γû▓ Next.js 14.2.3
+  - Environments: .env.local
+  - Experiments (use with caution):
+    ┬╖ turbotrace
+
+   Creating an optimized production build ...
+ Γ£ô Compiled successfully
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/19) ...
+   Generating static pages (4/19) 
+   Generating static pages (9/19) 
+   Generating static pages (14/19) 
+ Γ£ô Generating static pages (19/19)
+   Finalizing page optimization ...
+   Collecting build traces ...
+[91merror[0m -
+  [analysis]
+    [1m... [242 paths] are hidden, run with [92m--show-all[39m to show them[0m
+  [load]
+    [94m[context directory]/[39m
+      [1mReading source code for parsing failed[0m
+      An unexpected error happened while trying to read the source code to parse: Invalid file type Directory
+      
+      Debug info:
+      - Execution of <FileSource as Asset>::content failed
+      - Invalid file type Directory
+
+  [resolve]
+    [94m[context directory]/app/about/page.tsx[39m
+      [1mModule not found[0m: Can't resolve '[34mlucide-react[39m'
+      
+      
+
+      [1mModule not found[0m: Can't resolve '[34mtypescript[39m'
+      
+      
+
+    [94m[context directory]/app/api/contact/route.ts[39m
+      [1mModule not found[0m: Can't resolve '[34mtypescript[39m'
+      
+      
+
+    [94m[context directory]/app/blog/[slug]/page.tsx[39m
+      [1mModule not found[0m: Can't resolve '[34mlucide-react[39m'
+      
+      
+
+      [1mModule not found[0m: Can't resolve '[34mtypescript[39m'
+      
+      
+
+    [1m... [1507 more paths] are hidden, run with [92m--show-all[39m to show all[0m
+done in 41s (41s compilation, 41s task execution, 846891 tasks)
+[91merror[0m - [resolve]
+  [1m... [2 paths] are hidden, run with [92m--show-all[39m to show them[0m
+done in 7951ms (7837ms compilation, 7833ms task execution, 44329 tasks)
+[91merror[0m - [resolve]
+  [94m[context directory]/client/components/react-dev-overlay/internal/helpers/getRawSourceMap.js[39m
+    [context directory]/client/components/react-dev-overlay/internal/helpers/getRawSourceMap.js:11:33  [1mModule not found[0m: Can't resolve '[34m@swc/helpers/_/_interop_require_default[39m'
+    
+    [2m     7 |     get: function() {[0m
+    [2m     8 |         return getRawSourceMap;[0m
+    [2m     9 |     }[0m
+    [2m    10 | });[0m
+           + [1m                                 v------------------------------------------------v[0m
+        11 + [2mconst _interop_require_default = [0m[1mrequire("@swc/helpers/_/_interop_require_default")[0m[2m;[0m
+           + [1m                                 ^------------------------------------------------^[0m
+    [2m    12 | const _datauritobuffer = /*#__PURE__*/ _interop_require_default._(require("next/dist/compiled/data-uri-to-buffer"));[0m
+    [2m    13 | const _getSourceMapUrl = require("./getSourceMapUrl");[0m
+    [2m    14 | function getRawSourceMap(fileContents) {[0m
+    [2m    15 |     const sourceUrl = (0, _getSourceMapUrl.getSourceMapUrl)(fileContents);[0m
+    
+    
+
+    [context directory]/client/components/react-dev-overlay/internal/helpers/getRawSourceMap.js:12:66  [1mModule not found[0m: Can't resolve '[34mnext/dist/compiled/data-uri-to-buffer[39m'
+    
+    [2m     8 |         return getRawSourceMap;[0m
+    [2m     9 |     }[0m
+    [2m    10 | });[0m
+    [2m    11 | const _interop_require_default = require("@swc/helpers/_/_interop_require_default");[0m
+           + [1m                                                                  v----------------------------------------------v[0m
+        12 + [2mconst _datauritobuffer = /*#__PURE__*/ _interop_require_default._([0m[1mrequire("next/dist/compiled/data-uri-to-buffer")[0m[2m);[0m
+           + [1m                                                                  ^----------------------------------------------^[0m
+    [2m    13 | const _getSourceMapUrl = require("./getSourceMapUrl");[0m
+    [2m    14 | function getRawSourceMap(fileContents) {[0m
+    [2m    15 |     const sourceUrl = (0, _getSourceMapUrl.getSourceMapUrl)(fileContents);[0m
+    [2m    16 |     if (!(sourceUrl == null ? void 0 : sourceUrl.startsWith("data:"))) {[0m
+    
+    
+
+  [94m[context directory]/client/components/react-dev-overlay/internal/helpers/launchEditor.js[39m
+    [context directory]/client/components/react-dev-overlay/internal/helpers/launchEditor.js:33:33  [1mModule not found[0m: Can't resolve '[34m@swc/helpers/_/_interop_require_default[39m'
+    
+    [2m    29 |     get: function() {[0m
+    [2m    30 |         return launchEditor;[0m
+    [2m    31 |     }[0m
+    [2m    32 | });[0m
+           + [1m                                 v------------------------------------------------v[0m
+        33 + [2mconst _interop_require_default = [0m[1mrequire("@swc/helpers/_/_interop_require_default")[0m[2m;[0m
+           + [1m                                 ^------------------------------------------------^[0m
+    [2m    34 | const _picocolors = require("../../../../../lib/picocolors");[0m
+    [2m    35 | const _child_process = /*#__PURE__*/ _interop_require_default._(require("child_process"));[0m
+    [2m    36 | const _fs = /*#__PURE__*/ _interop_require_default._(require("fs"));[0m
+    [2m    37 | const _os = /*#__PURE__*/ _interop_require_default._(require("os"));[0m
+    
+    
+
+    [context directory]/client/components/react-dev-overlay/internal/helpers/launchEditor.js:39:61  [1mModule not found[0m: Can't resolve '[34mnext/dist/compiled/shell-quote[39m'
+    
+    [2m    35 | const _child_process = /*#__PURE__*/ _interop_require_default._(require("child_process"));[0m
+    [2m    36 | const _fs = /*#__PURE__*/ _interop_require_default._(require("fs"));[0m
+    [2m    37 | const _os = /*#__PURE__*/ _interop_require_default._(require("os"));[0m
+    [2m    38 | const _path = /*#__PURE__*/ _interop_require_default._(require("path"));[0m
+           + [1m                                                             v---------------------------------------v[0m
+        39 + [2mconst _shellquote = /*#__PURE__*/ _interop_require_default._([0m[1mrequire("next/dist/compiled/shell-quote")[0m[2m);[0m
+           + [1m                                                             ^---------------------------------------^[0m
+    [2m    40 | function isTerminalEditor(editor) {[0m
+    [2m    41 |     switch(editor){[0m
+    [2m    42 |         case "vi":[0m
+    [2m    43 |         case "vim":[0m
+    
+    
+
+  [94m[context directory]/client/components/react-dev-overlay/internal/helpers/nodeStackFrames.js[39m
+    [context directory]/client/components/react-dev-overlay/internal/helpers/nodeStackFrames.js:23:26  [1mModule not found[0m: Can't resolve '[34mnext/dist/compiled/stacktrace-parser[39m'
+    
+    [2m    19 |     getServerError: function() {[0m
+    [2m    20 |         return getServerError;[0m
+    [2m    21 |     }[0m
+    [2m    22 | });[0m
+           + [1m                          v---------------------------------------------v[0m
+        23 + [2mconst _stacktraceparser = [0m[1mrequire("next/dist/compiled/stacktrace-parser")[0m[2m;[0m
+           + [1m                          ^---------------------------------------------^[0m
+    [2m    24 | const _errorsource = require("../../../../../shared/lib/error-source");[0m
+    [2m    25 | function getFilesystemFrame(frame) {[0m
+    [2m    26 |     const f = {[0m
+    [2m    27 |         ...frame[0m
+    
+    
+
+  [1m... [27 more paths] are hidden, run with [92m--show-all[39m to show all[0m
+done in 2847ms (2743ms compilation, 2739ms task execution, 39284 tasks)
+[91merror[0m - [resolve] [94m[context directory]/compiled/next-server/server.runtime.prod.js[39m
+  [1mModule not found[0m: Can't resolve '[34mstyled-jsx/package.json[39m'
+  
+  
+
+  [1mModule not found[0m: Can't resolve '[34mstyled-jsx/style[39m'
+  
+  
+
+  [context directory]/compiled/next-server/server.runtime.prod.js:11:100696  [1mModule not found[0m: Can't resolve '[34mnext/dist/shared/lib/runtime-config.external.js[39m'
+  
+  [2m     7 |  * fresh[0m
+  [2m     8 |  * Copyright(c) 2012 TJ Holowaychuk[0m
+  [2m     9 |  * Copyright(c) 2016-2017 Douglas Christopher Wilson[0m
+  [2m    10 |  * MIT Licensed[0m
+         + [1m                                                                                                                                                                                                        v--------------------------------------------------------v[0m
+      11 + [2m */var t=/(?:^|,)\s*?no-cache\s*?(?:,|$)/;function r(e){var t=e&&Date.parse(e);return"number"==typ...ed marker")}return{interceptingRoute:t,interceptedRoute:s}}(e).interceptedRoute),ej.test(e)}let eZ=[0m[1mrequire("next/dist/shared/lib/runtime-config.external.js")[0m[2m;function e$(e){return/Googlebot|Mediapartners-Google|AdsBot-Google|googleweblight|Storebot-Google...xtends Error{constructor(){super(`The request.page has been deprecated in favour of \`URLPattern\`.[0m
+         + [1m                                                                                                                                                                                                        ^--------------------------------------------------------^[0m
+  [2m    12 |   Read more: https://nextjs.org/docs/messages/middleware-request-page[0m
+  [2m    13 |   `)}}class e5 extends Error{constructor(){super(`The request.ua has been removed in favour of \`userAgent\` function.[0m
+  [2m    14 |   Read more: https://nextjs.org/docs/messages/middleware-parse-user-agent[0m
+  [2m    15 |   `)}}var e7=r("./dist/esm/server/web/spec-extension/cookies.js");let te=Symbol("internal request"...r page without a custom /404 page. This prevents the 404 page from being auto statically optimized.[0m
+  
+  
+
+  [1m... [12 more issues] are hidden, run with [92m--show-all[39m to show all[0m
+done in 572ms (463ms compilation, 462ms task execution, 2414 tasks)
+
+Route (app)                                      Size     First Load JS
+Γöî Γùï /                                            54.9 kB         353 kB
+Γö£ Γùï /_not-found                                  871 B            88 kB
+Γö£ Γùï /about                                       4.33 kB        96.6 kB
+Γö£ ╞Æ /api/contact                                 0 B                0 B
+Γö£ Γùï /blog                                        3.45 kB         102 kB
+Γö£ ΓùÅ /blog/[slug]                                 505 B          99.5 kB
+Γö£   Γö£ /blog/why-your-restaurant-needs-a-website
+Γö£   Γö£ /blog/how-to-rank-on-google-maps
+Γö£   Γö£ /blog/ai-whatsapp-automation
+Γö£   Γöö [+5 more paths]
+Γö£ Γùï /contact                                     4.78 kB         133 kB
+Γö£ Γùï /robots.txt                                  0 B                0 B
+Γö£ Γùï /services                                    5.91 kB         148 kB
+Γöö Γùï /sitemap.xml                                 0 B                0 B
++ First Load JS shared by all                    87.1 kB
+  Γö£ chunks/23-65acef6c9995cc48.js                31.6 kB
+  Γö£ chunks/fd9d1056-00bb33a35b5f8051.js          53.6 kB
+  Γöö other shared chunks (total)                  1.95 kB
+
+
+Γùï  (Static)   prerendered as static content
+ΓùÅ  (SSG)      prerendered as static HTML (uses getStaticProps)
+╞Æ  (Dynamic)  server-rendered on demand
+

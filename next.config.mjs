@@ -4,11 +4,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  experimental: {
-    turbotrace: {
-      logDetail: false,
-    },
-  },
 };
 
 export default nextConfig;
