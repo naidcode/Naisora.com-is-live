@@ -63,6 +63,18 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${instrumentSerif.variable} dark`}>
       <head>
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FZHCKHW5D3"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-FZHCKHW5D3');
+            `,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -86,20 +98,6 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-bg text-text-primary font-body">
-        {/* Google Tag Manager / Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-FZHCKHW5D3"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-FZHCKHW5D3');
-          `}
-        </Script>
 
         <Preloader />
         <SmoothScroll />
