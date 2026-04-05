@@ -3,6 +3,7 @@ import React, { useRef, useState } from "react";
 import AnimatedSection from "./AnimatedSection";
 import Link from "next/link";
 import Image from "next/image";
+import { BLOG_POSTS } from "@/lib/blog-posts";
 import { ArrowUpRight, Clock } from "lucide-react";
 
 const TiltBlogCard = ({ post, index }: { post: any; index: number }) => {
@@ -87,56 +88,7 @@ const TiltBlogCard = ({ post, index }: { post: any; index: number }) => {
 };
 
 export default function BlogGrid({ limit }: { limit?: number }) {
-  const posts = [
-    { 
-      slug: "why-your-restaurant-needs-a-website", 
-      cat: "WEBSITE TIPS", 
-      title: "Why Your Restaurant Needs a Website in 2025 (Not Just a Zomato Page)", 
-      time: "4 min", 
-      date: "Mar 20, 2025",
-      image: "/projects/mockup1.png"
-    },
-    { 
-      slug: "how-to-rank-on-google-maps", 
-      cat: "GOOGLE SEO", 
-      title: "How to Rank #1 on Google Maps for 'Restaurants Near Me' in Bangalore", 
-      time: "6 min", 
-      date: "Mar 15, 2025",
-      image: "/projects/mockup2.png"
-    },
-    { 
-      slug: "ai-whatsapp-automation", 
-      cat: "AUTOMATION", 
-      title: "How AI Can Reply to Your WhatsApp Orders While You're Cooking", 
-      time: "5 min", 
-      date: "Mar 10, 2025",
-      image: "/projects/mockup3.png"
-    },
-    { 
-      slug: "restaurant-website-essentials", 
-      cat: "WEBSITE TIPS", 
-      title: "The 7 Things Every Restaurant Website Must Have to Convert Visitors", 
-      time: "7 min", 
-      date: "Mar 05, 2025",
-      image: "/projects/mockup4.png"
-    },
-    { 
-      slug: "restaurant-logo-matters", 
-      cat: "BRANDING", 
-      title: "Why Your Restaurant Logo Matters More Than You Think", 
-      time: "3 min", 
-      date: "Feb 28, 2025",
-      image: "/projects/mockup2.png"
-    },
-    { 
-      slug: "competitor-not-on-google", 
-      cat: "GOOGLE SEO", 
-      title: "Competitor Not on Google? Here's How to Capture Their Customers", 
-      time: "5 min", 
-      date: "Feb 20, 2025",
-      image: "/projects/mockup3.png"
-    },
-  ];
+  const posts = BLOG_POSTS;
 
   const displayedPosts = limit ? posts.slice(0, limit) : posts;
 
