@@ -61,6 +61,29 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${instrumentSerif.variable} dark`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ProfessionalService",
+              "name": "Naisora",
+              "description": "AI-powered web design and SEO agency for restaurants and cafes in Bangalore",
+              "url": "https://naisora.com",
+              "email": "hello@naisora.com",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Bangalore",
+                "addressRegion": "Karnataka",
+                "addressCountry": "IN"
+              },
+              "areaServed": "Bangalore",
+              "serviceType": "Web Design and SEO for Restaurants"
+            })
+          }}
+        />
+      </head>
       <body className="bg-bg text-text-primary font-body">
         <Preloader />
         <SmoothScroll />
