@@ -40,7 +40,7 @@ export function Logo({ className = "", variant = "icon" }: LogoProps) {
       
       {/* Full Wordmark - Exact pixel-perfect recreation of provided design */}
       <div className="hidden xs:flex items-center">
-        <h1 className="text-white font-body font-black text-2xl tracking-tighter uppercase leading-none selection:bg-white selection:text-black">
+        <span className="text-white font-body font-black text-2xl tracking-tighter uppercase leading-none selection:bg-white selection:text-black">
           N
           <span className="relative inline-block mx-px">
             A
@@ -51,7 +51,7 @@ export function Logo({ className = "", variant = "icon" }: LogoProps) {
             />
           </span>
           I S O R A
-        </h1>
+        </span>
       </div>
     </div>
   );
