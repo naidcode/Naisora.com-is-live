@@ -67,7 +67,7 @@ const TiltBlogCard = ({ post, index }: { post: any; index: number }) => {
             </h3>
 
             <p className="text-sm text-muted font-body leading-relaxed line-clamp-2 md:line-clamp-3 mb-8">
-              Discover why thousands of restaurant owners are switching to custom-built websites to drive more direct bookings and eliminate third-party commission fees.
+              {post.metaDesc}
             </p>
 
             <div className="mt-auto pt-6 border-t border-stroke flex items-center justify-between">

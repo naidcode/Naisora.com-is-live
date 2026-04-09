@@ -5,40 +5,7 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-const ENTRIES = [
-  {
-    slug: "ai-whatsapp-automation",
-    title: "How AI is transforming restaurant bookings in Bangalore",
-    category: "Insights",
-    date: "March 28, 2024",
-    readTime: "5 min read",
-    img: "/projects/mockup1.png",
-  },
-  {
-    slug: "spice-garden-case-study",
-    title: "Case Study: Spice Garden's 40% growth in direct orders",
-    category: "Success Story",
-    date: "March 22, 2024",
-    readTime: "8 min read",
-    img: "/projects/mockup3.png",
-  },
-  {
-    slug: "hidden-cost-delivery-apps",
-    title: "The hidden cost of relying on food delivery apps",
-    category: "Business",
-    date: "March 15, 2024",
-    readTime: "6 min read",
-    img: "/projects/mockup2.png",
-  },
-  {
-    slug: "restaurant-website-essentials",
-    title: "5 Web design trends for cafes in 2024",
-    category: "Design",
-    date: "March 10, 2024",
-    readTime: "4 min read",
-    img: "/projects/mockup4.png",
-  },
-];
+import { BLOG_POSTS } from "@/lib/blog-posts";
 
 const BlogEntry = ({ entry, index }: { entry: any; index: number }) => {
   return (
@@ -55,7 +22,7 @@ const BlogEntry = ({ entry, index }: { entry: any; index: number }) => {
         {/* Thumbnail */}
         <div className="relative w-full md:w-24 h-40 md:h-24 rounded-[20px] md:rounded-full overflow-hidden flex-shrink-0">
           <Image
-            src={entry.img}
+            src={entry.image}
             alt={entry.title}
             fill
             className="object-cover group-hover:scale-110 transition-transform duration-500"
@@ -66,7 +33,7 @@ const BlogEntry = ({ entry, index }: { entry: any; index: number }) => {
         <div className="flex-grow flex flex-col md:flex-row md:items-center justify-between gap-4 md:pr-8">
           <div className="flex flex-col gap-1">
             <span className="text-[10px] text-muted tracking-[0.2em] uppercase font-body font-bold">
-              {entry.category} — {entry.date}
+              {entry.cat} — {entry.date}
             </span>
             <h3 className="text-xl md:text-2xl font-display italic text-text-primary group-hover:text-white transition-colors">
               {entry.title}
@@ -74,7 +41,7 @@ const BlogEntry = ({ entry, index }: { entry: any; index: number }) => {
           </div>
           
           <div className="flex items-center gap-6">
-            <span className="text-xs text-muted font-body whitespace-nowrap">{entry.readTime}</span>
+            <span className="text-xs text-muted font-body whitespace-nowrap">{entry.time} read</span>
             <div className="w-10 h-10 rounded-full border border-stroke flex items-center justify-center group-hover:bg-text-primary group-hover:border-text-primary transition-all duration-500">
               <ArrowRight className="w-4 h-4 text-text-primary group-hover:text-bg transition-colors" />
             </div>
@@ -120,7 +87,7 @@ export default function TestimonialRow() {
 
         {/* List of Entries */}
         <div className="flex flex-col gap-4">
-          {ENTRIES.map((entry, i) => (
+          {BLOG_POSTS.map((entry, i) => (
             <BlogEntry key={i} entry={entry} index={i} />
           ))}
         </div>

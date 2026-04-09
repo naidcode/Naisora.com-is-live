@@ -2,23 +2,25 @@ import Image from "next/image";
 import Link from "next/link";
 import AnimatedSection from "@/components/AnimatedSection";
 import { ArrowLeft, Clock, Calendar, User, Share2 } from "lucide-react";
+import { Metadata } from 'next';
 
 import { BLOG_POSTS } from "@/lib/blog-posts";
+import BlogContent from "@/components/BlogContent";
 
-const RECENT_POSTS = [
-  {
-    slug: "how-to-rank-on-google-maps",
-    title: "How to Rank #1 on Google Maps for 'Restaurants Near Me' in Bangalore",
-    date: "Mar 15, 2026",
-    image: "/projects/mockup2.png",
-  },
-  {
-    slug: "ai-whatsapp-automation",
-    title: "How AI Can Reply to Your WhatsApp Orders While You're Cooking",
-    date: "Mar 10, 2026",
-    image: "/projects/mockup3.png",
-  },
-];
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const post = BLOG_POSTS.find((p) => p.slug === params.slug);
+  if (!post) return { title: "Blog Post Not Found" };
+
+  return {
+    title: `${post.title} | Naisora Blog`,
+    description: post.metaDesc,
+    openGraph: {
+      title: post.title,
+      description: post.metaDesc,
+      images: [post.image],
+    },
+  };
+}
 
 export async function generateStaticParams() {
   return BLOG_POSTS.map((post) => ({
@@ -28,7 +30,18 @@ export async function generateStaticParams() {
 
 export default function BlogPost({ params }: { params: { slug: string } }) {
   const { slug } = params;
-  const post = BLOG_POSTS.find((p) => p.slug === slug) || BLOG_POSTS[0];
+  const post = BLOG_POSTS.find((p) => p.slug === slug);
+
+  if (!post) {
+    return (
+      <main className="min-h-screen bg-bg pt-32 pb-24 text-center">
+        <h1 className="text-4xl font-display text-text-primary">Post not found</h1>
+        <Link href="/blog" className="text-muted hover:text-text-primary mt-8 inline-block">Back to blog</Link>
+      </main>
+    );
+  }
+
+  const recentPosts = BLOG_POSTS.filter(p => p.slug !== slug).slice(0, 2);
 
   return (
     <main className="min-h-screen bg-bg pt-32 pb-24">
@@ -61,7 +74,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
               </div>
             </div>
 
-            <h1 className="text-4xl md:text-6xl font-display text-text-primary leading-[1.1] italic">
+            <h1 className="text-4xl md:text-7xl font-display text-text-primary leading-[1.05] italic">
               {post.title}
             </h1>
 
@@ -76,7 +89,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
                   <span className="text-sm font-body font-bold text-text-primary">
                     {post.author}
                   </span>
-                  <span className="text-xs text-muted">Editorial Team</span>
+                  <span className="text-xs text-muted">Core Development Team</span>
                 </div>
               </div>
               <button className="p-3 rounded-full border border-stroke text-muted hover:text-text-primary hover:border-text-primary transition-all">
@@ -89,122 +102,62 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
         {/* Featured Image */}
         <AnimatedSection delay={200}>
           <div className="relative aspect-[16/9] w-full rounded-[40px] overflow-hidden border border-stroke mb-16">
-            <div className="absolute inset-0 bg-surface animate-pulse" />
             <Image
               src={post.image}
               alt={post.title}
               fill
+              priority
               className="object-cover"
             />
           </div>
         </AnimatedSection>
 
-        {/* Content */}
+        {/* Dynamic Content */}
         <AnimatedSection delay={300}>
-          <div className="prose prose-invert prose-lg max-w-none font-body text-muted leading-relaxed space-y-8">
-            <p className="text-xl text-text-primary/90 font-medium leading-relaxed italic">
-              In the heart of Bangalore&apos;s bustling food scene, staying ahead
-              isn&apos;t just about the flavor anymore — it&apos;s about the
-              digital footprint.
-            </p>
-
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-              ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-              aliquip ex ea commodo consequat.
-            </p>
-
-            <h2 className="text-3xl font-display text-text-primary italic mt-12 mb-6">
-              The Digital Shift in 2026
-            </h2>
-            <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, sunt in culpa qui officia deserunt mollit
-              anim id est laborum.
-            </p>
-
-            <div className="bg-surface/50 border border-stroke p-8 rounded-[32px] my-12">
-              <h3 className="text-xl font-display text-text-primary mb-4 italic">
-                Key Takeaways:
-              </h3>
-              <ul className="space-y-4 text-sm md:text-base list-none p-0">
-                <li className="flex gap-3">
-                  <span className="text-text-primary">•</span> Direct orders
-                  bypass high commission fees from third-party apps.
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-text-primary">•</span> A custom website
-                  builds stronger brand loyalty and customer data.
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-text-primary">•</span> AI automation
-                  reduces the manual burden on your staff.
-                </li>
-              </ul>
-            </div>
-
-            <p>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae ab illo inventore veritatis et quasi architecto beatae vitae
-              dicta sunt explicabo.
-            </p>
-
-            <blockquote className="border-l-2 border-text-primary pl-8 py-4 italic text-2xl font-display text-text-primary my-12">
-              &quot;A website is the only piece of digital real estate you truly own.
-              Everything else is just rented space.&quot;
-            </blockquote>
-
-            <p>
-              Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-              aut fugit, sed quia consequuntur magni dolores eos qui ratione
-              voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem
-              ipsum quia dolor sit amet, consectetur, adipisci velit.
-            </p>
-          </div>
+           <BlogContent content={post.content} />
         </AnimatedSection>
 
         {/* Recent Posts Section */}
-        <div className="mt-32 pt-16 border-t border-stroke">
-          <AnimatedSection>
-            <div className="flex items-center justify-between mb-12">
-              <h2 className="text-3xl md:text-5xl font-display text-text-primary italic">
-                Recent <span className="italic">*posts*</span>
-              </h2>
-              <Link
-                href="/blog"
-                className="text-sm font-body font-bold text-muted hover:text-text-primary transition-colors underline underline-offset-8"
-              >
-                View All
-              </Link>
-            </div>
-          </AnimatedSection>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {RECENT_POSTS.map((rp, i) => (
-              <AnimatedSection key={rp.slug} delay={i * 100}>
-                <Link href={`/blog/${rp.slug}`} className="group block">
-                  <div className="relative aspect-[16/10] rounded-[32px] overflow-hidden border border-stroke mb-6">
-                    <Image
-                      src={rp.image}
-                      alt={rp.title}
-                      fill
-                      className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
-                    />
-                  </div>
-                  <span className="text-[10px] text-muted tracking-widest uppercase font-bold mb-3 block">
-                    {rp.date}
-                  </span>
-                  <h3 className="text-xl font-display text-text-primary group-hover:text-white transition-colors italic leading-snug">
-                    {rp.title}
-                  </h3>
+        {recentPosts.length > 0 && (
+          <div className="mt-32 pt-16 border-t border-stroke">
+            <AnimatedSection>
+              <div className="flex items-center justify-between mb-12">
+                <h2 className="text-3xl md:text-5xl font-display text-text-primary italic">
+                  Recent <span className="italic">*posts*</span>
+                </h2>
+                <Link
+                  href="/blog"
+                  className="text-sm font-body font-bold text-muted hover:text-text-primary transition-colors underline underline-offset-8"
+                >
+                  View All
                 </Link>
-              </AnimatedSection>
-            ))}
+              </div>
+            </AnimatedSection>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {recentPosts.map((rp, i) => (
+                <AnimatedSection key={rp.slug} delay={i * 100}>
+                  <Link href={`/blog/${rp.slug}`} className="group block">
+                    <div className="relative aspect-[16/10] rounded-[32px] overflow-hidden border border-stroke mb-6">
+                      <Image
+                        src={rp.image}
+                        alt={rp.title}
+                        fill
+                        className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                      />
+                    </div>
+                    <span className="text-[10px] text-muted tracking-widest uppercase font-bold mb-3 block">
+                      {rp.date}
+                    </span>
+                    <h3 className="text-xl font-display text-text-primary group-hover:text-white transition-colors italic leading-snug">
+                      {rp.title}
+                    </h3>
+                  </Link>
+                </AnimatedSection>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </article>
     </main>
   );

@@ -94,10 +94,13 @@ export default function About() {
                    Our mission is to <br /> empower *local* icons.
                  </h2>
                  <p className="text-lg text-muted font-body leading-relaxed mt-6">
-                   Every legendary restaurant in Bangalore has a story worth telling. We believe that professional design and AI automation shouldn't just be for global chains. 
+                   Every legendary restaurant in Bangalore has a story worth telling. We believe that professional design and AI automation shouldn&apos;t just be for global chains. 
                  </p>
                  <p className="text-lg text-muted font-body leading-relaxed">
-                   We founded Naisora to give independent cafes and restaurants the tools they need to dominate their local search, automate their bookings, and grow their brand without limits.
+                   We founded Naisora to give independent cafes and restaurants the tools they need to dominate their local search, automate their bookings, and grow their brand without limits. 
+                 </p>
+                 <p className="text-lg text-muted font-body leading-relaxed">
+                   In a city like Bangalore, where the culinary scene is evolving at breakneck speed, standing out requires more than just good food. It requires a digital presence that captures the soul of your kitchen and the efficiency of modern technology. We help you bridge that gap.
                  </p>
                  
                  <div className="flex flex-col gap-4 mt-8">
@@ -111,6 +114,31 @@ export default function About() {
               </AnimatedSection>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Direct Growth Section (SEO Expansion) */}
+      <section className="px-6 mb-24 md:mb-40">
+        <div className="container max-w-5xl mx-auto">
+          <AnimatedSection>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-6xl font-display text-text-primary italic mb-8">Stop paying the <span className="italic">*commission tax.*</span></h2>
+              <div className="flex flex-col gap-6 text-lg text-muted font-body leading-relaxed text-left md:text-center max-w-4xl mx-auto">
+                <p>
+                  For too long, Bangalore&apos;s best restaurants have been held hostage by delivery platforms. When you pay 25-30% on every order, you aren&apos;t just losing profit—you&apos;re losing the direct relationship with your customers. Naisora was built to break this cycle. Our <strong>AI-driven restaurant growth strategies in Bangalore</strong> focus on driving direct traffic to your own platform.
+                </p>
+                <p>
+                  By optimizing your local SEO and building high-performance websites, we ensure that when a hungry customer searches for your cuisine in Indiranagar, Koramangala, or Whitefield, they find <em>you</em> first, not a middleman. We implement smart automation that handles bookings and inquiries instantly, providing a premium experience that keeps customers coming back to you directly.
+                </p>
+                <p>
+                  Beating delivery commission costs isn&apos;t just about having a website; it&apos;s about having a system that converts. Our AI tools analyze customer behavior and automate follow-ups, ensuring that every visitor to your site is guided toward a direct booking or order. This is how we achieve 40% average growth for our partners—by giving them back control of their revenue and their brand identity.
+                </p>
+                <p>
+                  In the competitive Bangalore market, efficiency is everything. Our AI agents handle the repetitive tasks—answering FAQ, confirming tables, responding to reviews—so your staff can focus on what they do best: creating incredible dining experiences. This holistic approach to <strong>restaurant automation</strong> is what sets Naisora apart as the leading growth partner for local dining icons.
+                </p>
+              </div>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 

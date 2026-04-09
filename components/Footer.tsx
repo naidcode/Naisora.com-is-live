@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import Hls from "hls.js";
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Instagram, Github, Twitter } from "lucide-react";
+import { Mail, Linkedin, Instagram, Github, Twitter, Facebook, Phone } from "lucide-react";
 import Link from "next/link";
 import { Logo } from "./Logo";
 
@@ -78,6 +78,18 @@ export default function Footer() {
               <div className="absolute inset-[-2px] accent-gradient rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="absolute inset-[1px] bg-bg rounded-full opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
             </a>
+
+            <a 
+              href="tel:+918050954832" 
+              className="mt-6 group relative inline-flex px-10 py-5 rounded-full text-lg font-semibold text-text-primary transition-all hover:scale-105"
+            >
+              <span className="relative z-10 flex items-center gap-3">
+                <Phone className="w-5 h-5" /> +91-80509-54832
+              </span>
+              <div className="absolute inset-0 border border-stroke rounded-full group-hover:opacity-0 transition-opacity" />
+              <div className="absolute inset-[-2px] accent-gradient rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute inset-[1px] bg-bg rounded-full opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
+            </a>
           </motion.div>
         </div>
 
@@ -88,11 +100,12 @@ export default function Footer() {
               <Logo variant="full" className="h-7" />
             </Link>
             <div className="flex items-center gap-6">
-              <Link href="/" className="text-muted hover:text-text-primary transition-colors"><Mail className="w-5 h-5" /></Link>
-              <Link href="/" className="text-muted hover:text-text-primary transition-colors"><Twitter className="w-5 h-5" /></Link>
-              <Link href="/" className="text-muted hover:text-text-primary transition-colors"><Linkedin className="w-5 h-5" /></Link>
-              <Link href="/" className="text-muted hover:text-text-primary transition-colors"><Instagram className="w-5 h-5" /></Link>
-              <Link href="/" className="text-muted hover:text-text-primary transition-colors"><Github className="w-5 h-5" /></Link>
+              <Link href="mailto:hello@naisora.com" className="text-muted hover:text-text-primary transition-colors"><Mail className="w-5 h-5" /></Link>
+              <Link href="https://facebook.com/naisora" className="text-muted hover:text-text-primary transition-colors" target="_blank"><Facebook className="w-5 h-5" /></Link>
+              <Link href="https://instagram.com/naisora" className="text-muted hover:text-text-primary transition-colors" target="_blank"><Instagram className="w-5 h-5" /></Link>
+              <Link href="https://linkedin.com/company/naisora" className="text-muted hover:text-text-primary transition-colors" target="_blank"><Linkedin className="w-5 h-5" /></Link>
+              <Link href="https://twitter.com/naisora" className="text-muted hover:text-text-primary transition-colors" target="_blank"><Twitter className="w-5 h-5" /></Link>
+              <Link href="https://github.com/naisora" className="text-muted hover:text-text-primary transition-colors" target="_blank"><Github className="w-5 h-5" /></Link>
             </div>
           </div>
 

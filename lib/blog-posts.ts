@@ -1,74 +1,110 @@
-export const BLOG_POSTS = [
+export interface BlogPost {
+  slug: string;
+  cat: string;
+  title: string;
+  time: string;
+  date: string;
+  author: string;
+  image: string;
+  metaDesc: string;
+  tags: string[];
+  content: string;
+}
+
+export const BLOG_POSTS: BlogPost[] = [
   {
-    slug: "why-your-restaurant-needs-a-website",
+    slug: "why-restaurants-need-website-bangalore-2026",
     cat: "WEBSITE TIPS",
-    title: "Why Your Restaurant Needs a Website in 2026 (Not Just a Zomato Page)",
-    time: "4 min",
-    date: "Mar 20, 2026",
-    author: "Naisora Team",
-    image: "/projects/mockup1.png",
-  },
-  {
-    slug: "how-to-rank-on-google-maps",
-    cat: "GOOGLE SEO",
-    title: "How to Rank #1 on Google Maps for 'Restaurants Near Me' in Bangalore",
-    time: "6 min",
-    date: "Mar 15, 2026",
-    author: "Naisora Team",
-    image: "/projects/mockup2.png",
-  },
-  {
-    slug: "ai-whatsapp-automation",
-    cat: "AUTOMATION",
-    title: "How AI Can Reply to Your WhatsApp Orders While You're Cooking",
+    title: "Why Every Restaurant in Bangalore Needs a Website in 2026 — Not Just a Zomato Page",
     time: "5 min",
-    date: "Mar 10, 2026",
+    date: "April 9, 2026",
     author: "Naisora Team",
-    image: "/projects/mockup3.png",
-  },
-  {
-    slug: "restaurant-website-essentials",
-    cat: "WEBSITE TIPS",
-    title: "The 7 Things Every Restaurant Website Must Have to Convert Visitors",
-    time: "7 min",
-    date: "Mar 05, 2026",
-    author: "Naisora Team",
-    image: "/projects/mockup4.png",
-  },
-  {
-    slug: "restaurant-logo-matters",
-    cat: "BRANDING",
-    title: "Why Your Restaurant Logo Matters More Than You Think",
-    time: "3 min",
-    date: "Feb 28, 2026",
-    author: "Naisora Team",
-    image: "/projects/mockup2.png",
-  },
-  {
-    slug: "competitor-not-on-google",
-    cat: "GOOGLE SEO",
-    title: "Competitor Not on Google? Here's How to Capture Their Customers",
-    time: "5 min",
-    date: "Feb 20, 2026",
-    author: "Naisora Team",
-    image: "/projects/mockup3.png",
-  },
-  {
-    slug: "spice-garden-case-study",
-    cat: "SUCCESS STORY",
-    title: "Case Study: How Spice Garden Got 40% More Direct Orders in 30 Days",
-    time: "8 min",
-    date: "Mar 22, 2026",
-    author: "Naisora Team",
-    image: "/projects/mockup1.png",
-  },
-  {
-    slug: "hidden-cost-delivery-apps",
-    cat: "BUSINESS",
-    title: "The Hidden Cost of Relying on Food Delivery Apps — And How to Fix It",
-    time: "6 min",
-    date: "Mar 15, 2026",
-    author: "Naisora Team",
-    image: "/projects/mockup2.png",
+    image: "/projects/restaurant-website.png",
+    metaDesc: "Still relying only on Zomato? Here is why Bangalore restaurants need their own website in 2026 to get direct orders and stop paying 30 percent commission.",
+    tags: ["restaurant website bangalore", "zomato alternative", "direct orders", "web design bangalore"],
+    content: `
+# Why Every Restaurant in Bangalore Needs a Website in 2026 — Not Just a Zomato Page
+
+Let's be honest — if someone in Indiranagar hears about your restaurant through a friend, the first thing they do is Google it. Not open Zomato. Not Instagram. Google.
+
+And if nothing shows up? They move on. Just like that.
+
+This is the quiet crisis happening across Bangalore's food scene right now. Brilliant restaurants with incredible food are losing customers every single day — simply because they don't have a proper **restaurant website in Bangalore** that represents them online.
+
+---
+
+## The Zomato Trap (Yes, It's a Real Thing)
+
+Zomato is great. We're not here to bash it. It brings in orders, it gives you visibility, and it's where a lot of Bangaloreans discover new places.
+
+But here's the problem — you don't own that space. Zomato owns it.
+
+Your reviews, your menu, your photos, your customer relationships — all of it lives on their platform, under their rules, with their commission eating into every order. One algorithm tweak and your visibility drops overnight.
+
+A restaurant in Koramangala that relies *only* on Zomato is essentially building a house on rented land. It looks fine until someone asks you to leave.
+
+---
+
+## What a Website Actually Does for Your Restaurant
+
+Think of your website as your restaurant's permanent home on the internet. It's where people land when they Google "best biryani near me in Whitefield" or "rooftop cafe HSR Layout."
+
+A well-built website with good **restaurant SEO in Bangalore** means you show up in those searches — without paying Zomato for the privilege.
+
+It also lets you tell your story your way. Your chef's background, your family recipe, why you started this place at 2 AM after a long shift dreaming of something better. That's the stuff that builds real connection, and Zomato gives you zero space for it.
+
+---
+
+## Why 2026 Is the Year This Actually Matters
+
+The Bangalore food scene has exploded. From Sarjapur Road cloud kitchens to heritage cafes in Basavanagudi, competition is fierce and diners have endless options.
+
+Customers in 2026 are also smarter. They check menus before they leave home. They want to see your ambience in photos before booking a table for a date night. They want to know if you take reservations, if you have parking, if there's a kids menu.
+
+If your website doesn't answer those questions in 30 seconds, they're going to the place that does.
+
+---
+
+## What Good Web Design for Restaurants Actually Looks Like
+
+This is where most restaurant owners feel overwhelmed — and understandably so. You're busy running a kitchen, managing staff, and keeping food quality consistent. Building a website feels like a whole other job.
+
+Good **web design for restaurants** isn't about flashy animations or complicated tech. It's about clarity, speed, and making it easy for a hungry person to find you, trust you, and visit you.
+
+That means a clean menu page, beautiful food photos, a click-to-call button, Google Maps integration, and a simple reservation or enquiry form. That's it. Nothing more complicated than that.
+
+---
+
+## This Is Exactly What Naisora Agency Does
+
+Naisora Agency is a Bangalore-based web design studio that works specifically with restaurants and food businesses. They understand the local market — from the way Bangaloreans search for food to what actually makes someone click "get directions."
+
+They build websites that don't just look good — they actually bring in customers through smart, local SEO built right into the foundation of the site.
+
+If you've been putting this off thinking it's too expensive or too complicated, it's worth having one conversation with them. Many restaurant owners are surprised how straightforward the process actually is.
+
+---
+
+## FAQ: Restaurant Websites in Bangalore
+
+**Q: Do I really need a website if I'm already on Zomato and Swiggy?**
+Yes — because your website is the only online space you fully own and control. Third-party platforms can change commissions, rankings, and rules at any time.
+
+**Q: How much does a restaurant website cost in Bangalore?**
+It varies depending on features, but a clean, professional restaurant website typically starts at a very reasonable range. Naisora Agency can give you a clear quote after a quick chat.
+
+**Q: Can a website actually help me rank on Google?**
+Absolutely. With proper restaurant SEO in Bangalore, your site can show up when locals search for food near them — that's free, ongoing traffic you don't pay per-click for.
+
+**Q: How long does it take to build a restaurant website?**
+A well-designed restaurant website can typically be live within 2–4 weeks, depending on how quickly content and photos are ready.
+
+**Q: What if I'm not tech-savvy at all?**
+That's exactly who Naisora Agency is built for. They handle everything — you just focus on the food.
+
+---
+
+*Hungry for more tips on growing your restaurant in Bangalore? Explore more from the Naisora blog.*
+    `,
   },
 ];
