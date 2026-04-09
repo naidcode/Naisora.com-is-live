@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Hls from "hls.js";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, LazyMotion, domAnimation, AnimatePresence } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import HeroStats from "./HeroStats";
@@ -18,15 +17,18 @@ export default function HeroSection() {
     if (!video) return;
 
     const hlsUrl = "https://stream.mux.com/Aa02T7oM1wH5Mk5EEVDYhbZ1ChcdhRsS2m1NYyx4Ua1g.m3u8";
-    let hls: Hls | null = null;
+    let hlsInstance: any = null;
 
-    if (Hls.isSupported()) {
-      hls = new Hls();
-      hls.loadSource(hlsUrl);
-      hls.attachMedia(video);
-    } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
-      video.src = hlsUrl;
-    }
+    import("hls.js").then((HlsModule) => {
+      const Hls = HlsModule.default;
+      if (Hls.isSupported()) {
+        hlsInstance = new Hls();
+        hlsInstance.loadSource(hlsUrl);
+        hlsInstance.attachMedia(video);
+      } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+        video.src = hlsUrl;
+      }
+    });
 
     const interval = setInterval(() => {
       setRoleIndex((prev) => (prev + 1) % ROLES.length);
@@ -34,13 +36,14 @@ export default function HeroSection() {
 
     return () => {
       clearInterval(interval);
-      if (hls) {
-        hls.destroy();
+      if (hlsInstance) {
+        hlsInstance.destroy();
       }
     };
   }, []);
 
   return (
+    <LazyMotion features={domAnimation}>
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-bg">
       {/* Background Video */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none">
@@ -62,27 +65,27 @@ export default function HeroSection() {
         <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
           {/* Eyebrow */}
           {/* FIX: tracking-[0.15em] on screens below 380px — 0.4em was too wide and clipped into navbar */}
-          <motion.span
+          <m.span
             initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}
             animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
             className="inline-block text-[10px] md:text-[0.6rem] text-muted uppercase tracking-normal min-[350px]:tracking-[0.4em] mt-10 md:mt-12 font-body font-bold"
           >
             {/* ESTABLISHED &apos;26 • BANGALORE */}
-          </motion.span>
+          </m.span>
 
           {/* Title */}
-          <motion.h1
+          <m.h1
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: [0.33, 1, 0.68, 1] }}
             className="text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] font-display italic leading-[0.9] md:leading-[0.85] tracking-tighter text-text-primary mb-6 md:mb-8 text-center"
           >
             Naisora Agency
-          </motion.h1>
+          </m.h1>
 
           {/* Role cycling */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
@@ -90,7 +93,7 @@ export default function HeroSection() {
           >
             We build{" "}
             <AnimatePresence mode="wait">
-              <motion.span
+              <m.span
                 key={ROLES[roleIndex]}
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -99,23 +102,23 @@ export default function HeroSection() {
                 className="font-display italic text-text-primary inline-block"
               >
                 {ROLES[roleIndex]}
-              </motion.span>
+              </m.span>
             </AnimatePresence>{" "}
             for local restaurants.
-          </motion.div>
+          </m.div>
 
           {/* Description */}
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
             className="text-sm md:text-base text-muted max-w-md md:max-w-lg mb-10 md:mb-12 font-body leading-relaxed px-4 md:px-0"
           >
             Designing seamless digital interactions by focusing on the unique nuances which bring systems to life and drive growth.
-          </motion.p>
+          </m.p>
 
           {/* CTA Buttons */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
@@ -137,7 +140,7 @@ export default function HeroSection() {
               <span className="relative z-10">See Our Services</span>
               <div className="shimmer-sweep" />
             </Link>
-          </motion.div>
+          </m.div>
 
           <HeroStats />
         </div>
@@ -151,5 +154,6 @@ export default function HeroSection() {
         </div>
       </div>
     </section>
+    </LazyMotion>
   );
 }

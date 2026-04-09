@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Hls from "hls.js";
-import { motion } from "framer-motion";
+import { m, LazyMotion, domAnimation } from "framer-motion";
 import { Mail, Linkedin, Instagram, Github, Twitter, Facebook, Phone } from "lucide-react";
 import Link from "next/link";
 import { Logo } from "./Logo";
@@ -26,6 +26,7 @@ export default function Footer() {
   }, []);
 
   return (
+    <LazyMotion features={domAnimation}>
     <footer className="relative bg-bg pt-24 pb-12 overflow-hidden border-t border-stroke">
       {/* Background Video (Flipped) */}
       <div className="absolute inset-0 z-0 opacity-20 select-none pointer-events-none">
@@ -44,7 +45,7 @@ export default function Footer() {
       <div className="container relative z-10 px-6 mx-auto">
         {/* Marquee Section */}
         <div className="mb-24 overflow-hidden py-4 border-y border-white/5">
-          <motion.div 
+          <m.div 
             initial={{ x: 0 }}
             animate={{ x: "-50%" }}
             transition={{ duration: 40, ease: "linear", repeat: Infinity }}
@@ -53,12 +54,12 @@ export default function Footer() {
             {[...Array(10)].map((_, i) => (
               <span key={i} className="mr-8">BUILDING THE FUTURE • </span>
             ))}
-          </motion.div>
+          </m.div>
         </div>
 
         {/* Main Footer Content */}
         <div className="flex flex-col items-center text-center mb-20">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -91,7 +92,7 @@ export default function Footer() {
               <div className="absolute inset-[1px] bg-bg rounded-full opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
             </a>
             <div className="mt-8 text-muted font-body font-medium">Bangalore, Karnataka, IN</div>
-          </motion.div>
+          </m.div>
         </div>
 
         {/* Bottom Bar */}
@@ -124,5 +125,6 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+    </LazyMotion>
   );
 }

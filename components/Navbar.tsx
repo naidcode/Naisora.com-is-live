@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, LazyMotion, domAnimation, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
 
@@ -32,8 +32,9 @@ export default function Navbar() {
   }, [pathname]);
 
   return (
+    <LazyMotion features={domAnimation}>
     <header className="fixed top-0 left-0 right-0 z-[100] flex justify-center pt-4 md:pt-6 px-4 pointer-events-none">
-      <motion.nav
+      <m.nav
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
@@ -103,7 +104,7 @@ export default function Navbar() {
           {isOpen && (
             <>
               {/* Backdrop */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -112,7 +113,7 @@ export default function Navbar() {
               />
               {/* Menu Card */}
               {/* Menu Card */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, scale: 0.95, y: -20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: -20 }}
@@ -120,7 +121,7 @@ export default function Navbar() {
                 className="fixed top-24 left-0 right-0 w-[220px] p-8 bg-[#111] border border-white/10 rounded-[30px] shadow-2xl z-[110] flex flex-col items-center gap-4 pointer-events-auto"
               >
                 {NAV_LINKS.map((link, i) => (
-                  <motion.div
+                  <m.div
                     key={link.href}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -136,12 +137,12 @@ export default function Navbar() {
                     >
                       {link.name}
                     </Link>
-                  </motion.div>
+                  </m.div>
                 ))}
                 
                 <div className="w-full h-px bg-white/5 my-2" />
                 
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: NAV_LINKS.length * 0.05 }}
@@ -153,12 +154,13 @@ export default function Navbar() {
                   >
                     Get Free Audit ↗
                   </Link>
-                </motion.div>
-              </motion.div>
+                </m.div>
+              </m.div>
             </>
           )}
         </AnimatePresence>
-      </motion.nav>
+      </m.nav>
     </header>
+    </LazyMotion>
   );
 }

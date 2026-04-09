@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { Inter, Instrument_Serif } from "next/font/google";
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import GlobalSpotlight from "@/components/GlobalSpotlight";
 import Preloader from "@/components/Preloader";
-import SmoothScroll from "@/components/SmoothScroll";
 import Link from "next/link";
+
+const GlobalSpotlight = dynamic(() => import("@/components/GlobalSpotlight"), { ssr: false });
+const SmoothScroll = dynamic(() => import("@/components/SmoothScroll"), { ssr: false });
 import Script from "next/script";
 import "./globals.css";
 
@@ -66,9 +68,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${instrumentSerif.variable} dark`}>
       <head>
-        {/* Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FZHCKHW5D3"></script>
-        <script
+        {/* Google Analytics - Eagerly loaded JS fixes */}
+        <Script 
+          src="https://www.googletagmanager.com/gtag/js?id=G-FZHCKHW5D3"
+          strategy="lazyOnload" 
+        />
+        <Script
+          id="google-analytics"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];

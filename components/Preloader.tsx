@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, LazyMotion, domAnimation, AnimatePresence } from "framer-motion";
 
 const WORDS = ["Design", "Create", "Inspire"];
 
@@ -46,7 +46,8 @@ export default function Preloader() {
   if (!isVisible) return null;
 
   return (
-    <motion.div
+    <LazyMotion features={domAnimation}>
+    <m.div
       initial={{ opacity: 1 }}
       animate={{ 
         opacity: isComplete ? 0 : 1,
@@ -56,19 +57,19 @@ export default function Preloader() {
       className="fixed inset-0 z-[9999] bg-[#050505] flex flex-col justify-between p-8 md:p-12"
     >
       {/* Top Left Label */}
-      <motion.div 
+      <m.div 
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
         className="text-[10px] md:text-xs text-muted/60 uppercase tracking-[0.3em] font-body"
       >
         Naisora Agency
-      </motion.div>
+      </m.div>
 
       {/* Center Rotating Words */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <AnimatePresence mode="wait">
-          <motion.div
+          <m.div
             key={WORDS[wordIndex]}
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -77,23 +78,23 @@ export default function Preloader() {
             className="text-4xl md:text-7xl lg:text-8xl font-display italic text-text-primary/80"
           >
             {WORDS[wordIndex]}
-          </motion.div>
+          </m.div>
         </AnimatePresence>
       </div>
 
       {/* Bottom Content */}
       <div className="flex flex-col gap-8">
         <div className="flex justify-end">
-          <motion.div 
+          <m.div 
             className="text-5xl md:text-9xl lg:text-[12rem] font-display text-text-primary tabular-nums tracking-tighter"
           >
             {String(count).padStart(3, "0")}
-          </motion.div>
+          </m.div>
         </div>
 
         {/* Progress Bar */}
         <div className="relative h-[2px] md:h-[3px] w-full bg-stroke/30 overflow-hidden">
-          <motion.div
+          <m.div
             className="absolute top-0 left-0 h-full accent-gradient shadow-[0_0_15px_rgba(137,170,204,0.4)]"
             initial={{ width: "0%" }}
             animate={{ width: `${count}%` }}
@@ -101,6 +102,7 @@ export default function Preloader() {
           />
         </div>
       </div>
-    </motion.div>
+    </m.div>
+    </LazyMotion>
   );
 }
