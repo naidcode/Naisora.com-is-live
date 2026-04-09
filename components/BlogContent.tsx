@@ -12,6 +12,7 @@ interface BlogContentProps {
 export default function BlogContent({ content }: BlogContentProps) {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [fontSize, setFontSize] = useState("regular"); // regular, large
+  const [fontStyle, setFontStyle] = useState("stylized"); // stylized, normal
 
   // Force dark mode on initial load if user has system preference? 
   // No, user said "add dark mode only in blog page", so let's default to dark to match the site.
@@ -34,6 +35,19 @@ export default function BlogContent({ content }: BlogContentProps) {
           >
             <Type className="w-4 h-4" />
             <span className="text-[10px] font-bold uppercase tracking-wider">{fontSize === "large" ? "Small" : "Large"} Font</span>
+          </button>
+
+          <button 
+            onClick={() => setFontStyle(prev => prev === "stylized" ? "normal" : "stylized")}
+            className={`flex items-center gap-2 px-3 py-2 rounded-lg border transition-all ${
+              fontStyle === "normal" 
+                ? (isDarkMode ? "bg-white text-bg border-white" : "bg-zinc-900 text-white border-zinc-900")
+                : (isDarkMode ? "border-stroke hover:bg-surface text-muted" : "border-zinc-200 hover:bg-zinc-100 text-zinc-600")
+            }`}
+            title="Toggle Normal Font"
+          >
+            <Type className="w-4 h-4" />
+            <span className="text-[10px] font-bold uppercase tracking-wider">{fontStyle === "stylized" ? "Normal" : "Stylized"} Font</span>
           </button>
           
           <button 
@@ -66,12 +80,12 @@ export default function BlogContent({ content }: BlogContentProps) {
         fontSize === "large" ? "prose-xl" : "prose-lg"
       } font-body leading-relaxed space-y-8`}>
         <ReactMarkdown remarkPlugins={[remarkGfm]} components={{
-            h1: ({node, ...props}) => <h1 className={`font-display italic mt-16 mb-8 ${isDarkMode ? "text-text-primary" : "text-zinc-950"} ${fontSize === "large" ? "text-5xl md:text-7xl" : "text-4xl md:text-6xl"}`} {...props} />,
-            h2: ({node, ...props}) => <h2 className={`font-display italic mt-12 mb-6 ${isDarkMode ? "text-text-primary" : "text-zinc-900"} ${fontSize === "large" ? "text-4xl" : "text-3xl"}`} {...props} />,
-            h3: ({node, ...props}) => <h3 className={`font-display italic mt-10 mb-4 ${isDarkMode ? "text-text-primary" : "text-zinc-800"} ${fontSize === "large" ? "text-3xl" : "text-2xl"}`} {...props} />,
+            h1: ({node, ...props}) => <h1 className={`${fontStyle === "stylized" ? "font-display italic" : "font-body font-bold"} mt-16 mb-8 ${isDarkMode ? "text-text-primary" : "text-zinc-950"} ${fontSize === "large" ? "text-5xl md:text-7xl" : "text-4xl md:text-6xl"}`} {...props} />,
+            h2: ({node, ...props}) => <h2 className={`${fontStyle === "stylized" ? "font-display italic" : "font-body font-bold"} mt-12 mb-6 ${isDarkMode ? "text-text-primary" : "text-zinc-900"} ${fontSize === "large" ? "text-4xl" : "text-3xl"}`} {...props} />,
+            h3: ({node, ...props}) => <h3 className={`${fontStyle === "stylized" ? "font-display italic" : "font-body font-bold"} mt-10 mb-4 ${isDarkMode ? "text-text-primary" : "text-zinc-800"} ${fontSize === "large" ? "text-3xl" : "text-2xl"}`} {...props} />,
             p: ({node, ...props}) => <p className={`mb-6 leading-loose ${isDarkMode ? "text-muted" : "text-zinc-700"} ${fontSize === "large" ? "text-xl md:text-2xl" : "text-base md:text-lg"}`} {...props} />,
             blockquote: ({node, ...props}) => (
-              <blockquote className={`border-l-4 border-accent pl-8 py-4 italic font-display my-12 ${isDarkMode ? "text-text-primary" : "text-zinc-900 bg-zinc-50 rounded-r-2xl"} ${fontSize === "large" ? "text-3xl" : "text-2xl"}`} {...props} />
+              <blockquote className={`border-l-4 border-accent pl-8 py-4 ${fontStyle === "stylized" ? "italic font-display" : "font-body"} my-12 ${isDarkMode ? "text-text-primary" : "text-zinc-900 bg-zinc-50 rounded-r-2xl"} ${fontSize === "large" ? "text-3xl" : "text-2xl"}`} {...props} />
             ),
             ul: ({node, ...props}) => <ul className="space-y-4 my-8 list-disc pl-6" {...props} />,
             li: ({node, ...props}) => <li className={`${isDarkMode ? "text-muted" : "text-zinc-700"} ${fontSize === "large" ? "text-xl" : "text-base"}`} {...props} />,

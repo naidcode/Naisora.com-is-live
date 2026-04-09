@@ -6,6 +6,7 @@ import { Metadata } from 'next';
 
 import { BLOG_POSTS } from "@/lib/blog-posts";
 import BlogContent from "@/components/BlogContent";
+import ShareButton from "@/components/ShareButton";
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const post = BLOG_POSTS.find((p) => p.slug === params.slug);
@@ -58,7 +59,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
         </AnimatedSection>
 
         {/* Header */}
-        <AnimatedSection delay={100}>
+        <AnimatedSection delay={100} className="relative z-50">
           <div className="flex flex-col gap-6 mb-12">
             <div className="flex items-center gap-4">
               <span className="px-3 py-1 bg-surface border border-stroke rounded-full text-[10px] text-muted tracking-widest uppercase font-bold">
@@ -92,9 +93,10 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
                   <span className="text-xs text-muted">Core Development Team</span>
                 </div>
               </div>
-              <button className="p-3 rounded-full border border-stroke text-muted hover:text-text-primary hover:border-text-primary transition-all">
-                <Share2 className="w-4 h-4" />
-              </button>
+              <ShareButton 
+                url={`https://naisora.com/blog/${slug}`}
+                title={post.title}
+              />
             </div>
           </div>
         </AnimatedSection>
