@@ -1,35 +1,27 @@
-name: 🚀 Deploy Website to Hostinger
+name: Deploy to Hostinger
 
 on:
   push:
     branches:
-      - main  # Set this to your default branch name
+      - main  # Deploy when you push to main branch
 
 jobs:
-  web-deploy:
-    name: 🎉 Deploy
+  deploy:
     runs-on: ubuntu-latest
+    
     steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v4
-
-    - name: 🔧 Use Node.js 20
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20'
-        cache: 'npm'
-
-    - name: 🔨 Install dependencies
-      run: npm install
-
-    - name: 🏗️ Build Project
-      run: npm run build
-
-    - name: 📂 Sync files (FTP)
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-      with:
-        server: 92.249.46.159
-        username: u321075500
-        password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./out/
-        server-dir: /public_html/
+      - uses: actions/checkout@v3
+      
+      - name: Run npm build
+        run: |
+          npm install
+          npm run build
+      
+      - name: Deploy to Hostinger via FTP
+        uses: SamKirkland/FTP-Deploy-Action@4.3.4
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./out/  # or ./build/ depending on your build output
+          server-dir: /public_html/  # or your site's root directory
