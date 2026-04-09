@@ -1,12 +1,14 @@
 import HeroSection from "@/components/HeroSection";
-import ServiceCards from "@/components/ServiceCards";
-import ProjectGrid from "@/components/ProjectGrid";
-import TestimonialRow from "@/components/TestimonialRow";
-import Explorations from "@/components/Explorations";
-import FAQSection from "@/components/FAQSection";
-import HowItWorks from "@/components/HowItWorks";
+import dynamic from "next/dynamic";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+
+const ServiceCards = dynamic(() => import("@/components/ServiceCards"));
+const ProjectGrid = dynamic(() => import("@/components/ProjectGrid"));
+const TestimonialRow = dynamic(() => import("@/components/TestimonialRow"));
+const Explorations = dynamic(() => import("@/components/Explorations"));
+const FAQSection = dynamic(() => import("@/components/FAQSection"));
+const HowItWorks = dynamic(() => import("@/components/HowItWorks"));
 
 export default function Home() {
   return (

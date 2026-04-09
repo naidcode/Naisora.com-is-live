@@ -68,6 +68,14 @@ export default function Navbar() {
 
         <div className="hidden md:block w-px h-5 bg-stroke mx-2 opacity-50" />
 
+        {/* Phone Link */}
+        <Link
+          href="tel:+917975219560"
+          className="hidden md:flex items-center text-xs sm:text-sm font-body font-semibold text-text-primary hover:text-white transition-colors px-3"
+        >
+          +91 7975219560
+        </Link>
+
         {/* Desktop CTA */}
         <Link 
           href="/contact" 

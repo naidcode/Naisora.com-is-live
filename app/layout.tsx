@@ -26,8 +26,11 @@ const instrumentSerif = Instrument_Serif({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://naisora.com'),
+  alternates: {
+    canonical: 'https://naisora.com',
+  },
   title: "Naisora | Bangalore's AI Web Agency for Restaurants & Cafes",
-  description: "AI-powered web design agency based in Bangalore, India that builds websites for restaurants and cafes.",
+  description: "Naisora is Bangalore’s premier AI web agency for restaurants. We specialize in high-speed, AI-powered websites that scale growth and reduce delivery commission costs.",
   keywords: ["Bangalore Web Design", "Restaurant Website Builder", "AI Automation for Restaurants", "Naisora Agency"],
   icons: {
     icon: "/branding-assets/naisora_icon.svg",
@@ -35,7 +38,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Naisora | Bangalore's AI Web Agency",
-    description: "AI-powered web design agency based in Bangalore, India that builds premium websites for restaurants and cafes.",
+    description: "Naisora is Bangalore’s premier AI web agency for restaurants. We specialize in high-speed, AI-powered websites that scale growth and reduce delivery commission costs.",
     url: 'https://naisora.com',
     siteName: 'Naisora Agency',
     locale: 'en_US',
