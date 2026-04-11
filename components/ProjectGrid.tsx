@@ -3,14 +3,24 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const PROJECTS = [
+  {
+    cat: "Restaurant",
+    title: "Fusion Hotel",
+    desc: "A boutique hotel website with a premium AI-driven experience and seamless booking integration.",
+    img: "/blog/modern_restaurant_ai_tech_1775913361651.png",
+    span: "md:col-span-12",
+    href: "https://restaurant-demo-site-1-cn1g-qm05y1lqk-naidcodes-projects.vercel.app",
+  },
   {
     cat: "Restaurant",
     title: "The Spice Garden",
     desc: "A premium website featuring a custom booking system and high-end culinary photography.",
     img: "/projects/mockup1.png",
     span: "md:col-span-7",
+    href: "#",
   },
   {
     cat: "Cafe",
@@ -18,6 +28,7 @@ const PROJECTS = [
     desc: "Modern cafe identity and website focused on community and quality beans.",
     img: "/projects/mockup2.png",
     span: "md:col-span-5",
+    href: "#",
   },
   {
     cat: "Restaurant",
@@ -25,6 +36,7 @@ const PROJECTS = [
     desc: "AI-driven menu and ordering system for a local favorite.",
     img: "/projects/mockup3.png",
     span: "md:col-span-5",
+    href: "#",
   },
   {
     cat: "Cafe",
@@ -32,18 +44,25 @@ const PROJECTS = [
     desc: "Visually stunning landing page for an artisan coffee roaster.",
     img: "/projects/mockup4.png",
     span: "md:col-span-7",
+    href: "#",
   },
 ];
 
 const ProjectCard = ({ project, index }: { project: any; index: number }) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: index * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-      viewport={{ once: true }}
+    <Link
+      href={project.href}
+      target={project.href.startsWith("http") ? "_blank" : undefined}
+      rel={project.href.startsWith("http") ? "noopener noreferrer" : undefined}
       className={`group relative overflow-hidden rounded-2xl md:rounded-3xl bg-surface border border-stroke aspect-[1.1/1] sm:aspect-video md:aspect-auto md:h-[450px] ${project.span}`}
     >
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: index * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+        viewport={{ once: true }}
+        className="size-full"
+      >
       {/* Background Image */}
       <Image
         src={project.img}
@@ -81,7 +100,8 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
           </div>
         </div>
       </div>
-    </motion.div>
+      </motion.div>
+    </Link>
   );
 };
 
