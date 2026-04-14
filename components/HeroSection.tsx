@@ -2,11 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 import { m, LazyMotion, domAnimation, AnimatePresence } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
-import HeroStats from "./HeroStats";
 
-const ROLES = ["Websites", "Automations", "Growth", "Systems"];
+const ROLES = ["Websites", "SEO Visibility", "Redesigns"];
 
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -60,76 +59,44 @@ export default function HeroSection() {
       </div>
 
       {/* Hero Content */}
-      {/* FIX: changed pt-45 (180px) to pt-28 on mobile — was pushing eyebrow text off screen */}
       <div className="container relative z-10 px-6 pt-28 md:pt-20">
         <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
-          {/* Eyebrow */}
-          {/* FIX: tracking-[0.15em] on screens below 380px — 0.4em was too wide and clipped into navbar */}
-          <m.span
-            initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}
-            animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-            transition={{ duration: 1, delay: 0.3 }}
-            className="inline-block text-[10px] md:text-[0.6rem] text-muted uppercase tracking-normal min-[350px]:tracking-[0.4em] mt-10 md:mt-12 font-body font-bold"
-          >
-            {/* ESTABLISHED &apos;26 • BANGALORE */}
-          </m.span>
-
           {/* Title */}
           <m.h1
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: [0.33, 1, 0.68, 1] }}
-            className="text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] font-display italic leading-[0.9] md:leading-[0.85] tracking-tighter text-text-primary mb-6 md:mb-8 text-center"
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-5xl sm:text-7xl md:text-8xl lg:text-[6rem] font-display italic leading-[1] md:leading-[0.85] tracking-tighter text-text-primary mb-12 text-center"
           >
-            Naisora Agency
+            We Build <br />
+            <span className="text-muted italic">Premium Websites</span> <br />
+            for Restaurants in Bangalore
           </m.h1>
 
-          {/* Role cycling */}
-          <m.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-lg md:text-2xl font-body text-muted/80 mb-6 md:mb-8"
-          >
-            We build{" "}
-            <AnimatePresence mode="wait">
-              <m.span
-                key={ROLES[roleIndex]}
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.4 }}
-                className="font-display italic text-text-primary inline-block"
-              >
-                {ROLES[roleIndex]}
-              </m.span>
-            </AnimatePresence>{" "}
-            for local restaurants.
-          </m.div>
-
-          {/* Description */}
+          {/* Subheadline */}
           <m.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            className="text-sm md:text-base text-muted max-w-md md:max-w-lg mb-10 md:mb-12 font-body leading-relaxed px-4 md:px-0"
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-base md:text-xl text-muted/90 max-w-md md:max-w-xl mb-12 md:mb-16 font-body leading-relaxed px-4 md:px-0"
           >
-            Designing seamless digital interactions by focusing on the unique nuances which bring systems to life and drive growth.
+            We build award-winning, high-speed digital experiences that capture the essence of your restaurant and command attention on Google. 
           </m.p>
+
 
           {/* CTA Buttons */}
           <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-            className="flex flex-col sm:flex-row gap-4 mb-16 md:mb-20 w-full sm:w-auto px-6 sm:px-0"
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex flex-col sm:flex-row gap-4 mb-20 w-full sm:w-auto px-6 sm:px-0"
           >
             <Link
               href="/contact"
-              className="btn-modern btn-modern-primary group w-full sm:w-auto"
+              className="btn-modern btn-modern-primary group w-full sm:w-auto px-10"
             >
               <span className="relative z-10 flex items-center justify-center gap-2">
-                Get Free Audit <ArrowUpRight className="w-4 h-4" />
+                Get a Free Audit <ArrowRight className="w-4 h-4" />
               </span>
               <div className="shimmer-sweep" />
             </Link>
@@ -141,13 +108,12 @@ export default function HeroSection() {
               <div className="shimmer-sweep" />
             </Link>
           </m.div>
-
-          <HeroStats />
         </div>
 
+
         {/* Scroll Indicator */}
-        <div className="flex absolute bottom-10 left-1/2 -translate-x-1/2 flex-col items-center gap-2">
-          <span className="text-[10px] text-muted tracking-[0.2em] font-body">SCROLL</span>
+        <div className="flex absolute bottom-10 left-1/2 -translate-x-1/2 flex-col items-center gap-2 opacity-50">
+          <span className="text-[10px] text-muted tracking-[0.2em] font-body">DISCOVER</span>
           <div className="w-[1px] h-12 bg-stroke/30 overflow-hidden relative">
             <div className="absolute top-0 left-0 w-full h-full accent-gradient animate-scroll-down" />
           </div>

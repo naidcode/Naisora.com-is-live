@@ -6,38 +6,31 @@ import { Plus } from "lucide-react";
 
 const FAQS = [
   {
-    q: "Do I need a website if I am already on Zomato and Swiggy?",
-    a: "Yes — and here is why. Zomato takes 25-30% commission on every order. Your own website means customers order directly and 100% of the money comes to you. A website also helps you rank on Google so new customers find you without you paying anyone. Think of your website as a sales machine that works 24 hours a day with zero commission."
+    q: "Do I really need a website if I use Zomato or Swiggy?",
+    a: "Yes — because while those apps help you get orders, they also take high commissions. Your own website helps you build your own brand and allows customers to contact you directly without any middleman fees."
   },
   {
-    q: "How long does it take to build my restaurant website?",
-    a: "We deliver most restaurant websites in 7 to 14 days. The timeline depends on how quickly you share your content — menu, photos, and business details. Once we have everything from you, we move fast. You will get a live preview to review before we launch."
+    q: "How much does a restaurant website cost?",
+    a: "Our premium designs are a one-time investment. We keep it affordable for local business owners and provide a clear, transparent quote upfront so you know exactly what you are paying for."
   },
   {
-    q: "Will my website show up on Google after you build it?",
-    a: "Yes — every website we build is SEO-ready from day one. We set up your page titles, meta descriptions, Google Business Profile, schema markup, and local keyword targeting. Most of our clients start appearing in local Google searches within 4 to 8 weeks of launch."
+    q: "How long does it take to build my website?",
+    a: "We move fast because we know you have a business to run. Most restaurant websites are designed and launched within 7 to 10 days once we have your menu and basic details."
   },
   {
-    q: "What if I already have a website but it looks old or loads slowly?",
-    a: "That is actually our most common project. We audit your existing site, show you the exact problems, and rebuild it properly. A slow website costs you customers every day — Google penalises slow sites and visitors leave within 3 seconds. We guarantee a 90+ PageSpeed score on every project."
+    q: "Will my website show up on Google searches?",
+    a: "Yes. Every site we build includes basic Local SEO. We ensure your restaurant is structured correctly so it appears when customers search for food or cafes in your specific neighborhood."
   },
   {
-    q: "How much does it cost and are there hidden fees?",
-    a: "Our website packages start at ₹8,000 one-time. Domain and hosting are separate third-party costs of roughly ₹2,500 per year — we are transparent about this upfront. There are no hidden fees and no surprise charges after the project. We show you the full investment before we start."
+    q: "I don’t have technical knowledge — can I still manage it?",
+    a: "Absolutely. You won't need to touch a single line of code. We handle the technical side, and we're always just a message away if you need any updates or changes later on."
   },
   {
-    q: "Do I need to know anything technical to work with you?",
-    a: "Nothing at all. You tell us about your restaurant — your menu, your story, your photos — and we handle everything else. After we deliver the site, you can make basic edits yourself or we handle updates for you on our monthly plan."
-  },
-  {
-    q: "What is the free audit you keep mentioning?",
-    a: "Before we quote you anything, we analyse your current online presence — your Google ranking, your website speed if you have one, what your top competitors are doing, and where you are losing customers. We send you this report for free with no obligation."
-  },
-  {
-    q: "Do you only work with restaurants or cafes in Bangalore?",
-    a: "Right now we are focused entirely on restaurants and cafes in Bangalore. This focus means we understand your market, your competitors, and your customers better than any generic web agency. We are building systems that fill tables in Bangalore specifically."
+    q: "What if I already have an existing website?",
+    a: "We specialize in upgrades. If your current site is slow or looks outdated, we can redesign it to look premium and work perfectly on mobile phones, which is where most of your customers are."
   }
 ];
+
 
 const FAQItem = ({ faq, index, isOpen, toggle }: { faq: any, index: number, isOpen: boolean, toggle: any }) => {
   return (

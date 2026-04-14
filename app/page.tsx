@@ -1,44 +1,40 @@
 import HeroSection from "@/components/HeroSection";
 import dynamic from "next/dynamic";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import ProblemSection from "@/components/ProblemSection";
+import WhoThisIsFor from "@/components/WhoThisIsFor";
+import DifferenceSection from "@/components/DifferenceSection";
+import WhyChooseUs from "@/components/WhyChooseUs";
+import AboutFounder from "@/components/AboutFounder";
 
 const ServiceCards = dynamic(() => import("@/components/ServiceCards"));
 const ProjectGrid = dynamic(() => import("@/components/ProjectGrid"));
 const TestimonialRow = dynamic(() => import("@/components/TestimonialRow"));
 const Explorations = dynamic(() => import("@/components/Explorations"));
 const FAQSection = dynamic(() => import("@/components/FAQSection"));
-const HowItWorks = dynamic(() => import("@/components/HowItWorks"));
 
 export default function Home() {
   return (
     <main className="bg-bg text-text-primary">
       <HeroSection />
       
-      {/* Stats Section */}
-      <section className="bg-bg py-24 border-y border-stroke">
-        <div className="container px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-            <div className="flex flex-col gap-2">
-              <span className="text-5xl md:text-7xl font-display italic text-white tracking-tighter">50+</span>
-              <span className="text-xs text-muted uppercase tracking-[0.3em] font-body">Restaurant Websites</span>
-            </div>
-            <div className="flex flex-col gap-2 border-y md:border-y-0 md:border-x border-stroke py-8 md:py-0">
-              <span className="text-5xl md:text-7xl font-display italic text-white tracking-tighter">40%</span>
-              <span className="text-xs text-muted uppercase tracking-[0.3em] font-body">Average Growth</span>
-            </div>
-            <div className="flex flex-col gap-2">
-              <span className="text-5xl md:text-7xl font-display italic text-white tracking-tighter">24/7</span>
-              <span className="text-xs text-muted uppercase tracking-[0.3em] font-body">AI-POWERED SYSTEMS</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ProblemSection />
 
       <ServiceCards />
+
+      <WhoThisIsFor />
+
+      <DifferenceSection />
+
       <ProjectGrid />
-      <HowItWorks />
+
+      <WhyChooseUs />
+
+      <AboutFounder />
+
       <TestimonialRow />
+      
       <Explorations />
 
       <FAQSection />
@@ -50,25 +46,37 @@ export default function Home() {
           <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
             <div className="inline-flex items-center gap-2 bg-stroke/30 px-4 py-1.5 rounded-full border border-stroke mb-8">
               <div className="w-1.5 h-1.5 bg-text-primary rounded-full animate-pulse" />
-              <span className="text-[10px] text-muted tracking-[0.2em] uppercase font-body font-bold">Limited Availability</span>
+              <span className="text-[10px] text-muted tracking-[0.2em] uppercase font-body font-bold">Limited Slots for May</span>
             </div>
             
             <h2 className="text-5xl md:text-8xl font-display text-text-primary leading-[1.1] mb-12">
-              Ready to automate your <br /> <span className="italic">*restaurant growth?*</span>
+              Ready to build your <br /> <span className="italic">*premium website?*</span>
             </h2>
 
-            <Link 
-              href="/contact" 
-              className="btn-modern btn-modern-primary px-10 py-6 text-lg group"
-            >
-              <span className="relative z-10 flex items-center gap-3">
-                Get My Free Website Audit <ArrowRight className="w-5 h-5" />
-              </span>
-              <div className="shimmer-sweep" />
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-6">
+              <Link 
+                href="/contact" 
+                className="btn-modern btn-modern-primary px-10 py-6 text-lg group"
+              >
+                <span className="relative z-10 flex items-center gap-3">
+                  Get Free Website Audit <ArrowRight className="w-5 h-5" />
+                </span>
+                <div className="shimmer-sweep" />
+              </Link>
+
+              <Link 
+                href="/contact" 
+                className="btn-modern btn-modern-accent px-10 py-6 text-lg group"
+              >
+                <span className="relative z-10 flex items-center gap-3">
+                  Start Your Website
+                </span>
+                <div className="shimmer-sweep" />
+              </Link>
+            </div>
             
             <p className="mt-8 text-sm text-muted font-body">
-              No cost. No commitment. Results in 24 hours.
+              Join 10+ Bangalore food brands growing with Naisora.
             </p>
           </div>
         </div>
@@ -80,3 +88,4 @@ export default function Home() {
     </main>
   );
 }
+

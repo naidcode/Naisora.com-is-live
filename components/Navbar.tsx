@@ -83,12 +83,13 @@ export default function Navbar() {
           className="hidden md:flex group relative text-xs sm:text-sm rounded-full px-5 py-2 font-body font-semibold text-text-primary overflow-hidden items-center justify-center"
         >
           <span className="relative z-10 flex items-center gap-1.5 whitespace-nowrap">
-            Say hi <span className="text-[10px]">↗</span>
+            Free Audit <span className="text-[10px]">↗</span>
           </span>
           <div className="absolute inset-0 bg-stroke/50 group-hover:opacity-0 transition-opacity" />
           <div className="absolute inset-[-2px] accent-gradient opacity-0 group-hover:opacity-100 transition-opacity" />
           <div className="absolute inset-[1px] bg-surface rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
         </Link>
+
 
         {/* Mobile Toggle Button */}
         <button 

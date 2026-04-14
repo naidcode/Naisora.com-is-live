@@ -9,7 +9,7 @@ const PROJECTS = [
   {
     cat: "Restaurant",
     title: "Fusion Hotel",
-    desc: "A boutique hotel website with a premium AI-driven experience and seamless booking integration.",
+    desc: "Old design → modern premium website. Improved mobile responsiveness and integrated a seamless booking experience.",
     img: "/blog/modern_restaurant_ai_tech_1775913361651.png",
     span: "md:col-span-12",
     href: "https://restaurant-demo-site-1-cn1g-qm05y1lqk-naidcodes-projects.vercel.app",
@@ -17,36 +17,29 @@ const PROJECTS = [
   {
     cat: "Restaurant",
     title: "The Spice Garden",
-    desc: "A premium website featuring a custom booking system and high-end culinary photography.",
+    desc: "Outdated template → custom luxury experience. High-end food photography and optimized menu architecture.",
     img: "/projects/mockup1.png",
-    span: "md:col-span-7",
+    span: "md:col-span-12",
     href: "#",
   },
   {
     cat: "Cafe",
     title: "Brew & Co.",
-    desc: "Modern cafe identity and website focused on community and quality beans.",
+    desc: "Barely visible online → top rank in local searches. Complete visual overhaul with modern cafe aesthetics.",
     img: "/projects/mockup2.png",
-    span: "md:col-span-5",
+    span: "md:col-span-6",
     href: "#",
   },
   {
     cat: "Restaurant",
     title: "Biryani Bros",
-    desc: "AI-driven menu and ordering system for a local favorite.",
+    desc: "Slow performance → 90+ PageSpeed score. Clean digital storefront with optimized conversion paths.",
     img: "/projects/mockup3.png",
-    span: "md:col-span-5",
+    span: "md:col-span-6",
     href: "#",
-  },
-  {
-    cat: "Cafe",
-    title: "The Roastery",
-    desc: "Visually stunning landing page for an artisan coffee roaster.",
-    img: "/projects/mockup4.png",
-    span: "md:col-span-7",
-    href: "#",
-  },
+  }
 ];
+
 
 const ProjectCard = ({ project, index }: { project: any; index: number }) => {
   return (

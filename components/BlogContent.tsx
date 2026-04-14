@@ -18,12 +18,12 @@ export default function BlogContent({ content }: BlogContentProps) {
   // No, user said "add dark mode only in blog page", so let's default to dark to match the site.
 
   return (
-    <div className={`transition-colors duration-500 rounded-[40px] p-8 md:p-12 ${
+    <div className={`transition-colors duration-500 rounded-[30px] md:rounded-[40px] p-5 md:p-12 ${
       isDarkMode ? "bg-surface/30 text-muted" : "bg-white text-zinc-900 shadow-2xl"
     }`}>
       {/* Controls */}
-      <div className="flex items-center justify-end gap-4 mb-12 border-b border-stroke pb-6">
-        <div className="flex items-center gap-2">
+      <div className="flex flex-wrap items-center justify-center md:justify-end gap-3 mb-10 border-b border-stroke pb-6">
+        <div className="flex flex-wrap items-center justify-center gap-2">
            <button 
             onClick={() => setFontSize(prev => prev === "regular" ? "large" : "regular")}
             className={`flex items-center gap-2 px-3 py-2 rounded-lg border transition-all ${
@@ -33,8 +33,8 @@ export default function BlogContent({ content }: BlogContentProps) {
             }`}
             title="Adjust Font Size"
           >
-            <Type className="w-4 h-4" />
-            <span className="text-[10px] font-bold uppercase tracking-wider">{fontSize === "large" ? "Small" : "Large"} Font</span>
+            <Type className="w-3.5 h-3.5" />
+            <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-wider">{fontSize === "large" ? "Small" : "Large"}</span>
           </button>
 
           <button 
@@ -46,8 +46,8 @@ export default function BlogContent({ content }: BlogContentProps) {
             }`}
             title="Toggle Normal Font"
           >
-            <Type className="w-4 h-4" />
-            <span className="text-[10px] font-bold uppercase tracking-wider">{fontStyle === "stylized" ? "Normal" : "Stylized"} Font</span>
+            <Type className="w-3.5 h-3.5" />
+            <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-wider">{fontStyle === "stylized" ? "Serif" : "Sans"}</span>
           </button>
           
           <button 
@@ -59,19 +59,15 @@ export default function BlogContent({ content }: BlogContentProps) {
             }`}
           >
             {isDarkMode ? (
-              <>
-                <Sun className="w-4 h-4 text-amber-400" />
-                <span className="text-xs font-bold uppercase tracking-wider">Light Mode</span>
-              </>
+              <Sun className="w-3.5 h-3.5 text-amber-400" />
             ) : (
-              <>
-                <Moon className="w-4 h-4 text-blue-500" />
-                <span className="text-xs font-bold uppercase tracking-wider">Dark Mode</span>
-              </>
+              <Moon className="w-3.5 h-3.5 text-blue-500" />
             )}
+            <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-wider">{isDarkMode ? "Light" : "Dark"}</span>
           </button>
         </div>
       </div>
+
 
       {/* Content */}
       <div className={`prose max-w-none transition-all duration-300 ${

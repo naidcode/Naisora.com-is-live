@@ -15,9 +15,12 @@ export default function AnimatedSection({ children, className = "", delay = 0 }:
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          // Bidirectional: show when entering, hide when leaving
-          setIsVisible(entry.isIntersecting);
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.unobserve(entry.target);
+          }
         });
+
       },
       { rootMargin: "0px 0px -60px 0px", threshold: 0.1 }
     );

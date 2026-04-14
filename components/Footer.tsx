@@ -52,10 +52,11 @@ export default function Footer() {
             className="flex whitespace-nowrap text-5xl md:text-8xl font-display italic text-text-primary/10 tracking-[0.1em]"
           >
             {[...Array(10)].map((_, i) => (
-              <span key={i} className="mr-8">BUILDING THE FUTURE • </span>
+              <span key={i} className="mr-8">PREMIUM RESTAURANT WEBSITES • </span>
             ))}
           </m.div>
         </div>
+
 
         {/* Main Footer Content */}
         <div className="flex flex-col items-center text-center mb-20">
@@ -79,19 +80,8 @@ export default function Footer() {
               <div className="absolute inset-[-2px] accent-gradient rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="absolute inset-[1px] bg-bg rounded-full opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
             </a>
-
-            <a 
-              href="tel:+917975219560" 
-              className="mt-6 group relative inline-flex px-10 py-5 rounded-full text-lg font-semibold text-text-primary transition-all hover:scale-105"
-            >
-              <span className="relative z-10 flex items-center gap-3">
-                <Phone className="w-5 h-5" /> +91 7975219560
-              </span>
-              <div className="absolute inset-0 border border-stroke rounded-full group-hover:opacity-0 transition-opacity" />
-              <div className="absolute inset-[-2px] accent-gradient rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="absolute inset-[1px] bg-bg rounded-full opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
-            </a>
             <div className="mt-8 text-muted font-body font-medium">Bangalore, Karnataka, IN</div>
+
           </m.div>
         </div>
 

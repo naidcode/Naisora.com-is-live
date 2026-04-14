@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
 import AnimatedSection from "@/components/AnimatedSection";
-import PricingCards from "@/components/PricingCards";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, CheckCircle2, ArrowRight } from "lucide-react";
@@ -14,108 +13,83 @@ export default function Services() {
     {
       num: "01",
       tag: "WEBSITE DESIGN",
-      title: "A Restaurant Website That Works Like a Sales Machine",
-      brief: "Fast, beautiful, and built specifically to convert hungry visitors into paying customers.",
+      title: "Powerful Websites for Modern Bangalore Restaurants",
+      brief: "Built from scratch to showcase your food, atmosphere, and brand. Mobile-first and conversion-optimized.",
       details: {
-        headline: "A Website That Works Like Your Best Salesperson",
+        headline: "A Premium Digital Home For Your Restaurant",
         description: [
-          "Most restaurant websites in Bangalore are either non-existent, broken on mobile, or so slow that Google penalises them. We build restaurant websites from scratch — fast, beautiful, and built specifically to convert hungry visitors into paying customers. Not a template. Not a page builder. A real custom website made for your restaurant.",
-          "Every website we build scores 90+ on Google PageSpeed, loads in under 2 seconds on mobile, and includes everything a restaurant needs — menu page, about story, reservation section, contact with WhatsApp integration, and a Google-optimised structure that starts working from day one."
+          "In Bangalore's fast-moving dining scene, your website is the first experience a customer has with your brand. We build custom restaurant websites that load instantly and look world-class on every device.",
+          "Every site we build is engineered for high performance, featuring digital menus that are easy to browse, seamless WhatsApp/Call integration, and a layout that turns window shoppers into table bookings."
         ],
         features: [
-          { title: "Custom design", text: "built around your restaurant's identity, not a generic template" },
-          { title: "100 PageSpeed score", text: "Google rewards fast sites with higher rankings" },
-          { title: "Mobile-first", text: "70% of your customers are searching on their phones" },
-          { title: "SEO-ready structure", text: "titles, meta descriptions, schema markup all set up correctly" },
-          { title: "WhatsApp integration", text: "one tap to message you directly from the website" }
+          { title: "Custom Premium Design", text: "Built around your restaurant's unique vibe and decor." },
+          { title: "Mobile-First UX", text: "Perfect experience for customers searching on their phones." },
+          { title: "Digital Menu Optimization", text: "Fast-loading, high-quality display of your offerings." },
+          { title: "WhatsApp & Call Triggers", text: "Make it effortless for customers to contact you." },
+          { title: "Performance Engineering", text: "90+ Google PageSpeed score guaranteed for every site." }
         ],
-        result: "Your new website will be live in 7-14 days. If it doesn't score 90+ on Google PageSpeed, we fix it for free.",
-        cta: "Get Your Website — Starting ₹8,000",
+        result: "Your restaurant will have a professional online presence that rivals top international food chains.",
+        cta: "Start Your Design — Get Free Audit",
         link: "/contact"
       },
       cta: "Learn More →",
       link: "#",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000"
+      image: "/restaurant_design_service.png"
     },
     {
       num: "02",
-      tag: "GOOGLE VISIBILITY",
-      title: "Show Up When Hungry Customers Search Near You",
-      brief: "Local SEO is the most powerful marketing channel for restaurants — it puts you in front of people ready to visit.",
+      tag: "WEBSITE REDESIGN",
+      title: "Give Your Old Website a Modern, High-End Upgrade",
+      brief: "Transform your outdated template into a premium digital experience that actually gets results.",
       details: {
-        headline: "Show Up When Hungry Customers Search Near You",
+        headline: "Modernize Your Restaurant's Presence",
         description: [
-          "When someone in Koramangala searches \"best biryani near me\" or \"cafe open now Bangalore\", who shows up? Right now it's probably your competitor. Local SEO is the most powerful marketing channel for restaurants — it puts you in front of people who are actively looking for food right now, in your area, ready to visit or order.",
-          "We handle everything — Google Business Profile optimisation, local keyword targeting, weekly blog posts that rank for \"best [food] in [area] Bangalore\", citation building across Indian directories, review management, and monthly ranking reports so you can see exactly how your visibility is growing. No jargon. Just more customers finding you on Google."
+          "Is your current site from a decade ago? An outdated website can push away modern diners. We take your established brand and give it a fresh, luxury digital experience.",
+          "We rebuild your site using modern technology, focusing on faster load times, better photography display, and a streamlined user journey that reflects the quality of your food."
         ],
         features: [
-          { title: "Google Business Profile optimization", text: "the single highest ROI action for local restaurants" },
-          { title: "Weekly blog posts", text: "3 posts per week targeting local Bangalore food searches" },
-          { title: "Local citation building", text: "listed on JustDial, Sulekha, Yellow Pages, and 15+ directories" },
-          { title: "Review management", text: "we draft responses to every Google review within 24 hours" },
-          { title: "Monthly ranking reports", text: "see exactly which keywords you moved up for" }
+          { title: "Complete Visual Refresh", text: "Move away from dated templates to high-end designs." },
+          { title: "Speed & SEO Audit", text: "Fix why your old site isn't showing up on Google." },
+          { title: "Enhanced Navigation", text: "Make it easy for guests to find your location and hours." },
+          { title: "Photo Optimization", text: "Showcase your interiors and signature dishes in 4K." },
+          { title: "Conversion Upgrade", text: "Strategic button placement to increase direct inquiries." }
         ],
-        result: "Your Google visibility will improve within 30 days or we work free until it does.",
-        cta: "Improve My Google Ranking — ₹3,500/month",
+        result: "Turn your legacy website into a modern platform that attracts today's diners.",
+        cta: "Upgrade My Site — See Ideas",
         link: "/contact"
       },
       cta: "Learn More →",
       link: "#",
-      image: "https://images.unsplash.com/photo-1560472355-536de3962603?auto=format&fit=crop&q=80&w=1000"
+      image: "/restaurant_redesign_service.png"
     },
     {
       num: "03",
-      tag: "AI AUTOMATION",
-      title: "Let AI Handle Your Inbox While You Handle the Kitchen",
-      brief: "Our AI automation handles WhatsApp requests, Instagram DMs, and reviews automatically, 24/7.",
+      tag: "LOCAL VISIBILITY (SEO)",
+      title: "Own the Search Results for Restaurants in Your Area",
+      brief: "Stop losing customers to competitors. Show up in the 'Top 3' when people search nearby.",
       details: {
-        headline: "Let AI Handle Your Inbox While You Handle the Kitchen",
+        headline: "BE THE FIRST CHOICE ON GOOGLE MAPS",
         description: [
-          "Running a restaurant means you're pulled in 10 directions at once. Replying to WhatsApp booking requests, responding to Instagram DMs, answering the same questions about your menu and timing every single day — it takes hours that should be spent on your food and your customers. Our AI automation handles all of this for you, automatically, 24 hours a day.",
-          "We build a custom AI agent for your restaurant that replies to WhatsApp messages, responds to Instagram DMs, answers Google review comments, sends table booking confirmations, and alerts you only when something genuinely needs your attention. Your customers get instant, professional responses. You get your time back."
+          "When someone nearby searches 'best cafe near me' or 'restaurant in [Your Area]', your name needs to be at the top. We optimize your local presence so you dominate the map packs.",
+          "Local SEO is the most effective way to drive physical foot traffic. We handle your Google Business Profile, local keyword mapping, and location-based content to ensure you're visible 24/7."
         ],
         features: [
-          { title: "WhatsApp automation", text: "auto-reply to booking requests, menu questions, directions" },
-          { title: "Instagram DM handling", text: "responds to new DM inquiries automatically" },
-          { title: "Google review responses", text: "professional replies drafted within hours of every new review" },
-          { title: "Table booking confirmations", text: "customer gets an instant confirmation, you get a Telegram alert" },
-          { title: "Smart escalation", text: "only contacts you when a human decision is actually needed" }
+          { title: "Google Maps Domination", text: "Optimize your profile for the coveted Local Pack spots." },
+          { title: "Neighborhood Keywords", text: "Target the exact areas and streets your customers are in." },
+          { title: "GBP Strategy", text: "Custom image management and keyword-rich descriptions." },
+          { title: "Local Citations", text: "Get listed on industry-specific directories and local maps." },
+          { title: "Schema for Restaurants", text: "Help Google display your hours and price range correctly." }
         ],
-        result: "Your response time goes from hours to seconds. Your customers notice the difference immediately.",
-        cta: "Automate My Restaurant — ₹8,000 setup + ₹2,000/month",
+        result: "More direction requests and phone calls from local customers looking for food.",
+        cta: "Dominate Local Search — Get Started",
         link: "/contact"
       },
       cta: "Learn More →",
       link: "#",
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1000"
-    },
-    {
-      num: "04",
-      tag: "BRAND IDENTITY",
-      title: "A Brand That Makes Your Restaurant Memorable",
-      brief: "A complete visual identity system that makes your restaurant stand out from the competition.",
-      details: {
-        headline: "A Brand That Makes Your Restaurant Memorable",
-        description: [
-          "In a city as competitive as Bangalore, your restaurant's brand is more than just a logo — it's the first impression you make before a customer ever tastes your food. We build visual identities that tell your story and build immediate trust.",
-          "From custom typography and color palettes to menu design and social media templates, we provide a complete branding toolkit that ensures your restaurant looks professional across every touchpoint, both online and offline."
-        ],
-        features: [
-          { title: "Custom logo design", text: "original vector logos built from scratch for your brand" },
-          { title: "Color palette", text: "a scientific approach to colors that trigger hunger and comfort" },
-          { title: "Typography system", text: "curated fonts that match your restaurant's specific vibe" },
-          { title: "Menu design", text: "print-ready menu layouts that are easy to read and beautiful" },
-          { title: "Social templates", text: "editable templates for your Instagram announcements and stories" }
-        ],
-        result: "You'll receive a full Brand Guideline PDF and all source files (Figma, AI, SVG) within 10 days.",
-        cta: "Build My Brand — ₹12,000",
-        link: "/contact"
-      },
-      cta: "Learn More →",
-      link: "#",
-      image: "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=1000"
+      image: "/restaurant_website_mockup_1775998412859.png"
     }
   ];
+
 
   useEffect(() => {
     if (selectedService !== null) {
@@ -227,8 +201,10 @@ export default function Services() {
         </div>
       </section>
 
+
       {/* Services Detail Rows */}
       <section className="py-16 md:py-32 px-6">
+
         <div className="max-w-[1200px] mx-auto">
           <div className="flex flex-col gap-16 md:gap-40">
             {services.map((svc, idx) => {
@@ -256,7 +232,7 @@ export default function Services() {
                         </button>
                       </div>
                     </AnimatedSection>
-
+ 
                     <AnimatedSection delay={160} className={`${reverse ? "lg:order-1" : "lg:order-2"}`}>
                       <div 
                         onClick={() => setSelectedService(idx)}
@@ -285,8 +261,6 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <PricingCards />
 
       <style dangerouslySetInnerHTML={{__html: `
         .no-scrollbar::-webkit-scrollbar { display: none; }

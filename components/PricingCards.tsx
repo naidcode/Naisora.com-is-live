@@ -5,51 +5,52 @@ import Link from "next/link";
 export default function PricingCards() {
   const plans = [
     {
-      name: "Starter",
-      price: "₹14,999",
-      billing: "one-time",
+      name: "REDESIGN",
+      price: "₹8,999",
+      billing: "fixed",
       features: [
-        "Landing Page",
-        "Mobile Responsive",
-        "Google Business Setup",
-        "Contact Form",
-        "WhatsApp Button"
+        "Visual Refresh",
+        "Mobile Optimization",
+        "Speed Fix (90+ Score)",
+        "Menu Layout Audit",
+        "WhatsApp Integration"
       ],
       highlight: false,
       btnStyle: "btn-ghost"
     },
     {
-      name: "Growth",
-      price: "₹29,999",
-      billing: "one-time",
+      name: "NEW BUILD",
+      price: "₹18,999",
+      billing: "fixed",
       features: [
-        "Full Website 5 pages",
-        "SEO",
-        "Google Business",
-        "Menu Page",
-        "WhatsApp Automation",
-        "1 Month Support"
+        "Full Premium Website",
+        "Custom UI/UX Design",
+        "Local SEO Setup",
+        "Google Business Profile",
+        "1 Yr Hosting (Included)",
+        "3 Months Support"
       ],
       highlight: true,
       btnStyle: "btn-primary",
       tag: "MOST POPULAR"
     },
     {
-      name: "Premium",
-      price: "₹49,999",
-      billing: "one-time",
+      name: "DOMINANCE",
+      price: "₹34,999",
+      billing: "fixed",
       features: [
-        "Full Website 8 pages",
-        "Advanced SEO",
-        "AI Automation",
-        "Monthly Reports",
-        "Branding",
-        "3 Months Support"
+        "Premium Website",
+        "Advanced Local SEO",
+        "Top 3 Map Ranking",
+        "Food Photography Guide",
+        "Monthly Performance Reports",
+        "Priority 24/7 Support"
       ],
       highlight: false,
       btnStyle: "btn-ghost"
     }
   ];
+
 
   return (
     <section className="py-24 md:py-32 border-t border-stroke bg-bg px-6">
