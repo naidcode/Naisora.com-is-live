@@ -73,9 +73,9 @@ export default function Footer() {
             
             <a 
               href="mailto:hey@naisora.com" 
-              className="text-muted hover:text-text-primary transition-colors flex items-center gap-2 group"
+              className="group relative inline-flex items-center gap-3 px-10 py-5 rounded-full text-lg font-semibold text-text-primary transition-all hover:scale-105"
             >
-              <Mail className="w-5 h-5" />
+              <Mail className="w-5 h-5 relative z-10" />
               <span className="relative z-10">hey@naisora.com</span>
               <div className="absolute inset-0 border border-stroke rounded-full group-hover:opacity-0 transition-opacity" />
               <div className="absolute inset-[-2px] accent-gradient rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />

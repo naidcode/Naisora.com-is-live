@@ -54,52 +54,49 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
         <ReadingProgressBar />
       </div>
 
-      <div className="pt-32 pb-24 px-4 md:px-0">
-        <article className="max-w-[720px] mx-auto">
+      <div className="pt-24 md:pt-32 pb-24">
+        <article className="max-w-[720px] mx-auto px-5 md:px-0">
           {/* Back Link */}
           <AnimatedSection>
             <Link
               href="/blog"
-              className="inline-flex items-center gap-2 text-muted hover:text-text-primary transition-colors mb-12 group"
+              className="inline-flex items-center gap-2 text-muted/60 hover:text-text-primary transition-colors mb-10 group"
             >
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-              <span className="text-sm font-body font-medium uppercase tracking-widest">Articles</span>
+              <span className="text-xs font-body font-bold uppercase tracking-[0.2em]">All Stories</span>
             </Link>
           </AnimatedSection>
 
           {/* Header */}
           <AnimatedSection delay={100} className="relative z-50">
-            <div className="flex flex-col gap-8 mb-12">
-              <h1 className="text-[clamp(2.5rem,6vw,4rem)] font-display text-text-primary leading-[1.1] font-bold tracking-tight">
+            <div className="flex flex-col gap-8 mb-16">
+              <h1 className="text-4xl md:text-6xl font-display text-text-primary leading-[1.15] font-bold tracking-tight">
                 {post.title}
               </h1>
 
               <div className="flex flex-col gap-6">
-                <div className="flex items-center gap-4 text-[11px] uppercase tracking-[0.2em] font-bold text-muted/60">
-                   <div className="flex items-center gap-2">
-                    <User className="w-3 h-3" />
-                    <span>{post.author}</span>
+                <div className="flex flex-wrap items-center gap-y-3 gap-x-6 text-[12px] uppercase tracking-[0.1em] font-bold text-muted/50">
+                  <div className="flex items-center gap-2">
+                    <span className="text-accent underline decoration-accent/30 underline-offset-4 font-black">{post.author}</span>
                   </div>
-                  <span className="opacity-30">•</span>
                   <div className="flex items-center gap-2">
                     <Calendar className="w-3 h-3" />
                     <span>{post.date}</span>
                   </div>
-                  <span className="opacity-30">•</span>
-                  <div className="flex items-center gap-2 text-text-primary">
+                  <div className="flex items-center gap-2 text-text-primary/70">
                     <Clock className="w-3 h-3" />
                     <span>{post.time} read</span>
                   </div>
                 </div>
                 
-                <hr className="border-stroke/50" />
+                <div className="h-px w-full bg-gradient-to-r from-stroke via-stroke/50 to-transparent" />
               </div>
             </div>
           </AnimatedSection>
 
-          {/* Featured Image */}
-          <AnimatedSection delay={200}>
-            <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden border border-stroke mb-16 shadow-2xl">
+          {/* Featured Image - Edge to edge on mobile! */}
+          <AnimatedSection delay={200} className="-mx-5 md:mx-0">
+            <div className="relative aspect-[16/10] md:aspect-[16/9] w-full md:rounded-2xl overflow-hidden border-y md:border border-stroke mb-20 shadow-2xl">
               <Image
                 src={post.image}
                 alt={post.title}
@@ -112,21 +109,22 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
 
           {/* Dynamic Content */}
           <AnimatedSection delay={300}>
-             <div className="blog-content-wrapper">
+             <div className="blog-content-wrapper mb-20">
                <BlogContent content={post.content} />
              </div>
           </AnimatedSection>
 
           {/* Share */}
-          <AnimatedSection delay={400}>
-            <div className="mt-16 pt-8 border-t border-stroke flex items-center justify-between">
-               <span className="text-sm font-body text-muted">Share this article</span>
-               <ShareButton 
-                url={`https://naisora.com/blog/${slug}`}
-                title={post.title}
-              />
-            </div>
-          </AnimatedSection>
+          <div className="mt-20 pt-10 border-t border-stroke/50 flex flex-col md:flex-row md:items-center justify-between gap-6">
+             <div className="flex flex-col gap-1">
+               <span className="text-[10px] uppercase tracking-[0.2em] font-black text-accent">Naisora Editorial</span>
+               <span className="text-sm font-body text-muted">Thought leadership for modern restaurateurs</span>
+             </div>
+             <ShareButton 
+              url={`https://naisora.com/blog/${slug}`}
+              title={post.title}
+            />
+          </div>
         </article>
 
         {/* Recent Posts Section - wider than main article for visual interest */}

@@ -28,27 +28,36 @@ export default function DifferenceSection() {
           <div className="flex flex-col lg:grid lg:grid-cols-2">
             {/* Legend / Content */}
             <div className="p-8 md:p-20 flex flex-col justify-center w-full">
-              <div className="flex items-center gap-4 mb-8 md:mb-12">
-                <div className="text-muted text-xs tracking-widest uppercase font-bold">Old Design</div>
-                <MoveRight size={20} className="text-stroke" />
-                <div className="text-text-primary text-xs tracking-widest uppercase font-bold">Naisora Premium</div>
+              <div className="flex items-center gap-4 mb-10 md:mb-12">
+                <div className="flex flex-col gap-1">
+                  <div className="text-[10px] tracking-[0.2em] text-muted/50 uppercase font-bold">From</div>
+                  <div className="text-muted text-xs tracking-widest uppercase font-bold px-3 py-1 bg-surface border border-stroke rounded-full">Old Design</div>
+                </div>
+                <MoveRight size={20} className="text-stroke mt-4" />
+                <div className="flex flex-col gap-1">
+                  <div className="text-[10px] tracking-[0.2em] text-accent uppercase font-bold">To</div>
+                  <div className="text-text-primary text-xs tracking-widest uppercase font-bold px-3 py-1 bg-surface border border-stroke rounded-full">Naisora Premium</div>
+                </div>
               </div>
               
-              <h3 className="text-[clamp(1.75rem,5vw,3rem)] md:text-5xl font-display italic text-text-primary mb-8 leading-tight">
-                Upgrade from &quot;functional&quot; to <span className="italic">*irresistible.*</span>
+              <h3 className="text-[clamp(2rem,6vw,3.5rem)] md:text-5xl font-display italic text-text-primary mb-10 leading-[1.2] md:leading-tight">
+                Upgrade from &quot;functional&quot; to <span className="italic text-accent">*irresistible.*</span>
               </h3>
               
-              <div className="max-w-full px-2 md:px-0">
-                <ul className="space-y-4 md:space-y-6">
+              <div className="max-w-full px-0">
+                <ul className="space-y-6 md:space-y-8">
                   {[
-                    "From cluttered to minimal & focused",
-                    "From slow templates to custom high-performance",
-                    "From generic colors to premium palettes",
-                    "From buried info to conversion-ready CTAs"
+                    { label: "Design", text: "From cluttered to minimal & focused" },
+                    { label: "Performance", text: "From slow templates to custom performance" },
+                    { label: "Branding", text: "From generic colors to premium palettes" },
+                    { label: "Strategy", text: "From buried info to conversion-ready CTAs" }
                   ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-4 text-muted font-body">
-                      <div className="w-1.5 h-1.5 rounded-full bg-text-primary mt-2 flex-shrink-0" />
-                      <span className="text-base md:text-lg">{item}</span>
+                    <li key={i} className="flex items-start gap-4 group">
+                      <div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                      <div className="flex flex-col gap-1">
+                        <span className="text-[9px] uppercase tracking-widest font-bold text-muted/40">{item.label}</span>
+                        <span className="text-base md:text-lg text-muted font-body leading-snug group-hover:text-text-primary transition-colors">{item.text}</span>
+                      </div>
                     </li>
                   ))}
                 </ul>
@@ -56,13 +65,14 @@ export default function DifferenceSection() {
             </div>
 
             {/* Visual */}
-            <div className="relative aspect-[4/3] md:aspect-video lg:aspect-auto w-full overflow-hidden">
+            <div className="relative aspect-[4/5] md:aspect-video lg:aspect-auto w-full overflow-hidden bg-surface/50 border-t lg:border-t-0 lg:border-l border-stroke">
               <Image
                 src="/website_design_comparison_1775998646972.png"
                 alt="Before and After Restaurant Website Redesign"
                 fill
                 className="object-cover"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-bg/20 to-transparent pointer-events-none" />
             </div>
           </div>
         </div>
