@@ -14,16 +14,16 @@ export default function AboutFounder() {
             </h2>
           </div>
           
-          <div className="lg:col-span-5 relative group">
+          <div className="lg:col-span-5 relative group flex flex-col items-center md:block overflow-visible mb-12 lg:mb-0">
             <div className="absolute inset-0 bg-accent-gradient blur-[100px] opacity-[0.05] rounded-full scale-75" />
-            <div className="relative aspect-square md:aspect-[4/5] rounded-[2rem] md:rounded-[4rem] overflow-hidden border border-stroke bg-surface">
+            <div className="relative w-full aspect-square md:aspect-[4/5] rounded-[2rem] md:rounded-[4rem] overflow-hidden border border-stroke bg-surface">
               {/* Note: User should replace this with their actual photo */}
               <div className="w-full h-full flex items-center justify-center bg-surface/50">
                  <span className="text-text-primary/20 text-8xl font-display italic font-bold">NP</span>
               </div>
             </div>
             
-            <div className="absolute -bottom-6 -right-6 md:-right-12 bg-text-primary text-bg p-8 rounded-2xl md:rounded-[2rem] shadow-2xl z-20">
+            <div className="relative mt-6 md:mt-0 md:absolute -bottom-6 -right-6 md:-right-12 bg-text-primary text-bg p-6 md:p-8 rounded-2xl md:rounded-[2rem] shadow-2xl z-20 w-[90%] md:w-auto mx-auto md:mx-0">
                <h4 className="text-xl md:text-2xl font-display italic font-bold">Nahid Pasha</h4>
                <p className="text-[10px] tracking-[0.2em] uppercase font-bold opacity-70 mt-2">Founder, Naisora Agency</p>
             </div>

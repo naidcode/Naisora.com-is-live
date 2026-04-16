@@ -73,7 +73,7 @@ export default function ContactForm() {
       });
       setSelectedServices([]);
     } catch (error) {
-      alert("Something went wrong. Please check your internet connection or email us directly at hello@naisora.com.");
+      alert("Something went wrong. Please check your internet connection or email us directly at hey@naisora.com.");
     } finally {
       setLoading(false);
     }

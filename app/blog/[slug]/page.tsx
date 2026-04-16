@@ -7,6 +7,7 @@ import { Metadata } from 'next';
 import { BLOG_POSTS } from "@/lib/blog-posts";
 import BlogContent from "@/components/BlogContent";
 import ShareButton from "@/components/ShareButton";
+import ReadingProgressBar from "@/components/ReadingProgressBar";
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const post = BLOG_POSTS.find((p) => p.slug === params.slug);
@@ -31,7 +32,9 @@ export async function generateStaticParams() {
 
 export default function BlogPost({ params }: { params: { slug: string } }) {
   const { slug } = params;
-  const post = BLOG_POSTS.find((p) => p.slug === slug);
+  
+  // Safety check for post fetching
+  const post = BLOG_POSTS.find((p) => p.slug === slug) || null;
 
   if (!post) {
     return (
@@ -45,87 +48,94 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
   const recentPosts = BLOG_POSTS.filter(p => p.slug !== slug).slice(0, 2);
 
   return (
-    <main className="min-h-screen bg-bg pt-32 pb-24">
-      <article className="container max-w-4xl px-6 mx-auto">
-        {/* Back Link */}
-        <AnimatedSection>
-          <Link
-            href="/blog"
-            className="inline-flex items-center gap-2 text-muted hover:text-text-primary transition-colors mb-12 group"
-          >
-            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-            <span className="text-sm font-body font-medium">Back to Blog</span>
-          </Link>
-        </AnimatedSection>
+    <main className="min-h-screen bg-bg">
+      {/* Sticky Reading Progress Bar */}
+      <div className="fixed top-0 left-0 w-full h-1 z-[100] bg-stroke/20">
+        <ReadingProgressBar />
+      </div>
 
-        {/* Header */}
-        <AnimatedSection delay={100} className="relative z-50">
-          <div className="flex flex-col gap-6 mb-12">
-            <div className="flex items-center gap-4">
-              <span className="px-3 py-1 bg-surface border border-stroke rounded-full text-[10px] text-muted tracking-widest uppercase font-bold">
-                {post.cat}
-              </span>
-              <div className="flex items-center gap-4 text-xs text-muted/60 font-body">
-                <span className="flex items-center gap-1.5">
-                  <Calendar className="w-3.5 h-3.5" /> {post.date}
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <Clock className="w-3.5 h-3.5" /> {post.time} read
-                </span>
-              </div>
-            </div>
+      <div className="pt-32 pb-24 px-4 md:px-0">
+        <article className="max-w-[720px] mx-auto">
+          {/* Back Link */}
+          <AnimatedSection>
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-2 text-muted hover:text-text-primary transition-colors mb-12 group"
+            >
+              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+              <span className="text-sm font-body font-medium uppercase tracking-widest">Articles</span>
+            </Link>
+          </AnimatedSection>
 
-            <h1 className="text-4xl md:text-7xl font-display text-text-primary leading-[1.05] italic">
-              {post.title}
-            </h1>
+          {/* Header */}
+          <AnimatedSection delay={100} className="relative z-50">
+            <div className="flex flex-col gap-8 mb-12">
+              <h1 className="text-[clamp(2.5rem,6vw,4rem)] font-display text-text-primary leading-[1.1] font-bold tracking-tight">
+                {post.title}
+              </h1>
 
-            <div className="flex items-center justify-between py-6 border-y border-stroke">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-accent-gradient p-[1px]">
-                  <div className="w-full h-full rounded-full bg-surface flex items-center justify-center">
-                    <User className="w-5 h-5 text-text-primary" />
+              <div className="flex flex-col gap-6">
+                <div className="flex items-center gap-4 text-[11px] uppercase tracking-[0.2em] font-bold text-muted/60">
+                   <div className="flex items-center gap-2">
+                    <User className="w-3 h-3" />
+                    <span>{post.author}</span>
+                  </div>
+                  <span className="opacity-30">•</span>
+                  <div className="flex items-center gap-2">
+                    <Calendar className="w-3 h-3" />
+                    <span>{post.date}</span>
+                  </div>
+                  <span className="opacity-30">•</span>
+                  <div className="flex items-center gap-2 text-text-primary">
+                    <Clock className="w-3 h-3" />
+                    <span>{post.time} read</span>
                   </div>
                 </div>
-                <div className="flex flex-col">
-                  <span className="text-sm font-body font-bold text-text-primary">
-                    {post.author}
-                  </span>
-                  <span className="text-xs text-muted">Core Development Team</span>
-                </div>
+                
+                <hr className="border-stroke/50" />
               </div>
-              <ShareButton 
+            </div>
+          </AnimatedSection>
+
+          {/* Featured Image */}
+          <AnimatedSection delay={200}>
+            <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden border border-stroke mb-16 shadow-2xl">
+              <Image
+                src={post.image}
+                alt={post.title}
+                fill
+                priority
+                className="object-cover"
+              />
+            </div>
+          </AnimatedSection>
+
+          {/* Dynamic Content */}
+          <AnimatedSection delay={300}>
+             <div className="blog-content-wrapper">
+               <BlogContent content={post.content} />
+             </div>
+          </AnimatedSection>
+
+          {/* Share */}
+          <AnimatedSection delay={400}>
+            <div className="mt-16 pt-8 border-t border-stroke flex items-center justify-between">
+               <span className="text-sm font-body text-muted">Share this article</span>
+               <ShareButton 
                 url={`https://naisora.com/blog/${slug}`}
                 title={post.title}
               />
             </div>
-          </div>
-        </AnimatedSection>
+          </AnimatedSection>
+        </article>
 
-        {/* Featured Image */}
-        <AnimatedSection delay={200}>
-          <div className="relative aspect-[16/9] w-full rounded-[40px] overflow-hidden border border-stroke mb-16">
-            <Image
-              src={post.image}
-              alt={post.title}
-              fill
-              priority
-              className="object-cover"
-            />
-          </div>
-        </AnimatedSection>
-
-        {/* Dynamic Content */}
-        <AnimatedSection delay={300}>
-           <BlogContent content={post.content} />
-        </AnimatedSection>
-
-        {/* Recent Posts Section */}
+        {/* Recent Posts Section - wider than main article for visual interest */}
         {recentPosts.length > 0 && (
-          <div className="mt-32 pt-16 border-t border-stroke">
+          <div className="max-w-[1000px] mx-auto mt-32 pt-16 border-t border-stroke px-6">
             <AnimatedSection>
               <div className="flex items-center justify-between mb-12">
                 <h2 className="text-3xl md:text-5xl font-display text-text-primary italic">
-                  Recent <span className="italic">*posts*</span>
+                  Read <span className="italic">*more*</span>
                 </h2>
                 <Link
                   href="/blog"
@@ -140,7 +150,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
               {recentPosts.map((rp, i) => (
                 <AnimatedSection key={rp.slug} delay={i * 100}>
                   <Link href={`/blog/${rp.slug}`} className="group block">
-                    <div className="relative aspect-[16/10] rounded-[32px] overflow-hidden border border-stroke mb-6">
+                    <div className="relative aspect-[16/10] rounded-[24px] overflow-hidden border border-stroke mb-6">
                       <Image
                         src={rp.image}
                         alt={rp.title}
@@ -160,7 +170,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
             </div>
           </div>
         )}
-      </article>
+      </div>
     </main>
   );
 }

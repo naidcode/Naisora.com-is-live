@@ -94,7 +94,7 @@ export default function RootLayout({
               "name": "Naisora",
               "description": "AI-powered web design and SEO agency for restaurants and cafes in Bangalore",
               "url": "https://naisora.com",
-              "email": "hello@naisora.com",
+              "email": "hey@naisora.com",
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Bangalore",

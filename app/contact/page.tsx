@@ -15,10 +15,10 @@ export default function Contact() {
       href: "https://wa.me/917975219560" 
     },
     { 
-      label: "EMAIL ADDRESS", 
-      value: "hello@naisora.com", 
+      label: "Email Support", 
+      value: "hey@naisora.com", 
       icon: Mail, 
-      href: "mailto:hello@naisora.com" 
+      href: "mailto:hey@naisora.com" 
     },
     { 
       label: "INSTAGRAM", 

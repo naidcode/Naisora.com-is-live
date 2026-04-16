@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
 
     const { data, error } = await resend.emails.send({
       from: 'Naisora Contact <onboarding@resend.dev>', // Resend's default sender if no domain updated
-      to: ['hello@naisora.com'],
+      to: ['hey@naisora.com'],
       subject: `New Project Inquiry from ${fullName}`,
       replyTo: email,
       html: `

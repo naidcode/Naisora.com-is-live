@@ -24,37 +24,39 @@ export default function DifferenceSection() {
           </motion.div>
         </div>
 
-        <div className="relative rounded-[2rem] md:rounded-[4rem] overflow-hidden border border-stroke bg-bg shadow-2xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2">
+        <div className="relative rounded-[2rem] md:rounded-[4rem] overflow-hidden border border-stroke bg-bg shadow-2xl w-full max-w-full">
+          <div className="flex flex-col lg:grid lg:grid-cols-2">
             {/* Legend / Content */}
-            <div className="p-12 md:p-20 flex flex-col justify-center">
-              <div className="flex items-center gap-4 mb-12">
+            <div className="p-8 md:p-20 flex flex-col justify-center w-full">
+              <div className="flex items-center gap-4 mb-8 md:mb-12">
                 <div className="text-muted text-xs tracking-widest uppercase font-bold">Old Design</div>
                 <MoveRight size={20} className="text-stroke" />
                 <div className="text-text-primary text-xs tracking-widest uppercase font-bold">Naisora Premium</div>
               </div>
               
-              <h3 className="text-3xl md:text-5xl font-display italic text-text-primary mb-8 leading-tight">
+              <h3 className="text-[clamp(1.75rem,5vw,3rem)] md:text-5xl font-display italic text-text-primary mb-8 leading-tight">
                 Upgrade from &quot;functional&quot; to <span className="italic">*irresistible.*</span>
               </h3>
               
-              <ul className="space-y-6">
-                {[
-                  "From cluttered to minimal & focused",
-                  "From slow templates to custom high-performance",
-                  "From generic colors to premium palettes",
-                  "From buried info to conversion-ready CTAs"
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-4 text-muted font-body">
-                    <div className="w-1.5 h-1.5 rounded-full bg-text-primary" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="max-w-full px-2 md:px-0">
+                <ul className="space-y-4 md:space-y-6">
+                  {[
+                    "From cluttered to minimal & focused",
+                    "From slow templates to custom high-performance",
+                    "From generic colors to premium palettes",
+                    "From buried info to conversion-ready CTAs"
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-4 text-muted font-body">
+                      <div className="w-1.5 h-1.5 rounded-full bg-text-primary mt-2 flex-shrink-0" />
+                      <span className="text-base md:text-lg">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
             {/* Visual */}
-            <div className="relative aspect-video lg:aspect-auto">
+            <div className="relative aspect-[4/3] md:aspect-video lg:aspect-auto w-full overflow-hidden">
               <Image
                 src="/website_design_comparison_1775998646972.png"
                 alt="Before and After Restaurant Website Redesign"
