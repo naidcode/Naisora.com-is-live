@@ -165,7 +165,7 @@ Are you ready to join the future of dining? Contact Naisora AI Agency today.
     time: "9 min",
     date: "April 19, 2026",
     author: "Naisora Team",
-    image: "/blog/restaurant-website-design-bangalore-hero.png",
+    image: "/blog/restaurant-website-design-bangalore-hero.jpg",
     metaDesc: "Discover the ultimate guide to restaurant website design in Bangalore for 2026. Learn how to convert more diners and stop losing revenue to third-party apps.",
     tags: ["restaurant website design bangalore", "web design bangalore", "restaurant marketing", "ai automation", "direct orders"],
     content: `
@@ -183,7 +183,7 @@ Bangalore is the food capital of India for a reason. With over 12,000 active res
 
 If your website feels like a relic from 2015—slow, clunky, and not mobile-friendly—the message you are sending is: "We don't care about the details." And in a city of techies, that's a death sentence.
 
-![Modern Restaurant Website Interface](/blog/restaurant-website-design-bangalore-hero.png)
+![Modern Restaurant Website Interface](/blog/restaurant-website-design-bangalore-hero.jpg)
 *A high-end restaurant website design must be as polished as your plating.*
 
 ## The "Zomato Trap" and Why It's Costing You
@@ -208,7 +208,7 @@ A beautiful website that no one finds is useless. Your site needs to be optimize
 ### 3. Integrated Conversational AI
 Don't let a booking slip away because your manager was too busy to pick up the phone. Integrated AI assistants can handle reservations, answer FAQs about parking or valet, and even suggest wine pairings—all 24/7.
 
-![Successful Bangalore Restaurant Owner](/blog/bangalore-restaurant-owner-success.png)
+![Successful Bangalore Restaurant Owner](/blog/bangalore-restaurant-owner-success.jpg)
 *High-converting web design leads to measurable revenue growth for local businesses.*
 
 ## 7 Steps to a High-Converting Restaurant Website
