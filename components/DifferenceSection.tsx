@@ -2,79 +2,166 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { MoveRight } from "lucide-react";
+import { MoveRight, Zap, CheckCircle2 } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
 
 export default function DifferenceSection() {
+  const [sliderPosition, setSliderPosition] = useState(50);
+  const [isResizing, setIsResizing] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const handleMove = (event: MouseEvent | TouchEvent) => {
+    if (!isResizing || !containerRef.current) return;
+
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = "touches" in event ? event.touches[0].clientX : event.clientX;
+    const position = ((x - rect.left) / rect.width) * 100;
+
+    if (position >= 0 && position <= 100) {
+      setSliderPosition(position);
+    }
+  };
+
+  useEffect(() => {
+    const handleUp = () => setIsResizing(false);
+    
+    if (isResizing) {
+      window.addEventListener("mousemove", handleMove);
+      window.addEventListener("touchmove", handleMove);
+      window.addEventListener("mouseup", handleUp);
+      window.addEventListener("touchend", handleUp);
+    }
+
+    return () => {
+      window.removeEventListener("mousemove", handleMove);
+      window.removeEventListener("touchmove", handleMove);
+      window.removeEventListener("mouseup", handleUp);
+      window.removeEventListener("touchend", handleUp);
+    };
+  }, [isResizing]);
+
   return (
-    <section className="bg-surface py-24 px-6 relative overflow-hidden">
-      <div className="container max-w-6xl mx-auto">
-        <div className="flex flex-col items-center text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl md:text-7xl font-display text-text-primary italic leading-tight mb-8">
-              See the <span className="italic">Difference</span>
-            </h2>
-            <p className="text-lg text-muted font-body leading-relaxed max-w-2xl mx-auto text-center">
-              We don&apos;t just build websites; we craft digital experiences that command attention. See how we transform &quot;just another site&quot; into a premium destination.
-            </p>
-          </motion.div>
-        </div>
-
-        <div className="relative rounded-[2rem] md:rounded-[4rem] overflow-hidden border border-stroke bg-bg shadow-2xl w-full max-w-full">
-          <div className="flex flex-col lg:grid lg:grid-cols-2">
-            {/* Legend / Content */}
-            <div className="p-8 md:p-20 flex flex-col justify-center w-full">
-              <div className="flex items-center gap-4 mb-10 md:mb-12">
-                <div className="flex flex-col gap-1">
-                  <div className="text-[10px] tracking-[0.2em] text-muted/50 uppercase font-bold">From</div>
-                  <div className="text-muted text-xs tracking-widest uppercase font-bold px-3 py-1 bg-surface border border-stroke rounded-full">Old Design</div>
-                </div>
-                <MoveRight size={20} className="text-stroke mt-4" />
-                <div className="flex flex-col gap-1">
-                  <div className="text-[10px] tracking-[0.2em] text-accent uppercase font-bold">To</div>
-                  <div className="text-text-primary text-xs tracking-widest uppercase font-bold px-3 py-1 bg-surface border border-stroke rounded-full">Naisora Premium</div>
-                </div>
+    <section className="bg-bg py-24 md:py-40 px-6 relative overflow-hidden border-t border-stroke">
+      {/* Decorative Background */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent-gradient opacity-[0.03] blur-[150px] -translate-y-1/2 translate-x-1/2" />
+      
+      <div className="container max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+          
+          {/* Left Content */}
+          <div className="lg:col-span-5">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <div className="inline-flex items-center gap-3 px-3 py-1 bg-surface border border-stroke rounded-full mb-8">
+                <Zap size={12} className="text-text-primary" />
+                <span className="text-[10px] tracking-[0.2em] uppercase font-bold text-muted">Transformation</span>
               </div>
               
-              <h3 className="text-[clamp(2rem,6vw,3.5rem)] md:text-5xl font-display italic text-text-primary mb-10 leading-[1.2] md:leading-tight">
-                Upgrade from &quot;functional&quot; to <span className="italic text-accent">*irresistible.*</span>
-              </h3>
+              <h2 className="text-4xl md:text-7xl font-display text-text-primary italic leading-[1.1] mb-8">
+                Upgrade from <span className="text-muted">dated</span> to <span className="italic">*commanding.*</span>
+              </h2>
               
-              <div className="max-w-full px-0">
-                <ul className="space-y-6 md:space-y-8">
-                  {[
-                    { label: "Design", text: "From cluttered to minimal & focused" },
-                    { label: "Performance", text: "From slow templates to custom performance" },
-                    { label: "Branding", text: "From generic colors to premium palettes" },
-                    { label: "Strategy", text: "From buried info to conversion-ready CTAs" }
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-4 group">
-                      <div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                      <div className="flex flex-col gap-1">
-                        <span className="text-[9px] uppercase tracking-widest font-bold text-muted/40">{item.label}</span>
-                        <span className="text-base md:text-lg text-muted font-body leading-snug group-hover:text-text-primary transition-colors">{item.text}</span>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+              <p className="text-lg text-muted font-body leading-relaxed mb-12">
+                Most restaurant websites in Bangalore use slow, generic templates from 2018. We build custom experiences that reflect the true quality of your food and interior.
+              </p>
 
-            {/* Visual */}
-            <div className="relative aspect-[4/5] md:aspect-video lg:aspect-auto w-full overflow-hidden bg-surface/50 border-t lg:border-t-0 lg:border-l border-stroke">
-              <Image
-                src="/website_design_comparison_1775998646972.png"
-                alt="Before and After Restaurant Website Redesign"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-bg/20 to-transparent pointer-events-none" />
-            </div>
+              <div className="grid grid-cols-1 gap-8">
+                {[
+                  { title: "The 'Old' Way", items: ["Cluttered templates", "Slow mobile load", "Third-party dependency"], type: "bad" },
+                  { title: "Naisora Premium", items: ["Minimal & focused", "Instant page loads", "Direct conversion funnels"], type: "good" }
+                ].map((group, i) => (
+                  <div key={i} className={`p-6 rounded-2xl border ${group.type === 'good' ? 'border-text-primary/20 bg-surface' : 'border-stroke bg-surface/30'}`}>
+                    <h4 className={`text-sm font-bold tracking-widest uppercase mb-4 ${group.type === 'good' ? 'text-text-primary' : 'text-muted'}`}>
+                      {group.title}
+                    </h4>
+                    <ul className="space-y-3">
+                      {group.items.map((item, ii) => (
+                        <li key={ii} className="flex items-center gap-3 text-sm font-body text-muted">
+                          {group.type === 'good' ? <CheckCircle2 size={14} className="text-text-primary" /> : <div className="w-1.5 h-1.5 rounded-full bg-stroke" />}
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
           </div>
+
+          {/* Right Visual — Image Slider */}
+          <div className="lg:col-span-7">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1 }}
+              viewport={{ once: true }}
+              className="relative aspect-[4/5] md:aspect-square lg:aspect-[4/5] rounded-[40px] overflow-hidden border border-stroke bg-surface shadow-2xl group cursor-col-resize select-none"
+              ref={containerRef}
+              onMouseDown={() => setIsResizing(true)}
+              onTouchStart={() => setIsResizing(true)}
+            >
+              {/* After Image (Full Size) */}
+              <div className="absolute inset-0">
+                <Image
+                  src="/difference_after.png"
+                  alt="Naisora Premium Design"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+
+              {/* Before Image (Clipped) */}
+              <div 
+                className="absolute inset-0 border-r border-white/20 z-10"
+                style={{ width: `${sliderPosition}%`, overflow: 'hidden' }}
+              >
+                <div className="absolute inset-0 w-[1000%] h-full">
+                    <div className="relative h-full" style={{ width: `${containerRef.current?.offsetWidth || 800}px` }}>
+                        <Image
+                            src="/difference_before.png"
+                            alt="Old Website Design"
+                            fill
+                            className="object-cover"
+                        />
+                    </div>
+                </div>
+              </div>
+
+              {/* Slider Handle */}
+              <div 
+                className="absolute inset-y-0 z-20 w-1 bg-white/50 -translate-x-1/2 pointer-events-none"
+                style={{ left: `${sliderPosition}%` }}
+              >
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-2xl border-[4px] border-bg">
+                    <div className="flex gap-0.5">
+                        <div className="w-0.5 h-3 bg-bg rounded-full" />
+                        <div className="w-0.5 h-3 bg-bg rounded-full" />
+                    </div>
+                </div>
+              </div>
+
+              {/* Labels */}
+              <div className="absolute top-8 left-8 z-20 px-4 py-1.5 bg-black/50 backdrop-blur-md rounded-full text-[10px] font-bold tracking-widest uppercase border border-white/10 pointer-events-none">
+                Before
+              </div>
+              <div className="absolute top-8 right-8 z-20 px-4 py-1.5 bg-text-primary text-bg rounded-full text-[10px] font-bold tracking-widest uppercase pointer-events-none">
+                After
+              </div>
+
+              {/* Interaction Hint */}
+              <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 px-6 py-3 bg-bg/80 backdrop-blur-xl rounded-full text-[10px] font-bold tracking-widest uppercase border border-stroke flex items-center gap-3 group-hover:opacity-0 transition-opacity duration-300">
+                <MoveRight size={14} className="animate-pulse" />
+                Drag to compare
+                <MoveRight size={14} className="rotate-180 animate-pulse" />
+              </div>
+            </motion.div>
+          </div>
+
         </div>
       </div>
     </section>

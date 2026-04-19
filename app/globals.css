@@ -123,10 +123,11 @@ input:focus, textarea:focus {
   
   /* Mobile Button Scaling */
   .btn-modern {
-    @apply px-5 py-3 text-sm w-full !important;
+    @apply px-6 py-4 text-[15px] w-full !important;
     max-width: 320px;
     margin-left: auto;
     margin-right: auto;
+    font-size: 15px !important;
   }
 }
 
@@ -206,10 +207,11 @@ input:focus, textarea:focus {
   
   /* Mobile Button Scaling */
   .btn-modern {
-    @apply px-5 py-3 text-sm w-full !important;
+    @apply px-6 py-4 text-[15px] w-full !important;
     max-width: 280px; /* Reduced for 375px screens */
     margin-left: auto;
     margin-right: auto;
+    font-size: 15px !important;
   }
 }
 
@@ -220,7 +222,7 @@ input:focus, textarea:focus {
 
 /* Modern Buttons */
 .btn-modern {
-  @apply relative inline-flex items-center justify-center gap-3 px-6 py-3 md:px-8 md:py-4 rounded-full font-body font-semibold transition-all duration-500 overflow-hidden cursor-pointer active:scale-95;
+  @apply relative inline-flex items-center justify-center gap-3 px-6 py-3 md:px-8 md:py-5 rounded-full font-display italic font-bold transition-all duration-500 overflow-hidden cursor-pointer active:scale-95 text-[16px] md:text-[18px];
 }
 
 .btn-modern-primary {

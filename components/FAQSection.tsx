@@ -10,8 +10,8 @@ const FAQS = [
     a: "Yes — because while those apps help you get orders, they also take high commissions. Your own website helps you build your own brand and allows customers to contact you directly without any middleman fees."
   },
   {
-    q: "How much does a restaurant website cost?",
-    a: "Our premium designs are a one-time investment. We keep it affordable for local business owners and provide a clear, transparent quote upfront so you know exactly what you are paying for."
+    q: "What does a restaurant website cost?",
+    a: "Our websites start at ₹14,999 for a complete 5-page site delivered in 7 days. Premium builds with animations and booking systems start at ₹24,999. We also offer a monthly Google Visibility Plan at ₹4,999/month to help you rank on Google Maps and get direct walk-ins."
   },
   {
     q: "How long does it take to build my website?",

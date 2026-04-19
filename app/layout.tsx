@@ -26,6 +26,8 @@ const instrumentSerif = Instrument_Serif({
   variable: "--font-instrument",
 });
 
+
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://naisora.com'),
   alternates: {

@@ -13,6 +13,7 @@ const ProjectGrid = dynamic(() => import("@/components/ProjectGrid"));
 const TestimonialRow = dynamic(() => import("@/components/TestimonialRow"));
 const Explorations = dynamic(() => import("@/components/Explorations"));
 const FAQSection = dynamic(() => import("@/components/FAQSection"));
+const PricingCards = dynamic(() => import("@/components/PricingCards"));
 
 export default function Home() {
   return (
@@ -22,6 +23,8 @@ export default function Home() {
       <ProblemSection />
 
       <ServiceCards />
+
+      <PricingCards />
 
       <WhoThisIsFor />
 

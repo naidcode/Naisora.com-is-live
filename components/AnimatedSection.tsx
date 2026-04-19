@@ -5,9 +5,10 @@ interface AnimatedSectionProps {
   children: React.ReactNode;
   className?: string;
   delay?: number;
+  style?: React.CSSProperties;
 }
 
-export default function AnimatedSection({ children, className = "", delay = 0 }: AnimatedSectionProps) {
+export default function AnimatedSection({ children, className = "", delay = 0, style = {} }: AnimatedSectionProps) {
   const [isVisible, setIsVisible] = useState(false);
   const domRef = useRef<HTMLDivElement>(null);
 
@@ -37,7 +38,7 @@ export default function AnimatedSection({ children, className = "", delay = 0 }:
     <div
       ref={domRef}
       className={`scroll-reveal ${isVisible ? "visible" : ""} ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
+      style={{ ...style, transitionDelay: `${delay}ms` }}
     >
       {children}
     </div>
