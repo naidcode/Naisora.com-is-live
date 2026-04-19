@@ -6,6 +6,7 @@ export interface BlogPost {
   date: string;
   author: string;
   image: string;
+  imageCaption?: string;
   metaDesc: string;
   tags: string[];
   content: string;

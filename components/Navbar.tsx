@@ -119,7 +119,7 @@ export default function Navbar() {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: -20 }}
                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                className="fixed top-24 left-0 right-0 w-[220px] p-8 bg-[#111] border border-white/10 rounded-[30px] shadow-2xl z-[110] flex flex-col items-center gap-4 pointer-events-auto"
+                className="fixed top-24 left-1/2 -translate-x-1/2 w-[calc(100%-40px)] max-w-[280px] p-8 bg-[#111] border border-white/10 rounded-[30px] shadow-2xl z-[110] flex flex-col items-center gap-6 pointer-events-auto"
               >
                 {NAV_LINKS.map((link, i) => (
                   <m.div
@@ -132,8 +132,8 @@ export default function Navbar() {
                     <Link
                       href={link.href}
                       className={`
-                        block text-2xl font-display italic py-2 transition-all
-                        ${pathname === link.href ? "text-text-primary" : "text-muted hover:text-text-primary"}
+                        block text-3xl font-display font-medium italic py-2 transition-all
+                        ${pathname === link.href ? "text-text-primary scale-110" : "text-muted hover:text-text-primary"}
                       `}
                     >
                       {link.name}

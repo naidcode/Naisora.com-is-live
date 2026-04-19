@@ -3,10 +3,17 @@ import React, { useRef, useState } from "react";
 import AnimatedSection from "./AnimatedSection";
 import Link from "next/link";
 import Image from "next/image";
-import { BLOG_POSTS } from "@/lib/blog-posts";
+import { BLOG_POSTS, BlogPost } from "@/lib/blog-posts";
 import { ArrowUpRight, Clock } from "lucide-react";
 
-const TiltBlogCard = ({ post, index }: { post: any; index: number }) => {
+// Helper to sort posts by date (newest first)
+const sortPosts = (posts: BlogPost[]) => {
+  return [...posts].sort((a, b) => {
+    return new Date(b.date).getTime() - new Date(a.date).getTime();
+  });
+};
+
+const TiltBlogCard = ({ post, index }: { post: BlogPost; index: number }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
@@ -34,7 +41,7 @@ const TiltBlogCard = ({ post, index }: { post: any; index: number }) => {
           onMouseLeave={() => {
             if (cardRef.current) cardRef.current.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
           }}
-          className="relative h-full bg-surface/50 border border-stroke rounded-[24px] overflow-hidden flex flex-col transition-all duration-500 hover:border-text-primary/30"
+          className="relative h-full bg-surface/50 border border-stroke rounded-[32px] overflow-hidden flex flex-col transition-all duration-500 hover:border-text-primary/30 shadow-xl hover:shadow-accent/5"
         >
           {/* Image Container */}
           <div className="relative aspect-video overflow-hidden">
@@ -44,35 +51,46 @@ const TiltBlogCard = ({ post, index }: { post: any; index: number }) => {
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-bg/80 to-transparent opacity-60" />
+            <div className="absolute inset-0 bg-gradient-to-t from-bg/90 via-bg/20 to-transparent opacity-80" />
             <div className="absolute bottom-4 left-4">
-               <span className="px-3 py-1 rounded-full bg-bg/80 backdrop-blur-md border border-white/10 text-[10px] font-bold text-text-primary uppercase tracking-widest">
+               <span className="px-3 py-1 rounded-full bg-bg/80 backdrop-blur-md border border-white/10 text-[9px] font-black text-text-primary uppercase tracking-[0.2em]">
                 {post.cat}
               </span>
             </div>
+            
+            {/* New Badge for the very first item */}
+            {index === 0 && (
+              <div className="absolute top-4 right-4 animate-pulse">
+                <span className="px-3 py-1.5 rounded-full bg-accent text-bg text-[8px] font-black uppercase tracking-widest">
+                  Newest
+                </span>
+              </div>
+            )}
           </div>
 
           {/* Content */}
-          <div className="p-6 md:p-8 flex flex-col flex-grow">
-            <div className="flex items-center justify-between mb-4">
-              <span className="text-[10px] text-muted font-bold tracking-widest uppercase">{post.date}</span>
-              <div className="flex items-center gap-1.5 text-[10px] text-muted font-bold tracking-widest uppercase">
+          <div className="p-8 flex flex-col flex-grow">
+            <div className="flex items-center justify-between mb-5">
+              <span className="text-[10px] text-muted font-bold tracking-[0.2em] uppercase">{post.date}</span>
+              <div className="flex items-center gap-1.5 text-[10px] text-muted font-bold tracking-[0.2em] uppercase">
                 <Clock size={12} />
                 <span>{post.time}</span>
               </div>
             </div>
 
-            <h3 className="text-xl md:text-2xl font-display italic text-text-primary leading-tight mb-4 group-hover:translate-x-1 transition-transform">
+            <h3 className="text-xl md:text-2xl font-display italic font-bold text-text-primary leading-snug mb-5 group-hover:text-accent transition-colors">
               {post.title}
             </h3>
 
-            <p className="text-sm text-muted font-body leading-relaxed line-clamp-2 md:line-clamp-3 mb-8">
+            <p className="text-[13px] md:text-sm text-muted/70 font-body leading-relaxed line-clamp-3 mb-8">
               {post.metaDesc}
             </p>
 
-            <div className="mt-auto pt-6 border-t border-stroke flex items-center justify-between">
-              <span className="text-[10px] uppercase tracking-widest font-bold text-text-primary group-hover:text-white transition-colors">Read Article</span>
-              <ArrowUpRight size={16} className="text-muted group-hover:text-text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+            <div className="mt-auto pt-6 border-t border-stroke/50 flex items-center justify-between group-hover:border-accent/30 transition-colors">
+              <span className="text-[10px] uppercase tracking-[0.3em] font-black text-accent group-hover:text-white transition-colors">Deep Dive</span>
+              <div className="w-8 h-8 rounded-full border border-stroke flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-all">
+                <ArrowUpRight size={14} className="text-muted group-hover:text-bg transition-colors" />
+              </div>
             </div>
           </div>
 
@@ -88,14 +106,13 @@ const TiltBlogCard = ({ post, index }: { post: any; index: number }) => {
 };
 
 export default function BlogGrid({ limit }: { limit?: number }) {
-  const posts = BLOG_POSTS;
-
-  const displayedPosts = limit ? posts.slice(0, limit) : posts;
+  const sortedPosts = sortPosts(BLOG_POSTS);
+  const displayedPosts = limit ? sortedPosts.slice(0, limit) : sortedPosts;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
       {displayedPosts.map((post, i) => (
-        <TiltBlogCard key={i} post={post} index={i} />
+        <TiltBlogCard key={post.slug} post={post} index={i} />
       ))}
     </div>
   );

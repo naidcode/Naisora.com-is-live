@@ -8,19 +8,19 @@ export default function Blog() {
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent-gradient blur-[120px] opacity-[0.03] rounded-full translate-x-1/2 -translate-y-1/2 pointer-events-none" />
       
       {/* Hero */}
-      <section className="px-6 mb-20 md:mb-32">
-        <div className="container max-w-4xl mx-auto text-center">
+      <section className="px-6 mb-12 md:mb-20">
+        <div className="container max-w-5xl mx-auto text-center">
           <AnimatedSection>
-            <div className="inline-flex items-center gap-3 mb-6">
-              <div className="w-8 h-px bg-stroke" />
-              <span className="text-[10px] text-muted tracking-[0.4em] uppercase font-body font-bold text-center">Insights</span>
-              <div className="w-8 h-px bg-stroke" />
+            <div className="inline-flex items-center gap-4 mb-8">
+              <div className="w-12 h-px bg-stroke" />
+              <span className="text-[10px] text-accent tracking-[0.5em] uppercase font-black text-center">Naisora Journal</span>
+              <div className="w-12 h-px bg-stroke" />
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-8xl font-display text-text-primary leading-[1.05] mb-6 md:mb-8 italic">
-              Tips & <span className="italic">*guides*</span> for owners.
+            <h1 className="text-4xl sm:text-6xl md:text-8xl font-display text-text-primary leading-[1.05] mb-8 italic font-bold tracking-tight">
+              Intelligence for <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-400 italic">Modern</span> Restaurateurs.
             </h1>
             <p className="text-base md:text-xl text-muted font-body leading-relaxed max-w-2xl mx-auto">
-              Learn how to get more customers online without paying high commission fees to third-party platforms.
+              Strategic insights on AI, marketing, and technology to help Bangalore food brands scale profitably.
             </p>
           </AnimatedSection>
         </div>
