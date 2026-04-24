@@ -118,7 +118,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
                 alt={post.title}
                 fill
                 priority
-                className="object-cover transition-transform duration-[2000ms] group-hover:scale-105"
+                className="object-cover transition-transform duration-[length:2000ms] group-hover:scale-105"
                 sizes="(max-width: 1200px) 100vw, 1200px"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />

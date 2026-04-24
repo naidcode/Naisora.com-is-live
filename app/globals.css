@@ -105,7 +105,8 @@
   }
 
   .scroll-reveal {
-    @apply opacity-0 translate-y-5 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)];
+    @apply opacity-0 translate-y-5 transition-all duration-700;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .scroll-reveal.visible {
@@ -113,7 +114,8 @@
   }
 
   .load-stagger {
-    @apply opacity-0 translate-y-5 animate-[fadeUp_800ms_cubic-bezier(0.16,1,0.3,1)_forwards];
+    @apply opacity-0 translate-y-5;
+    animation: fadeUp 800ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
   /* Stagger Delays */
@@ -173,12 +175,13 @@
 }
 
 .scroll-beam {
-  @apply absolute top-0 left-0 w-full h-[50%] animate-[beamScroll_2s_cubic-bezier(0.65,0,0.35,1)_infinite];
+  @apply absolute top-0 left-0 w-full h-[50%];
+  animation: beamScroll 2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
   background: linear-gradient(to bottom, transparent, hsl(var(--text)), transparent);
 }
 
 .cta-glow {
-  @apply animate-[ctaPulse_3s_ease-in-out_infinite];
+  animation: ctaPulse 3s ease-in-out infinite;
 }
 
 /* Lenis smooth scroll compatibility */
