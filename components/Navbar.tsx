@@ -31,16 +31,102 @@ export default function Navbar() {
     setIsOpen(false);
   }, [pathname]);
 
+  // Lock body scroll when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
+
   return (
     <LazyMotion features={domAnimation}>
     <header className="fixed top-0 left-0 right-0 z-[100] flex justify-center pt-4 md:pt-6 px-4 pointer-events-none">
+      {/* Mobile Menu Overlay - Moved outside m.nav pill to prevent width constraints */}
+      <AnimatePresence>
+        {isOpen && (
+          <>
+            {/* Backdrop */}
+            <m.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsOpen(false)}
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[105] pointer-events-auto"
+            />
+            {/* Menu Card */}
+            <m.div
+              initial={{ opacity: 0, scale: 0.95, y: -20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: -20 }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="fixed top-24 left-4 right-4 max-w-[400px] mx-auto p-8 bg-surface/95 backdrop-blur-2xl border border-white/10 rounded-[32px] shadow-[0_32px_128px_-16px_rgba(0,0,0,0.5)] z-[110] flex flex-col gap-8 pointer-events-auto overflow-hidden"
+            >
+              <div className="flex flex-col gap-4">
+                <span className="text-[10px] uppercase tracking-[0.3em] text-muted font-bold ml-1">Navigation</span>
+                <div className="flex flex-col gap-3">
+                  {NAV_LINKS.map((link, i) => (
+                    <m.div
+                      key={link.href}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.05 }}
+                    >
+                      <Link
+                        href={link.href}
+                        onClick={() => setIsOpen(false)}
+                        className={`
+                          text-4xl font-display font-medium italic py-1 transition-all block
+                          ${pathname === link.href ? "text-text-primary" : "text-muted hover:text-text-primary"}
+                        `}
+                      >
+                        {link.name}
+                      </Link>
+                    </m.div>
+                  ))}
+                </div>
+              </div>
+              
+              <div className="w-full h-px bg-white/5" />
+              
+              <div className="flex flex-col gap-8">
+                <div className="flex flex-col gap-2">
+                  <span className="text-[10px] uppercase tracking-[0.3em] text-muted font-bold ml-1">Direct Contact</span>
+                  <Link href="tel:+917975219560" className="text-xl font-body font-semibold text-text-primary">
+                    +91 7975219560
+                  </Link>
+                </div>
+
+                <m.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                >
+                  <Link 
+                    href="/contact" 
+                    onClick={() => setIsOpen(false)}
+                    className="btn-modern btn-modern-primary w-full py-5 text-lg flex items-center justify-center gap-3 group"
+                  >
+                    Get Free Audit ↗
+                  </Link>
+                </m.div>
+              </div>
+            </m.div>
+          </>
+        )}
+      </AnimatePresence>
+
       <m.nav
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
         className={`
           pointer-events-auto inline-flex items-center rounded-full backdrop-blur-md border border-white/10 bg-surface/80 px-3 md:px-4 py-2
-          transition-all duration-300 relative
+          transition-all duration-300 relative z-[120]
           ${scrolled ? "shadow-xl shadow-black/20" : "shadow-none"}
         `}
       >
@@ -100,67 +186,81 @@ export default function Navbar() {
           {isOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
 
-        {/* Mobile Menu Overlay */}
-        <AnimatePresence>
-          {isOpen && (
-            <>
-              {/* Backdrop */}
-              <m.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                onClick={() => setIsOpen(false)}
-                className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[-2] pointer-events-auto"
-              />
-              {/* Menu Card */}
-              {/* Menu Card */}
-              <m.div
-                initial={{ opacity: 0, scale: 0.95, y: -20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95, y: -20 }}
-                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                className="fixed top-24 left-1/2 -translate-x-1/2 w-[calc(100%-40px)] max-w-[280px] p-8 bg-[#111] border border-white/10 rounded-[30px] shadow-2xl z-[110] flex flex-col items-center gap-6 pointer-events-auto"
-              >
-                {NAV_LINKS.map((link, i) => (
-                  <m.div
-                    key={link.href}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.05 }}
-                    className="w-full text-center"
-                  >
-                    <Link
-                      href={link.href}
-                      className={`
-                        block text-3xl font-display font-medium italic py-2 transition-all
-                        ${pathname === link.href ? "text-text-primary scale-110" : "text-muted hover:text-text-primary"}
-                      `}
+      </m.nav>
+
+      {/* Mobile Menu Overlay - Moved outside m.nav pill to prevent width constraints */}
+      <AnimatePresence>
+        {isOpen && (
+          <>
+            {/* Backdrop */}
+            <m.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsOpen(false)}
+              className="fixed inset-0 bg-black/60 backdrop-blur-md z-[105] pointer-events-auto"
+            />
+            {/* Menu Card */}
+            <m.div
+              initial={{ opacity: 0, scale: 0.95, y: -20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: -20 }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="fixed top-24 left-4 right-4 max-w-[400px] mx-auto p-8 bg-surface/95 backdrop-blur-2xl border border-white/10 rounded-[32px] shadow-[0_32px_128px_-16px_rgba(0,0,0,0.5)] z-[110] flex flex-col gap-8 pointer-events-auto overflow-hidden"
+            >
+              <div className="flex flex-col gap-4">
+                <span className="text-[10px] uppercase tracking-[0.3em] text-muted font-bold ml-1">Navigation</span>
+                <div className="flex flex-col gap-3">
+                  {NAV_LINKS.map((link, i) => (
+                    <m.div
+                      key={link.href}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.05 }}
                     >
-                      {link.name}
-                    </Link>
-                  </m.div>
-                ))}
-                
-                <div className="w-full h-px bg-white/5 my-2" />
-                
+                      <Link
+                        href={link.href}
+                        onClick={() => setIsOpen(false)}
+                        className={`
+                          text-4xl font-display font-medium italic py-1 transition-all block
+                          ${pathname === link.href ? "text-text-primary" : "text-muted hover:text-text-primary"}
+                        `}
+                      >
+                        {link.name}
+                      </Link>
+                    </m.div>
+                  ))}
+                </div>
+              </div>
+              
+              <div className="w-full h-px bg-white/5" />
+              
+              <div className="flex flex-col gap-8">
+                <div className="flex flex-col gap-2">
+                  <span className="text-[10px] uppercase tracking-[0.3em] text-muted font-bold ml-1">Direct Contact</span>
+                  <Link href="tel:+917975219560" className="text-xl font-body font-semibold text-text-primary">
+                    +91 7975219560
+                  </Link>
+                </div>
+
                 <m.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: NAV_LINKS.length * 0.05 }}
-                  className="w-full"
+                  transition={{ delay: 0.3 }}
                 >
                   <Link 
                     href="/contact" 
-                    className="btn-modern btn-modern-primary w-full py-4 text-base"
+                    onClick={() => setIsOpen(false)}
+                    className="btn-modern btn-modern-primary w-full py-5 text-lg flex items-center justify-center gap-3 group"
                   >
                     Get Free Audit ↗
                   </Link>
                 </m.div>
-              </m.div>
-            </>
-          )}
-        </AnimatePresence>
-      </m.nav>
+              </div>
+            </m.div>
+          </>
+        )}
+      </AnimatePresence>
     </header>
     </LazyMotion>
   );
