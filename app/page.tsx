@@ -2,12 +2,12 @@ import HeroSection from "@/components/HeroSection";
 import dynamic from "next/dynamic";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import ProblemSection from "@/components/ProblemSection";
-import WhoThisIsFor from "@/components/WhoThisIsFor";
-import DifferenceSection from "@/components/DifferenceSection";
-import WhyChooseUs from "@/components/WhyChooseUs";
-import AboutFounder from "@/components/AboutFounder";
 
+const ProblemSection = dynamic(() => import("@/components/ProblemSection"));
+const WhoThisIsFor = dynamic(() => import("@/components/WhoThisIsFor"));
+const DifferenceSection = dynamic(() => import("@/components/DifferenceSection"));
+const WhyChooseUs = dynamic(() => import("@/components/WhyChooseUs"));
+const AboutFounder = dynamic(() => import("@/components/AboutFounder"));
 const ServiceCards = dynamic(() => import("@/components/ServiceCards"));
 const ProjectGrid = dynamic(() => import("@/components/ProjectGrid"));
 const TestimonialRow = dynamic(() => import("@/components/TestimonialRow"));

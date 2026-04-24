@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import Image from "next/image";
 import { Moon, Sun, Type, Copy, Check, Twitter, Share2 } from "lucide-react";
 
 interface BlogContentProps {
@@ -142,8 +143,13 @@ export default function BlogContent({ content }: BlogContentProps) {
               strong: ({node, ...props}) => <strong className={`font-black tracking-tight ${isDarkMode ? 'text-accent' : 'text-black'}`} {...props} />,
               img: ({node, ...props}) => (
                 <div className={`my-12 md:my-20 -mx-5 md:mx-0 rounded-2xl md:rounded-3xl overflow-hidden border shadow-2xl transition-all md:hover:scale-[1.01] duration-700 ${isDarkMode ? 'border-stroke/50 bg-bg/50' : 'border-gray-200 bg-gray-50'}`}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img {...props} className="w-full h-auto object-cover max-h-[400px] md:max-h-[700px]" alt={props.alt || "Article visual"} />
+                  <Image 
+                    src={props.src || ''} 
+                    alt={props.alt || "Article visual"} 
+                    width={1200}
+                    height={800}
+                    className="w-full h-auto object-cover max-h-[400px] md:max-h-[700px]" 
+                  />
                   {props.alt && (
                     <div className={`px-5 md:px-8 py-3 md:py-5 flex items-center gap-3 border-t ${isDarkMode ? 'bg-surface/50 border-stroke/30' : 'bg-gray-50 border-gray-100'}`}>
                       <div className="w-1 md:w-1.5 h-1 md:h-1.5 rounded-full bg-accent" />

@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     canonical: 'https://naisora.com',
   },
   title: "Naisora | Bangalore's AI Web Agency for Restaurants & Cafes",
-  description: "Naisora is Bangalore’s premier AI web agency for restaurants. We specialize in high-speed, AI-powered websites that scale growth and reduce delivery commission costs.",
+  description: "Naisora is Bangalore’s top AI web agency for restaurants. We build high-speed, AI-powered websites that scale growth and reduce delivery commission costs.",
   keywords: ["Bangalore Web Design", "Restaurant Website Builder", "AI Automation for Restaurants", "Naisora Agency"],
   icons: {
     icon: "/branding-assets/naisora_icon.svg",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Naisora | Bangalore's AI Web Agency",
-    description: "Naisora is Bangalore’s premier AI web agency for restaurants. We specialize in high-speed, AI-powered websites that scale growth and reduce delivery commission costs.",
+    description: "Naisora is Bangalore’s top AI web agency for restaurants. We build high-speed, AI-powered websites that scale growth and reduce delivery commission costs.",
     url: 'https://naisora.com',
     siteName: 'Naisora Agency',
     locale: 'en_US',

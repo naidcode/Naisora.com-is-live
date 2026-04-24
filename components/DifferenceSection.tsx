@@ -111,7 +111,6 @@ export default function DifferenceSection() {
                   alt="Naisora Premium Design"
                   fill
                   className="object-cover"
-                  priority
                 />
               </div>
 

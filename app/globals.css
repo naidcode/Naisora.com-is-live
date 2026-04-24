@@ -9,23 +9,6 @@
   --muted: 0 0% 53%;
   --stroke: 0 0% 12%;
   --accent: 0 0% 96%;
-
-  /* Legacy variables for compatibility */
-  --color-bg: #0A0A0A;
-  --color-surface: #141414;
-  --color-surface-2: #1C1C1C;
-  --color-border: #1F1F1F;
-  --color-border-hover: #333333;
-  --color-white: #FFFFFF;
-  --color-off-white: #E8E8E8;
-  --color-muted: #777777;
-  --color-dim: #444444;
-  --color-tag-bg: #161616;
-  --color-tag-border: #2A2A2A;
-  --color-tag-text: #999999;
-  --color-btn-bg: #FFFFFF;
-  --color-btn-text: #080808;
-  --color-btn-hover: #E0E0E0;
 }
 
 .accent-gradient {
@@ -50,8 +33,8 @@
 html, body {
   max-width: 100vw;
   overflow-x: hidden;
-  background-color: var(--color-bg);
-  color: var(--color-white);
+  background-color: hsl(var(--bg));
+  color: hsl(var(--text));
   line-height: 1.7;
 }
 
@@ -142,7 +125,7 @@ input:focus, textarea:focus {
 .section-tag {
   display: inline-block;
   background-color: transparent;
-  color: var(--color-dim);
+  color: hsl(var(--muted));
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -152,9 +135,9 @@ input:focus, textarea:focus {
 
 .pill-tag {
   display: inline-flex;
-  background-color: var(--color-tag-bg);
-  border: 1px solid var(--color-tag-border);
-  color: var(--color-tag-text);
+  background-color: hsl(var(--surface));
+  border: 1px solid hsl(var(--stroke));
+  color: hsl(var(--muted));
   padding: 6px 16px;
   border-radius: 100px;
   font-size: 11px;
@@ -169,7 +152,7 @@ input:focus, textarea:focus {
   font-weight: 800;
 }
 .hero-h1.muted {
-  color: var(--color-muted);
+  color: hsl(var(--muted));
 }
 .section-h2 {
   font-size: 48px;
@@ -186,12 +169,12 @@ input:focus, textarea:focus {
 .body-large {
   font-size: 17px;
   line-height: 1.7;
-  color: var(--color-muted);
+  color: hsl(var(--muted));
 }
 .body-regular {
   font-size: 15px;
   line-height: 1.7;
-  color: var(--color-muted);
+  color: hsl(var(--muted));
 }
 
 @media (max-width: 1024px) {
@@ -268,68 +251,13 @@ input:focus, textarea:focus {
 }
 
 
-/* Buttons */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 28px;
-  font-size: 15px;
-  font-weight: 600;
-  border-radius: 6px;
-  transition: all 180ms cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
-}
-.btn-primary {
-  background-color: var(--color-btn-bg);
-  color: var(--color-btn-text);
-}
-.btn-primary:hover {
-  background-color: var(--color-btn-hover);
-}
-.btn-ghost {
-  background-color: transparent;
-  border: 1px solid var(--color-tag-border);
-  color: var(--color-white);
-}
-.btn-ghost:hover {
-  border-color: #555555;
-}
-
-/* Cards */
-.card {
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  padding: 32px;
-  transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-.card:hover {
-  border-color: var(--color-border-hover);
-  transform: translateY(-4px);
-}
-
-.project-card {
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  overflow: hidden;
-  transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-.project-card:hover {
-  border-color: var(--color-border-hover);
-}
-.project-card:hover .project-img {
-  transform: scale(1.03);
-}
-
 /* Input Fields */
 .input {
   width: 100%;
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
+  background-color: hsl(var(--surface));
+  border: 1px solid hsl(var(--stroke));
   border-radius: 8px;
-  color: var(--color-white);
+  color: hsl(var(--text));
   padding: 14px 16px;
   font-size: 15px;
   transition: border-color 150ms ease;
@@ -439,7 +367,7 @@ input:focus, textarea:focus {
   left: 0;
   width: 100%;
   height: 50%;
-  background: linear-gradient(to bottom, transparent, var(--color-white), transparent);
+  background: linear-gradient(to bottom, transparent, hsl(var(--text)), transparent);
   animation: beamScroll 2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
 }
 
