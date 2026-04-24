@@ -99,7 +99,7 @@ export default function DifferenceSection() {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1 }}
               viewport={{ once: true }}
-              className="relative aspect-[4/5] md:aspect-square lg:aspect-[4/5] rounded-[40px] overflow-hidden border border-stroke bg-surface shadow-2xl group cursor-col-resize select-none"
+              className="relative aspect-square md:aspect-[4/5] rounded-[40px] overflow-hidden border border-stroke bg-surface shadow-2xl group cursor-col-resize select-none"
               ref={containerRef}
               onMouseDown={() => setIsResizing(true)}
               onTouchStart={() => setIsResizing(true)}

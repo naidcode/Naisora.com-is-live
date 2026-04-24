@@ -17,7 +17,7 @@ const PricingCards = dynamic(() => import("@/components/PricingCards"));
 
 export default function Home() {
   return (
-    <main className="bg-bg text-text-primary">
+    <main className="bg-bg text-text-primary pb-32 md:pb-0">
       <HeroSection />
       
       <ProblemSection />
@@ -59,7 +59,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-6">
               <Link 
                 href="/contact" 
-                className="btn-modern btn-modern-primary px-10 py-6 text-lg group"
+                className="btn-modern btn-modern-primary px-10 py-2.5 md:py-3.5 text-lg group"
               >
                 <span className="relative z-10 flex items-center gap-3">
                   Get Free Website Audit <ArrowRight className="w-5 h-5" />
@@ -69,7 +69,7 @@ export default function Home() {
 
               <Link 
                 href="/contact" 
-                className="btn-modern btn-modern-accent px-10 py-6 text-lg group"
+                className="btn-modern btn-modern-accent px-10 py-2.5 md:py-3.5 text-lg group"
               >
                 <span className="relative z-10 flex items-center gap-3">
                   Start Your Website

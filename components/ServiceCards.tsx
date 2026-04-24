@@ -185,9 +185,13 @@ export default function ServiceCards() {
           </motion.div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20 md:mb-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-20 md:mb-32">
           {services.map((svc, i) => (
-            <ServiceCard key={i} svc={svc} index={i} onLearnMore={() => setSelectedService(i)} />
+            <div key={i} className={`${i === 2 ? 'md:col-span-2 lg:col-span-1 md:flex md:justify-center' : ''}`}>
+              <div className={`w-full h-full ${i === 2 ? 'md:max-w-[calc(50%-1rem)] lg:max-w-none' : ''}`}>
+                <ServiceCard svc={svc} index={i} onLearnMore={() => setSelectedService(i)} />
+              </div>
+            </div>
           ))}
         </div>
       </div>

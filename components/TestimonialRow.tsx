@@ -78,7 +78,7 @@ export default function TestimonialRow() {
 
           <Link
             href="/blog"
-            className="btn-modern btn-modern-accent px-8 py-4 group"
+            className="btn-modern btn-modern-accent px-8 py-3 md:py-4 group h-fit self-center md:self-end"
           >
             <span className="relative z-10 flex items-center gap-2">View more blogs</span>
             <div className="shimmer-sweep" />

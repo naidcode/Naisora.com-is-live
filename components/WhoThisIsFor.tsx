@@ -43,22 +43,23 @@ export default function WhoThisIsFor() {
           </motion.h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
           {AUDIENCES.map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              viewport={{ once: true }}
-              className="flex flex-col items-center text-center p-12 rounded-[3rem] bg-surface/50 border border-stroke group hover:bg-surface transition-colors"
-            >
-              <div className="w-20 h-20 rounded-full bg-stroke flex items-center justify-center mb-8 group-hover:bg-text-primary group-hover:text-bg transition-all duration-500">
-                {item.icon}
-              </div>
-              <h3 className="text-2xl font-display italic text-text-primary mb-4">{item.title}</h3>
-              <p className="text-muted font-body leading-relaxed">{item.desc}</p>
-            </motion.div>
+            <div key={i} className={`${i === 2 ? 'md:col-span-2 lg:col-span-1 md:flex md:justify-center' : ''}`}>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className={`flex flex-col items-center text-center p-12 rounded-[3rem] bg-surface/50 border border-stroke group hover:bg-surface transition-colors h-full ${i === 2 ? 'md:max-w-[calc(50%-1rem)] lg:max-w-none' : ''}`}
+              >
+                <div className="w-20 h-20 rounded-full bg-stroke flex items-center justify-center mb-8 group-hover:bg-text-primary group-hover:text-bg transition-all duration-500">
+                  {item.icon}
+                </div>
+                <h3 className="text-2xl font-display italic text-text-primary mb-4">{item.title}</h3>
+                <p className="text-muted font-body leading-relaxed">{item.desc}</p>
+              </motion.div>
+            </div>
           ))}
         </div>
       </div>

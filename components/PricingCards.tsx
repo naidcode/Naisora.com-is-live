@@ -80,70 +80,73 @@ export default function PricingCards() {
           </div>
         </AnimatedSection>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-stretch mb-16">
           {plans.map((p, i) => (
-            <AnimatedSection 
-              key={i} 
-              delay={(i + 1) * 100}
-              className="relative"
-              style={{ zIndex: p.index || 10 }}
-            >
-              <div className={`flex flex-col h-full p-8 md:p-10 rounded-[32px] border transition-all duration-500 relative group ${p.highlight && p.name === "Starter Website" ? 'border-text-primary/20 bg-surface shadow-[0_20px_50px_rgba(255,255,255,0.05)] scale-[1.02]' : 'border-stroke bg-surface/50'}`}>
-                {/* Glow Overlay - now in a separate overflow-hidden container if needed, or just let it be */}
-                <div className="absolute inset-0 bg-accent-gradient opacity-0 group-hover:opacity-[0.03] transition-opacity duration-700 rounded-[32px] overflow-hidden pointer-events-none" />
-                
-                {p.tag && (
-                  <div className={`absolute -top-3 left-8 ${p.tagColor} ${p.textColor} px-5 py-1.5 rounded-full text-[10px] font-bold tracking-widest uppercase z-[100] shadow-xl border border-white/10`}>
-                    {p.tag}
-                  </div>
-                )}
-                
-                <div className="flex-grow relative z-10">
-                  <span className="text-[10px] text-muted font-bold tracking-widest uppercase mb-4 block">Plan 0{i + 1}</span>
-                  <h3 className="text-xl font-display text-text-primary mb-2 italic">
-                    {p.name}
-                  </h3>
-                  <p className="text-sm text-muted font-body mb-8 lowercase italic">
-                    {p.tagline}
-                  </p>
-                  
-                  <div className="flex items-baseline gap-1 mb-10">
-                    <span className="text-4xl md:text-5xl font-display text-text-primary italic">
-                      {p.price}
-                    </span>
-                    {p.billing === 'month' && (
-                      <span className="text-sm text-muted font-body">/mo</span>
+            <div key={i} className={`${i === 2 ? 'md:col-span-2 lg:col-span-1 md:flex md:justify-center' : ''}`}>
+               <div className={`w-full h-full ${i === 2 ? 'md:max-w-[calc(50%-1rem)] lg:max-w-none' : ''}`}>
+                <AnimatedSection 
+                  delay={(i + 1) * 100}
+                  className="relative h-full"
+                  style={{ zIndex: p.index || 10 }}
+                >
+                  <div className={`flex flex-col h-full p-8 md:p-10 rounded-[32px] border transition-all duration-500 relative group ${p.highlight && p.name === "Starter Website" ? 'border-text-primary/20 bg-surface shadow-[0_20px_50px_rgba(255,255,255,0.05)] scale-[1.02]' : 'border-stroke bg-surface/50'}`}>
+                    {/* Glow Overlay */}
+                    <div className="absolute inset-0 bg-accent-gradient opacity-0 group-hover:opacity-[0.03] transition-opacity duration-700 rounded-[32px] overflow-hidden pointer-events-none" style={{ backfaceVisibility: 'hidden' }} />
+                    
+                    {p.tag && (
+                      <div className={`absolute -top-3 left-8 ${p.tagColor} ${p.textColor} px-5 py-1.5 rounded-full text-[10px] font-bold tracking-widest uppercase z-[100] shadow-xl border border-white/10`}>
+                        {p.tag}
+                      </div>
                     )}
-                    {p.billing === 'one-time' && (
-                      <span className="text-xs text-muted font-body uppercase tracking-widest ml-2">
-                        (one-time)
-                      </span>
-                    )}
+                    
+                    <div className="flex-grow relative z-10">
+                      <span className="text-[10px] text-muted font-bold tracking-widest uppercase mb-4 block">Plan 0{i + 1}</span>
+                      <h3 className="text-xl font-display text-text-primary mb-2 italic">
+                        {p.name}
+                      </h3>
+                      <p className="text-sm text-muted font-body mb-8 lowercase italic">
+                        {p.tagline}
+                      </p>
+                      
+                      <div className="flex items-baseline gap-1 mb-10">
+                        <span className="text-4xl md:text-5xl font-display text-text-primary italic">
+                          {p.price}
+                        </span>
+                        {p.billing === 'month' && (
+                          <span className="text-sm text-muted font-body">/mo</span>
+                        )}
+                        {p.billing === 'one-time' && (
+                          <span className="text-xs text-muted font-body uppercase tracking-widest ml-2">
+                            (one-time)
+                          </span>
+                        )}
+                      </div>
+                      
+                      <ul className="flex flex-col gap-5 mb-10">
+                        {p.features.map((f, fi) => (
+                          <li key={fi} className="flex items-start gap-3">
+                            <Check className="w-5 h-5 text-text-primary flex-shrink-0 mt-0.5" />
+                            <span className="text-sm md:text-base text-muted font-body leading-relaxed">{f}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div className="relative z-10 mt-auto">
+                        <Link 
+                          href="/contact" 
+                          className={`btn-modern ${p.btnStyle} w-full py-5 text-sm font-bold flex items-center justify-center group/btn`}
+                        >
+                          <span className="relative z-10 flex items-center gap-2">
+                            {p.highlight && p.name.includes("Website") ? "Start My Website →" : p.name.includes("Visibility") ? "Get More Customers →" : "Start My Website →"}
+                          </span>
+                          <div className="shimmer-sweep" />
+                        </Link>
+                    </div>
                   </div>
-                  
-                  <ul className="flex flex-col gap-5 mb-10">
-                    {p.features.map((f, fi) => (
-                      <li key={fi} className="flex items-start gap-3">
-                        <Check className="w-5 h-5 text-text-primary flex-shrink-0 mt-0.5" />
-                        <span className="text-sm md:text-base text-muted font-body leading-relaxed">{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                
-                <div className="relative z-10">
-                    <Link 
-                      href="/contact" 
-                      className={`btn-modern ${p.btnStyle} w-full py-5 text-sm font-bold flex items-center justify-center group/btn`}
-                    >
-                      <span className="relative z-10 flex items-center gap-2">
-                        {p.highlight && p.name.includes("Website") ? "Start My Website →" : p.name.includes("Visibility") ? "Get More Customers →" : "Start My Website →"}
-                      </span>
-                      <div className="shimmer-sweep" />
-                    </Link>
-                </div>
+                </AnimatedSection>
               </div>
-            </AnimatedSection>
+            </div>
           ))}
         </div>
 

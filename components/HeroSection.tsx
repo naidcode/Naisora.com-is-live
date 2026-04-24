@@ -93,16 +93,16 @@ export default function HeroSection() {
           >
             <Link
               href="/contact"
-              className="btn-modern btn-modern-primary group w-full sm:w-auto px-10"
+              className="btn-modern btn-modern-primary group w-full sm:w-auto px-10 py-2.5 md:py-3.5"
             >
               <span className="relative z-10 flex items-center justify-center gap-2">
-                Get a Free Audit <ArrowRight className="w-4 h-4" />
+                Get a Free Audit <ArrowRight className="w-5 h-5" />
               </span>
               <div className="shimmer-sweep" />
             </Link>
             <Link
               href="/services"
-              className="btn-modern btn-modern-accent group w-full sm:w-auto px-10"
+              className="btn-modern btn-modern-accent group w-full sm:w-auto px-10 py-2.5 md:py-3.5"
             >
               <span className="relative z-10">See Our Services</span>
               <div className="shimmer-sweep" />

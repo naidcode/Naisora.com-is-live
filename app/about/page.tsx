@@ -72,7 +72,7 @@ export default function About() {
         <div className="container max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <AnimatedSection>
-              <div className="relative aspect-[4/5] rounded-[40px] overflow-hidden border border-stroke group">
+              <div className="relative aspect-square md:aspect-[4/5] rounded-[40px] overflow-hidden border border-stroke group">
                  <Image 
                    src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000"
                    alt="Naisora Agency Culture"
@@ -191,19 +191,21 @@ export default function About() {
             </div>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
              {values.map((value, i) => (
-               <AnimatedSection key={i} delay={i * 100}>
-                  <div className="group h-full p-8 md:p-10 bg-surface/30 border border-stroke rounded-[24px] md:rounded-[32px] hover:bg-surface/50 transition-all duration-500 hover:-translate-y-2">
-                     <div className="w-14 h-14 rounded-2xl bg-accent-gradient p-[1px] mb-8 group-hover:scale-110 transition-transform">
-                        <div className="w-full h-full rounded-2xl bg-surface flex items-center justify-center">
-                           <value.icon className="w-6 h-6 text-text-primary" />
-                        </div>
-                     </div>
-                     <h3 className="text-2xl font-display text-text-primary italic mb-4">{value.title}</h3>
-                     <p className="text-muted font-body leading-relaxed">{value.desc}</p>
-                  </div>
-               </AnimatedSection>
+               <div key={i} className={`${i === 2 ? 'md:col-span-2 lg:col-span-1 md:flex md:justify-center' : ''}`}>
+                 <AnimatedSection delay={i * 100} className="h-full">
+                    <div className={`group h-full p-8 md:p-10 bg-surface/30 border border-stroke rounded-[24px] md:rounded-[32px] hover:bg-surface/50 transition-all duration-500 hover:-translate-y-2 ${i === 2 ? 'md:max-w-[calc(50%-1rem)] lg:max-w-none' : ''}`}>
+                       <div className="w-14 h-14 rounded-2xl bg-accent-gradient p-[1px] mb-8 group-hover:scale-110 transition-transform">
+                          <div className="w-full h-full rounded-2xl bg-surface flex items-center justify-center">
+                             <value.icon className="w-6 h-6 text-text-primary" />
+                          </div>
+                       </div>
+                       <h3 className="text-2xl font-display text-text-primary italic mb-4">{value.title}</h3>
+                       <p className="text-muted font-body leading-relaxed">{value.desc}</p>
+                    </div>
+                 </AnimatedSection>
+               </div>
              ))}
           </div>
         </div>
