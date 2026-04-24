@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://naisora.com',
   },
-  title: "Naisora | Bangalore's AI Web Agency for Restaurants & Cafes",
+  title: "Naisora | Bangalore's AI Web Agency for Restaurants",
   description: "Naisora is Bangalore’s top AI web agency for restaurants. We build high-speed, AI-powered websites that scale growth and reduce delivery commission costs.",
   keywords: ["Bangalore Web Design", "Restaurant Website Builder", "AI Automation for Restaurants", "Naisora Agency"],
   icons: {
@@ -90,22 +90,51 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "ProfessionalService",
-              "name": "Naisora",
-              "description": "AI-powered web design and SEO agency for restaurants and cafes in Bangalore",
-              "url": "https://naisora.com",
-              "email": "hey@naisora.com",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Bangalore",
-                "addressRegion": "Karnataka",
-                "addressCountry": "IN"
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "Naisora",
+                "url": "https://naisora.com",
+                "logo": "https://naisora.com/logo.png",
+                "description": "Bangalore's AI Web Design Agency for Restaurants and Cafes",
+                "contactPoint": {
+                  "@type": "ContactPoint",
+                  "email": "hey@naisora.com",
+                  "contactType": "customer service"
+                },
+                "sameAs": [
+                  "https://instagram.com/naisora.official"
+                ]
               },
-              "areaServed": "Bangalore",
-              "serviceType": "Web Design and SEO for Restaurants"
-            })
+              {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "Naisora",
+                "url": "https://naisora.com",
+                "potentialAction": {
+                  "@type": "SearchAction",
+                  "target": "https://naisora.com/search?q={search_term_string}",
+                  "query-input": "required name=search_term_string"
+                }
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "ProfessionalService",
+                "name": "Naisora",
+                "description": "AI-powered web design and SEO agency for restaurants and cafes in Bangalore",
+                "url": "https://naisora.com",
+                "email": "hey@naisora.com",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Bangalore",
+                  "addressRegion": "Karnataka",
+                  "addressCountry": "IN"
+                },
+                "areaServed": "Bangalore",
+                "serviceType": "Web Design and SEO for Restaurants"
+              }
+            ])
           }}
         />
       </head>
