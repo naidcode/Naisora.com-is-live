@@ -149,6 +149,8 @@ export default function BlogContent({ content }: BlogContentProps) {
                     width={1200}
                     height={800}
                     className="w-full h-auto object-cover max-h-[400px] md:max-h-[700px]" 
+                    sizes="(max-width: 1200px) 100vw, 1200px"
+                    loading="lazy"
                   />
                   {props.alt && (
                     <div className={`px-5 md:px-8 py-3 md:py-5 flex items-center gap-3 border-t ${isDarkMode ? 'bg-surface/50 border-stroke/30' : 'bg-gray-50 border-gray-100'}`}>

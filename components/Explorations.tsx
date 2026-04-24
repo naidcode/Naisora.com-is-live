@@ -8,13 +8,14 @@ import Image from "next/image";
 gsap.registerPlugin(ScrollTrigger);
 
 const ITEMS = [
-  { img: "/projects/mockup1.png", rotate: "-6deg", y: "0px" },
-  { img: "/projects/mockup2.png", rotate: "12deg", y: "60px" },
-  { img: "/explorations/exp1.png", rotate: "-8deg", y: "-40px" },
-  { img: "/projects/mockup3.png", rotate: "4deg", y: "100px" },
-  { img: "/projects/mockup4.png", rotate: "-10deg", y: "20px" },
-  { img: "/explorations/exp2.png", rotate: "15deg", y: "-80px" },
+  { img: "/projects/mockup1.webp", rotate: "-6deg", y: "0px" },
+  { img: "/projects/mockup2.webp", rotate: "12deg", y: "60px" },
+  { img: "/explorations/exp1.webp", rotate: "-8deg", y: "-40px" },
+  { img: "/projects/mockup3.webp", rotate: "4deg", y: "100px" },
+  { img: "/projects/mockup4.webp", rotate: "-10deg", y: "20px" },
+  { img: "/explorations/exp2.webp", rotate: "15deg", y: "-80px" },
 ];
+
 
 export default function Explorations() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -87,6 +88,8 @@ export default function Explorations() {
                   alt="Exploration"
                   fill
                   className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-bg opacity-20 group-hover:opacity-0 transition-opacity" />
               </div>

@@ -20,7 +20,7 @@ export const BLOG_POSTS: BlogPost[] = [
     time: "6 min",
     date: "April 18, 2026",
     author: "Naisora Team",
-    image: "/blog/hp_interior.jpg",
+    image: "/blog/hp_interior.webp",
     metaDesc: "Discover how hyper-personalization and AI are redefining restaurant marketing in 2026. Learn the strategies to boost revenue and customer loyalty today.",
     tags: ["Hyper-personalization", "Restaurant Marketing 2026", "AI Restaurant Automation", "Customer Retention", "Data-Driven Dining"],
     content: `
@@ -32,7 +32,7 @@ In 2026, the "one-size-fits-all" approach to restaurant marketing is officially 
 
 Hyper-personalization uses real-time data and AI to provide products, services, and content that are specifically tailored to an individual. In the context of restaurants, this means moving beyond segmenting customers by "vague demographics" and instead focusing on "individual intent."
 
-![AI and Data Analytics](/blog/hp_analytics.jpg)
+![AI and Data Analytics](/blog/hp_analytics.webp)
 *Credit: Unsplash*
 
 ### How AI Fuels This Growth
@@ -47,7 +47,7 @@ The rise of Generative Engine Optimization (GEO) and AI-powered discovery means 
 
 If your marketing isn't hyper-personalized, you aren't just losing a click—you're losing a customer to a competitor who knows exactly how to answer that hyper-specific need.
 
-![Digital Interaction](/blog/hp_digital.jpg)
+![Digital Interaction](/blog/hp_digital.webp)
 *Credit: Unsplash*
 
 ## 3 Strategies to Implement Hyper-Personalization Today
@@ -81,7 +81,7 @@ A: No. AI is meant to *augment* hospitality. By handling the data and administra
     time: "8 min",
     date: "April 11, 2026",
     author: "Naisora Team",
-    image: "/blog/modern_restaurant_ai_tech_1775913361651.png",
+    image: "/blog/modern_restaurant_ai_tech_1775913361651.webp",
     metaDesc: "Discover why AI-powered restaurant web design is the essential infrastructure for every Bangalore business in 2026. Data-driven, fast, and high-converting.",
     tags: ["Restaurant Marketing Bangalore", "AI Web Design", "Food Tech India", "Naisora Agency", "Bangalore Food Scene", "Digital Transformation"],
     content: `
@@ -100,7 +100,7 @@ According to recent data, 89% of Bangalore diners research a restaurant online b
 
 Traditional web design—the kind where you hire a freelancer and wait 4 weeks for a static page—is dead. It is too slow, too rigid, and too disconnected from the reality of modern operations.
 
-![MODERN TECH DASHBOARD](/blog/ai_agency_dashboard_luxury_1775913428166.png)
+![MODERN TECH DASHBOARD](/blog/ai_agency_dashboard_luxury_1775913428166.webp)
 
 ## Why AI is the "Secret Sauce" of Modern Restaurant Websites
 When we talk about AI-powered restaurant web design, we aren’t just talking about a "cool" feature. We are talking about a living, breathing ecosystem that works while your chefs are cooking.
@@ -166,7 +166,7 @@ Are you ready to join the future of dining? Contact Naisora AI Agency today.
     time: "9 min",
     date: "April 19, 2026",
     author: "Naisora Team",
-    image: "/blog/restaurant-website-design-bangalore-hero.jpg",
+    image: "/blog/restaurant-website-design-bangalore-hero.webp",
     metaDesc: "Discover the ultimate guide to restaurant website design in Bangalore for 2026. Learn how to convert more diners and stop losing revenue to third-party apps.",
     tags: ["restaurant website design bangalore", "web design bangalore", "restaurant marketing", "ai automation", "direct orders"],
     content: `
@@ -184,7 +184,7 @@ Bangalore is the food capital of India for a reason. With over 12,000 active res
 
 If your website feels like a relic from 2015—slow, clunky, and not mobile-friendly—the message you are sending is: "We don't care about the details." And in a city of techies, that's a death sentence.
 
-![Modern Restaurant Website Interface](/blog/restaurant-website-design-bangalore-hero.jpg)
+![Modern Restaurant Website Interface](/blog/restaurant-website-design-bangalore-hero.webp)
 *A high-end restaurant website design must be as polished as your plating.*
 
 ## The "Zomato Trap" and Why It's Costing You
@@ -209,7 +209,7 @@ A beautiful website that no one finds is useless. Your site needs to be optimize
 ### 3. Integrated Conversational AI
 Don't let a booking slip away because your manager was too busy to pick up the phone. Integrated AI assistants can handle reservations, answer FAQs about parking or valet, and even suggest wine pairings—all 24/7.
 
-![Successful Bangalore Restaurant Owner](/blog/bangalore-restaurant-owner-success.jpg)
+![Successful Bangalore Restaurant Owner](/blog/bangalore-restaurant-owner-success.webp)
 *High-converting web design leads to measurable revenue growth for local businesses.*
 
 ## 7 Steps to a High-Converting Restaurant Website

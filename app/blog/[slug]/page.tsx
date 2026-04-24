@@ -118,7 +118,8 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
                 alt={post.title}
                 fill
                 priority
-                className="object-cover transition-transform duration-[2s] group-hover:scale-105"
+                className="object-cover transition-transform duration-[2000ms] group-hover:scale-105"
+                sizes="(max-width: 1200px) 100vw, 1200px"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
               <div className="absolute bottom-4 md:bottom-8 left-4 md:left-8 right-4 md:right-8 text-white/80 text-[10px] md:text-xs font-medium tracking-wide opacity-0 group-hover:opacity-100 transition-all duration-700 translate-y-4 group-hover:translate-y-0 pointer-events-none">
@@ -240,6 +241,8 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
                         alt={rp.title}
                         fill
                         className="object-cover transition-all duration-700 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-bg/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>

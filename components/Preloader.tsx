@@ -54,7 +54,7 @@ export default function Preloader() {
         y: isComplete ? -20 : 0
       }}
       transition={{ duration: 0.8, ease: [0.8, 0, 0.2, 1] }}
-      className="fixed inset-0 z-[9999] bg-[#050505] flex flex-col justify-between p-8 md:p-12"
+      className="fixed inset-0 z-[9999] bg-[#0a0a0a] flex flex-col justify-between p-8 md:p-12"
     >
       {/* Top Left Label */}
       <m.div 

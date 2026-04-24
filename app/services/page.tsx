@@ -81,10 +81,12 @@ export default function ServicesPage() {
               <AnimatedSection delay={100} className="lg:order-2">
                 <div className="relative aspect-square lg:aspect-[4/5] rounded-[40px] overflow-hidden border border-stroke bg-surface">
                   <Image 
-                    src="/restaurant_design_service.png" 
+                    src="/restaurant_design_service.webp" 
                     alt="Modern restaurant interior" 
                     fill 
                     className="object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-700"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-bg to-transparent opacity-60" />
                 </div>
@@ -142,10 +144,12 @@ export default function ServicesPage() {
               <AnimatedSection delay={100} className="lg:order-1">
                 <div className="relative aspect-square lg:aspect-[4/5] rounded-[40px] overflow-hidden border border-stroke bg-surface">
                   <Image 
-                    src="/restaurant_redesign_service.png" 
+                    src="/restaurant_redesign_service.webp" 
                     alt="Restaurant website redesign" 
                     fill 
                     className="object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-700"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-bg to-transparent opacity-60" />
                 </div>
@@ -202,10 +206,12 @@ export default function ServicesPage() {
               <AnimatedSection delay={100} className="lg:order-2">
                 <div className="relative aspect-square lg:aspect-[4/5] rounded-[40px] overflow-hidden border border-stroke bg-surface">
                   <Image 
-                    src="/restaurant_website_mockup_1775998412859.png" 
+                    src="/restaurant_website_mockup_1775998412859.webp" 
                     alt="Google Maps Visibility" 
                     fill 
                     className="object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-700"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-bg to-transparent opacity-60" />
                 </div>

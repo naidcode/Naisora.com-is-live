@@ -107,10 +107,12 @@ export default function DifferenceSection() {
               {/* After Image (Full Size) */}
               <div className="absolute inset-0">
                 <Image
-                  src="/difference_after.png"
+                  src="/difference_after.webp"
                   alt="Naisora Premium Design"
                   fill
                   className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  loading="lazy"
                 />
               </div>
 
@@ -122,10 +124,12 @@ export default function DifferenceSection() {
                 <div className="absolute inset-0 w-[1000%] h-full">
                     <div className="relative h-full" style={{ width: `${containerRef.current?.offsetWidth || 800}px` }}>
                         <Image
-                            src="/difference_before.png"
+                            src="/difference_before.webp"
                             alt="Old Website Design"
                             fill
                             className="object-cover"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            loading="lazy"
                         />
                     </div>
                 </div>

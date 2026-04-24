@@ -46,10 +46,12 @@ const TiltBlogCard = ({ post, index }: { post: BlogPost; index: number }) => {
           {/* Image Container */}
           <div className="relative aspect-video overflow-hidden">
             <Image 
-              src={post.image || "/projects/mockup1.png"}
+              src={post.image || "/projects/mockup1.webp"}
               alt={post.title}
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-bg/90 via-bg/20 to-transparent opacity-80" />
             <div className="absolute bottom-4 left-4">

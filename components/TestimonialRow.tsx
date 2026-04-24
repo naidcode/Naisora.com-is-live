@@ -26,6 +26,8 @@ const BlogEntry = ({ entry, index }: { entry: any; index: number }) => {
             alt={entry.title}
             fill
             className="object-cover group-hover:scale-110 transition-transform duration-500"
+            sizes="(max-width: 768px) 100vw, 100px"
+            loading="lazy"
           />
         </div>
 

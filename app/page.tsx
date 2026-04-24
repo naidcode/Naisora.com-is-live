@@ -3,17 +3,17 @@ import dynamic from "next/dynamic";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
-const ProblemSection = dynamic(() => import("@/components/ProblemSection"));
-const WhoThisIsFor = dynamic(() => import("@/components/WhoThisIsFor"));
-const DifferenceSection = dynamic(() => import("@/components/DifferenceSection"));
-const WhyChooseUs = dynamic(() => import("@/components/WhyChooseUs"));
-const AboutFounder = dynamic(() => import("@/components/AboutFounder"));
-const ServiceCards = dynamic(() => import("@/components/ServiceCards"));
-const ProjectGrid = dynamic(() => import("@/components/ProjectGrid"));
-const TestimonialRow = dynamic(() => import("@/components/TestimonialRow"));
-const Explorations = dynamic(() => import("@/components/Explorations"));
-const FAQSection = dynamic(() => import("@/components/FAQSection"));
-const PricingCards = dynamic(() => import("@/components/PricingCards"));
+const ProblemSection = dynamic(() => import("@/components/ProblemSection"), { ssr: false });
+const WhoThisIsFor = dynamic(() => import("@/components/WhoThisIsFor"), { ssr: false });
+const DifferenceSection = dynamic(() => import("@/components/DifferenceSection"), { ssr: false });
+const WhyChooseUs = dynamic(() => import("@/components/WhyChooseUs"), { ssr: false });
+const AboutFounder = dynamic(() => import("@/components/AboutFounder"), { ssr: false });
+const ServiceCards = dynamic(() => import("@/components/ServiceCards"), { ssr: false });
+const ProjectGrid = dynamic(() => import("@/components/ProjectGrid"), { ssr: false });
+const TestimonialRow = dynamic(() => import("@/components/TestimonialRow"), { ssr: false });
+const Explorations = dynamic(() => import("@/components/Explorations"), { ssr: false });
+const FAQSection = dynamic(() => import("@/components/FAQSection"), { ssr: false });
+const PricingCards = dynamic(() => import("@/components/PricingCards"), { ssr: false });
 
 export default function Home() {
   return (

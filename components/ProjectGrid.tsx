@@ -10,7 +10,7 @@ const PROJECTS = [
     cat: "Restaurant",
     title: "Fusion Hotel",
     desc: "Old design → modern premium website. Improved mobile responsiveness and integrated a seamless booking experience.",
-    img: "/blog/modern_restaurant_ai_tech_1775913361651.png",
+    img: "/blog/modern_restaurant_ai_tech_1775913361651.webp",
     span: "md:col-span-12",
     href: "https://restaurant-demo-site-1-cn1g-qm05y1lqk-naidcodes-projects.vercel.app",
   },
@@ -18,7 +18,7 @@ const PROJECTS = [
     cat: "Restaurant",
     title: "The Spice Garden",
     desc: "Outdated template → custom luxury experience. High-end food photography and optimized menu architecture.",
-    img: "/projects/mockup1.png",
+    img: "/projects/mockup1.webp",
     span: "md:col-span-12",
     href: "#",
   },
@@ -26,7 +26,7 @@ const PROJECTS = [
     cat: "Cafe",
     title: "Brew & Co.",
     desc: "Barely visible online → top rank in local searches. Complete visual overhaul with modern cafe aesthetics.",
-    img: "/projects/mockup2.png",
+    img: "/projects/mockup2.webp",
     span: "md:col-span-6",
     href: "#",
   },
@@ -34,7 +34,7 @@ const PROJECTS = [
     cat: "Restaurant",
     title: "Biryani Bros",
     desc: "Slow performance → 90+ PageSpeed score. Clean digital storefront with optimized conversion paths.",
-    img: "/projects/mockup3.png",
+    img: "/projects/mockup3.webp",
     span: "md:col-span-6",
     href: "#",
   }
@@ -62,6 +62,8 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
         alt={project.title}
         fill
         className="object-cover transition-transform duration-700 group-hover:scale-110"
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        loading="lazy"
       />
       
       {/* Halftone / Gradient Overlay */}

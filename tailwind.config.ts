@@ -17,8 +17,8 @@ const config: Config = {
         accent: "hsl(var(--accent))",
       },
       fontFamily: {
-        body: ["var(--font-inter)", "sans-serif"],
-        display: ["var(--font-instrument)", "serif"],
+        body: ["var(--font-dm-sans)", "sans-serif"],
+        display: ["var(--font-syne)", "sans-serif"],
       },
       backgroundImage: {
         "accent-gradient": "linear-gradient(90deg, #89AACC 0%, #4E85BF 100%)",

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Instrument_Serif } from "next/font/google";
+import { Syne, DM_Sans } from 'next/font/google'
 import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -11,20 +11,17 @@ const SmoothScroll = dynamic(() => import("@/components/SmoothScroll"), { ssr: f
 import Script from "next/script";
 import "./globals.css";
 
-const inter = Inter({ 
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  display: "swap",
-  variable: "--font-inter",
-});
+const syne = Syne({ 
+  subsets: ['latin'], 
+  display: 'swap', 
+  variable: '--font-syne' 
+})
 
-const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
-  weight: ["400"],
-  style: ["italic"],
-  display: "swap",
-  variable: "--font-instrument",
-});
+const dmSans = DM_Sans({ 
+  subsets: ['latin'], 
+  display: 'swap', 
+  variable: '--font-dm-sans' 
+})
 
 
 
@@ -68,7 +65,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${instrumentSerif.variable} dark`}>
+    <html lang="en" className={`${syne.variable} ${dmSans.variable} dark`}>
       <head>
         {/* Google Analytics - Eagerly loaded JS fixes */}
         <Script 
@@ -96,7 +93,7 @@ export default function RootLayout({
                 "@type": "Organization",
                 "name": "Naisora",
                 "url": "https://naisora.com",
-                "logo": "https://naisora.com/logo.png",
+                "logo": "https://naisora.com/logo.webp",
                 "description": "Bangalore's AI Web Design Agency for Restaurants and Cafes",
                 "contactPoint": {
                   "@type": "ContactPoint",
@@ -137,6 +134,9 @@ export default function RootLayout({
             ])
           }}
         />
+        <style dangerouslySetInnerHTML={{ __html: `
+          body { background-color: #0a0a0a !important; }
+        `}} />
       </head>
       <body className="bg-bg text-text-primary font-body">
 
